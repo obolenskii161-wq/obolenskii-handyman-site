@@ -4,106 +4,292 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Obolenskii Handyman Service | Roseville & Sacramento Area</title>
+
   <meta name="description" content="Exterior painting and handyman services in the Sacramento area. Clear communication, clean work, fair pricing. Call or request a free on-site estimate." />
   <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#0b0f14" />
 
   <!-- GA4 placeholder -->
   <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_GA4_ID"></script> -->
+  <!-- <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'YOUR_GA4_ID');
+  </script> -->
+
   <!-- Meta Pixel placeholder -->
-  <!-- fbq('init','YOUR_META_PIXEL_ID'); -->
+  <!-- <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)n._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+    (window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','YOUR_META_PIXEL_ID'); fbq('track','PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=YOUR_META_PIXEL_ID&ev=PageView&noscript=1"
+  /></noscript> -->
 
   <style>
     :root{
-      --bg:#0b0f14; --card:#111824; --muted:#8ea0b8; --text:#eaf0ff;
-      --line:rgba(255,255,255,.08); --shadow:0 16px 40px rgba(0,0,0,.35);
-      --radius:16px; --max:1080px;
+      --bg:#0b0f14;
+      --card: rgba(17,24,36,.78);
+      --card2: rgba(17,24,36,.55);
+      --text:#eaf0ff;
+      --muted:#98a8c0;
+      --line: rgba(255,255,255,.10);
+      --shadow: 0 18px 50px rgba(0,0,0,.45);
+      --radius: 18px;
+      --max: 1120px;
+      --accent: rgba(110,231,255,.30);
+      --accent2: rgba(167,139,250,.26);
+      --success: rgba(34,197,94,.22);
     }
+
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    html,body{margin:0;padding:0}
+    body{
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color: var(--text);
       background:
-        radial-gradient(1200px 700px at 20% -10%, rgba(110,231,255,.12), transparent 60%),
-        radial-gradient(1200px 700px at 90% 10%, rgba(167,139,250,.12), transparent 55%),
+        radial-gradient(1000px 700px at 18% -10%, rgba(110,231,255,.14), transparent 58%),
+        radial-gradient(1000px 700px at 92% 5%, rgba(167,139,250,.14), transparent 55%),
+        radial-gradient(900px 600px at 50% 120%, rgba(34,197,94,.08), transparent 60%),
         var(--bg);
-      color:var(--text);
+      overflow-x:hidden;
     }
+
     a{color:inherit;text-decoration:none}
-    .wrap{max-width:var(--max);margin:0 auto;padding:20px}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0}
+    img{max-width:100%;display:block}
+
+    .wrap{max-width:var(--max);margin:0 auto;padding:22px}
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;gap:14px;
+      padding:10px 0; position:relative; z-index:3;
+    }
     .brand{display:flex;flex-direction:column;line-height:1.1}
     .brand b{font-size:16px;letter-spacing:.2px}
     .brand span{font-size:12px;color:var(--muted)}
     .navlinks{display:none;gap:14px}
     .navlinks a{font-size:13px;color:var(--muted)}
     .navlinks a:hover{color:var(--text)}
-    .hero{padding:28px 0 10px}
-    .heroGrid{display:grid;grid-template-columns:1fr;gap:18px}
-    .kicker{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);
-      padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(17,24,36,.6)}
-    h1{margin:12px 0 8px;font-size:34px;letter-spacing:-.6px}
-    .sub{margin:0 0 16px;font-size:15px;line-height:1.5;color:rgba(234,240,255,.82)}
-    .trust{margin-top:12px;font-size:12px;color:var(--muted)}
-    .ctaRow{display:flex;flex-direction:column;gap:10px;margin-top:14px}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;
-      padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:rgba(17,24,36,.7);
-      box-shadow:var(--shadow);font-weight:700}
-    .btnPrimary{background:linear-gradient(135deg, rgba(110,231,255,.22), rgba(167,139,250,.18));
-      border:1px solid rgba(110,231,255,.25)}
-    .btnGhost{background:rgba(17,24,36,.45)}
-    .btn:hover{transform:translateY(-1px)}
-    .btn:active{transform:translateY(0)}
-    .card{background:rgba(17,24,36,.75);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
-    .heroCard{padding:16px}
-    .heroCard h3{margin:0 0 8px;font-size:14px}
-    .heroCard p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}
-    section{padding:18px 0}
-    .secTitle{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:12px}
-    .secTitle h2{margin:0;font-size:18px;letter-spacing:-.2px}
-    .secTitle span{color:var(--muted);font-size:12px}
-    .grid{display:grid;grid-template-columns:1fr;gap:12px}
+
+    .pillRow{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    .pill{
+      display:inline-flex;gap:8px;align-items:center;
+      padding:8px 12px;border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(17,24,36,.55);
+      color: rgba(234,240,255,.88);
+      font-size:12px;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero{
+      position:relative;
+      border-radius: 26px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      box-shadow: var(--shadow);
+      background: #0d1320;
+      margin-top: 10px;
+    }
+    .hero::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(90deg, rgba(11,15,20,.86) 10%, rgba(11,15,20,.62) 55%, rgba(11,15,20,.88) 100%),
+        url("https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=2400&q=70") center/cover no-repeat;
+      filter: saturate(1.05) contrast(1.05);
+      transform: scale(1.02);
+    }
+    .hero::after{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(900px 500px at 20% 20%, var(--accent), transparent 60%),
+        radial-gradient(900px 500px at 85% 35%, var(--accent2), transparent 60%),
+        radial-gradient(700px 450px at 50% 110%, var(--success), transparent 65%);
+      pointer-events:none;
+    }
+    .heroInner{
+      position:relative; z-index:2;
+      padding: 22px;
+      display:grid; grid-template-columns: 1fr; gap:14px;
+    }
+
+    .kicker{
+      display:inline-flex;align-items:center;gap:10px;
+      font-size:12px;color:rgba(234,240,255,.85);
+      padding:8px 12px;border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(17,24,36,.52);
+      width: fit-content;
+      backdrop-filter: blur(10px);
+    }
+    h1{
+      margin:10px 0 6px;
+      font-size:36px;
+      letter-spacing:-.7px;
+      line-height:1.08;
+    }
+    .sub{
+      margin:0;
+      color: rgba(234,240,255,.86);
+      font-size:15px;
+      line-height:1.55;
+      max-width: 60ch;
+    }
+
+    .ctaRow{
+      display:flex; flex-direction:column; gap:10px;
+      margin-top: 14px;
+    }
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:12px 14px;border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(17,24,36,.62);
+      box-shadow: 0 12px 28px rgba(0,0,0,.32);
+      font-weight:800;
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+    }
+    .btn:hover{transform: translateY(-1px); border-color: rgba(255,255,255,.18)}
+    .btn:active{transform: translateY(0)}
+    .btnPrimary{
+      background: linear-gradient(135deg, rgba(110,231,255,.26), rgba(167,139,250,.20));
+      border-color: rgba(110,231,255,.25);
+    }
+    .btnGhost{background: rgba(17,24,36,.40)}
+    .btnSmall{padding:10px 12px;font-size:13px}
+
+    .heroCard{
+      background: rgba(11,15,20,.50);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius);
+      padding: 14px;
+      backdrop-filter: blur(10px);
+    }
+    .heroCard b{font-size:13px}
+    .heroCard p{margin:8px 0 0;color:var(--muted);font-size:13px;line-height:1.55}
+    .miniList{margin:10px 0 0; padding-left:18px; color: rgba(234,240,255,.86)}
+    .miniList li{margin:8px 0}
+    .trustLine{margin-top: 10px; color: var(--muted); font-size:12px}
+
+    section{padding: 18px 0}
+    .secHead{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:12px}
+    .secHead h2{margin:0;font-size:18px;letter-spacing:-.2px}
+    .secHead span{color:var(--muted);font-size:12px}
+
+    .card{
+      background: var(--card);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .grid{display:grid; grid-template-columns:1fr; gap:12px}
     .service{padding:14px}
-    .service b{display:block;margin-bottom:6px}
-    .service small{color:var(--muted);line-height:1.4}
-    .list{margin:0;padding-left:18px}
-    .list li{margin:8px 0;color:rgba(234,240,255,.86)}
+    .serviceTop{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+    .icon{
+      width:34px;height:34px;border-radius:12px;
+      display:inline-flex;align-items:center;justify-content:center;
+      background: rgba(234,240,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+      font-size:16px;
+    }
+    .service b{display:block}
+    .service small{color:var(--muted);line-height:1.45;display:block;margin-top:2px}
+
+    .split{display:grid;grid-template-columns:1fr;gap:12px}
+    .pad{padding:16px}
+
+    .bullets{margin:0;padding-left:18px}
+    .bullets li{margin:8px 0;color: rgba(234,240,255,.88)}
     .muted{color:var(--muted)}
-    .two{display:grid;grid-template-columns:1fr;gap:12px}
-    .testimonial{padding:14px}
-    .quote{margin:0;color:rgba(234,240,255,.88);line-height:1.5}
+    .divider{height:1px;background: var(--line); margin:14px 0}
+
+    .imageCard{
+      background: var(--card2);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      overflow:hidden;
+      box-shadow: var(--shadow);
+    }
+    .imageCard img{height:220px; width:100%; object-fit:cover}
+    .imageCard .cap{padding:12px 14px;color:var(--muted);font-size:12px;line-height:1.45}
+
+    .testGrid{display:grid;grid-template-columns:1fr;gap:12px}
+    .test{padding:14px}
+    .stars{letter-spacing:1px;color: rgba(234,240,255,.90); font-size:12px}
+    .quote{margin:10px 0 0; line-height:1.55; color: rgba(234,240,255,.90)}
     .who{margin-top:10px;color:var(--muted);font-size:12px}
-    .faq{padding:14px}
-    details{border:1px solid var(--line);border-radius:14px;padding:12px;background:rgba(17,24,36,.6)}
-    details+details{margin-top:10px}
-    summary{cursor:pointer;font-weight:700}
+
+    .faqCol{display:grid;gap:10px}
+    details{
+      border:1px solid var(--line);
+      border-radius: 16px;
+      padding: 12px;
+      background: rgba(17,24,36,.55);
+      backdrop-filter: blur(10px);
+    }
+    summary{cursor:pointer;font-weight:800}
     summary::-webkit-details-marker{display:none}
-    .contact{padding:16px}
+    details p{margin:10px 0 0;color:var(--muted);line-height:1.55}
+
+    .contactGrid{display:grid;grid-template-columns:1fr;gap:12px}
     form{display:grid;gap:10px;margin-top:10px}
     input,textarea{
-      width:100%;padding:12px;border-radius:12px;border:1px solid var(--line);
-      background:rgba(11,15,20,.6);color:var(--text);outline:none
+      width:100%;
+      padding:12px;
+      border-radius: 14px;
+      border:1px solid var(--line);
+      background: rgba(11,15,20,.58);
+      color: var(--text);
+      outline:none;
     }
-    textarea{min-height:110px;resize:vertical}
-    .fine{font-size:12px;color:var(--muted);margin-top:8px;line-height:1.5}
-    .divider{height:1px;background:var(--line);margin:14px 0}
-    .pill{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:rgba(17,24,36,.6)}
-    footer{padding:22px 0 70px;color:var(--muted);font-size:12px}
+    textarea{min-height:120px;resize:vertical}
+    .fine{font-size:12px;color:var(--muted);line-height:1.5;margin-top:8px}
+
+    footer{padding:22px 0 76px; color: var(--muted); font-size:12px}
+
     .stickyBar{
-      position:fixed;left:0;right:0;bottom:0;background:rgba(11,15,20,.82);backdrop-filter: blur(10px);
-      border-top:1px solid var(--line);padding:10px;z-index:50;
+      position:fixed; left:0; right:0; bottom:0;
+      background: rgba(11,15,20,.84);
+      border-top: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+      padding:10px;
+      z-index:50;
     }
-    .stickyInner{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;padding:0 10px}
-    .stickyInner a{padding:12px 10px;border-radius:12px;border:1px solid var(--line);text-align:center;font-weight:800}
-    .stickyInner a:nth-child(1){background:rgba(110,231,255,.10)}
-    .stickyInner a:nth-child(2){background:rgba(167,139,250,.10)}
-    .stickyInner a:nth-child(3){background:rgba(234,240,255,.06)}
+    .stickyInner{
+      max-width: var(--max); margin:0 auto;
+      display:grid; grid-template-columns: 1fr 1fr 1fr;
+      gap:10px; padding:0 10px;
+    }
+    .stickyInner a{
+      padding:12px 10px;
+      border-radius: 14px;
+      border:1px solid var(--line);
+      text-align:center;
+      font-weight:900;
+      background: rgba(17,24,36,.55);
+    }
+    .stickyInner a:nth-child(1){background: rgba(110,231,255,.10)}
+    .stickyInner a:nth-child(2){background: rgba(167,139,250,.10)}
+    .stickyInner a:nth-child(3){background: rgba(234,240,255,.06)}
+
     @media (min-width: 860px){
-      .wrap{padding:26px}
+      .wrap{padding:28px}
       .navlinks{display:flex}
-      h1{font-size:44px}
-      .heroGrid{grid-template-columns:1.25fr .75fr;align-items:stretch}
-      .ctaRow{flex-direction:row}
-      .grid{grid-template-columns:repeat(3,1fr)}
-      .two{grid-template-columns:1fr 1fr}
+      h1{font-size:48px}
+      .heroInner{grid-template-columns: 1.25fr .75fr; align-items:stretch; padding: 26px}
+      .ctaRow{flex-direction:row; flex-wrap:wrap}
+      .grid{grid-template-columns: repeat(3,1fr)}
+      .split{grid-template-columns: 1fr 1fr}
+      .testGrid{grid-template-columns: repeat(3,1fr)}
+      .contactGrid{grid-template-columns: 1fr 1fr}
       .stickyBar{display:none}
+      .imageCard img{height:260px}
     }
   </style>
 
@@ -139,106 +325,174 @@
       </nav>
     </header>
 
-    <main>
-      <section class="hero" id="top">
-        <div class="heroGrid">
-          <div>
-            <div class="kicker">✅ Clean work • Clear communication • Fair pricing</div>
-            <h1>Exterior painting and handyman work done right.</h1>
-            <p class="sub">
-              Reliable home repairs and upgrades in the Sacramento area.
-              Straightforward estimates, tidy work, and a smooth experience from start to done.
-            </p>
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="heroInner">
+        <div>
+          <div class="kicker">✅ Clean work • Clear communication • Reliable results</div>
+          <h1>Exterior Painting & Handyman Services You Can Trust</h1>
+          <p class="sub">
+            Serving homeowners and landlords in the Sacramento area.
+            You get a clear estimate, a clean jobsite, and work done the right way.
+          </p>
 
-            <div class="ctaRow">
-              <a class="btn btnPrimary" href="tel:+19165008891">Call now</a>
-              <a class="btn" href="#contact">Get a free on-site estimate</a>
-              <a class="btn btnGhost" href="https://nextdoor.com/page/obolenskii-handyman-service/" target="_blank" rel="noopener">See us on Nextdoor</a>
-            </div>
-
-            <div class="trust">⭐ Same-week availability | 🧾 Free on-site estimate | ✅ Safety-trained</div>
-            <div class="fine">Pricing depends on scope. You’ll get a clear estimate before work starts.</div>
+          <div class="pillRow" aria-label="Trust badges">
+            <span class="pill">🧾 Free on-site estimate</span>
+            <span class="pill">🗓 Same-week availability</span>
+            <span class="pill">🛡 OSHA 10 trained</span>
           </div>
 
-          <aside class="card heroCard">
-            <h3>Fast estimate checklist</h3>
-            <p>For the fastest estimate, include:</p>
-            <div class="divider"></div>
-            <p class="muted">• Photos of the job<br/>• City / address<br/>• Preferred day & time<br/>• Any deadlines</p>
-            <div class="divider"></div>
-            <span class="pill">Reply time: usually 5–15 min</span>
-          </aside>
-        </div>
-      </section>
-
-      <section id="services">
-        <div class="secTitle">
-          <h2>Services</h2>
-          <span>Focused on the work you want</span>
-        </div>
-        <div class="grid">
-          <div class="card service"><b>Exterior painting</b><small>Prep, trim, siding, touch-ups, clean lines.</small></div>
-          <div class="card service"><b>Drywall patch & touch-ups</b><small>Small holes, dents, ready for paint.</small></div>
-          <div class="card service"><b>Door installation & repairs</b><small>Fit, adjust, hardware, alignment.</small></div>
-          <div class="card service"><b>TV mounts & shelves</b><small>Secure mounting, level, clean finish.</small></div>
-          <div class="card service"><b>Exterior trim / facade repair</b><small>Small siding/trim fixes, rot repair prep.</small></div>
-          <div class="card service"><b>Basic carpentry</b><small>Small builds and repairs: trim, railings, stairs.</small></div>
-        </div>
-        <div class="fine">If your project requires a licensed contractor depending on scope, we’ll tell you upfront.</div>
-      </section>
-
-      <section>
-        <div class="two">
-          <div class="card" style="padding:16px">
-            <div class="secTitle" style="margin-bottom:6px">
-              <h2>Why choose us</h2>
-              <span>No surprises</span>
-            </div>
-            <ul class="list">
-              <li>Straightforward estimates (no surprises)</li>
-              <li>Clean worksite, respect your home</li>
-              <li>On time and clear communication</li>
-              <li>Quality tools, solid workmanship</li>
-              <li>Friendly, professional service</li>
-            </ul>
+          <div class="ctaRow">
+            <a class="btn btnPrimary" href="tel:+19165008891">Call 916-500-8891</a>
+            <a class="btn" href="#contact">Get a free estimate</a>
+            <a class="btn btnGhost" href="https://nextdoor.com/page/obolenskii-handyman-service/" target="_blank" rel="noopener">Nextdoor profile</a>
           </div>
 
-          <div class="card" style="padding:16px">
-            <div class="secTitle" style="margin-bottom:6px">
-              <h2>Safety & training</h2>
-              <span>Professional mindset</span>
-            </div>
-            <p class="muted" style="margin:0;line-height:1.6">
-              Safety matters. I’ve completed industry safety training and follow best practices on every job.
-            </p>
-            <ul class="list">
-              <li>OSHA 10 (Construction)</li>
-              <li>HazCom + NFPA 70E (Electrical Safety)</li>
-              <li>NWSA Certified Telecommunications Technician (TTT-1)</li>
-            </ul>
+          <div class="trustLine">
+            Pricing depends on scope. You’ll get a clear estimate before work starts.
           </div>
         </div>
-      </section>
 
-      <section id="area">
-        <div class="secTitle">
-          <h2>Service area</h2>
-          <span>Roseville & nearby</span>
+        <aside class="heroCard">
+          <b>Fast estimate checklist</b>
+          <p>To get an accurate quote faster, include:</p>
+          <ul class="miniList">
+            <li>Photos of the job</li>
+            <li>City (or address)</li>
+            <li>Preferred day & time</li>
+            <li>Any deadlines</li>
+          </ul>
+          <div class="divider"></div>
+          <span class="pill">Reply time: usually 5–15 minutes</span>
+        </aside>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="secHead">
+        <h2>Services</h2>
+        <span>Clean scope. Clean finish.</span>
+      </div>
+
+      <div class="grid">
+        <div class="card service">
+          <div class="serviceTop"><span class="icon">🖌️</span><b>Exterior painting</b></div>
+          <small>Prep, trim, siding, touch-ups, clean lines.</small>
         </div>
-        <div class="card" style="padding:16px">
-          <p style="margin:0;line-height:1.7;color:rgba(234,240,255,.88)">
+
+        <div class="card service">
+          <div class="serviceTop"><span class="icon">🧱</span><b>Drywall patch & touch-ups</b></div>
+          <small>Small holes, dents, ready for paint.</small>
+        </div>
+
+        <div class="card service">
+          <div class="serviceTop"><span class="icon">🚪</span><b>Door installation & repairs</b></div>
+          <small>Fit, adjust, hardware, alignment.</small>
+        </div>
+
+        <div class="card service">
+          <div class="serviceTop"><span class="icon">📺</span><b>TV mounts & shelves</b></div>
+          <small>Secure mounting, level, clean finish.</small>
+        </div>
+
+        <div class="card service">
+          <div class="serviceTop"><span class="icon">🏠</span><b>Exterior trim / facade repair</b></div>
+          <small>Small trim and siding fixes, rot repair prep.</small>
+        </div>
+
+        <div class="card service">
+          <div class="serviceTop"><span class="icon">🛠️</span><b>Basic carpentry</b></div>
+          <small>Small builds and repairs: trim, railings, stairs.</small>
+        </div>
+      </div>
+
+      <div class="fine">
+        If your project requires a licensed contractor depending on scope, we’ll tell you upfront.
+      </div>
+    </section>
+
+    <!-- WHY + SAFETY -->
+    <section>
+      <div class="split">
+        <div class="card pad">
+          <div class="secHead" style="margin-bottom:6px">
+            <h2>Why choose us</h2>
+            <span>Less stress, more done</span>
+          </div>
+          <ul class="bullets">
+            <li>Straightforward estimates (no surprises)</li>
+            <li>Clean worksite, respect your home</li>
+            <li>On time and clear communication</li>
+            <li>Professional tools, solid workmanship</li>
+            <li>Friendly, professional service</li>
+          </ul>
+
+          <div class="divider"></div>
+          <a class="btn btnPrimary btnSmall" href="#contact">Request an estimate</a>
+        </div>
+
+        <div class="card pad">
+          <div class="secHead" style="margin-bottom:6px">
+            <h2>Safety & training</h2>
+            <span>Professional mindset</span>
+          </div>
+          <p class="muted" style="margin:0;line-height:1.6">
+            I come from industrial and telecom construction, where safety and procedures matter.
+            That same mindset goes into your home project.
+          </p>
+          <div class="divider"></div>
+          <ul class="bullets">
+            <li>OSHA 10 (Construction)</li>
+            <li>HazCom + NFPA 70E (Electrical Safety)</li>
+            <li>NWSA Certified Telecommunications Technician (TTT-1)</li>
+          </ul>
+
+          <div class="divider"></div>
+          <span class="pill">We keep it clean and safe</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- VISUAL BREAK -->
+    <section>
+      <div class="secHead">
+        <h2>What you get</h2>
+        <span>Simple promise</span>
+      </div>
+      <div class="split">
+        <div class="imageCard">
+          <img alt="Clean exterior home" src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1800&q=70" />
+          <div class="cap">Clean finish, tidy jobsite, and communication that feels normal.</div>
+        </div>
+        <div class="imageCard">
+          <img alt="Home exterior detail" src="https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=1800&q=70" />
+          <div class="cap">A clear estimate and a plan. No guessing games, no “surprise fees”.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AREA + PROCESS -->
+    <section id="area">
+      <div class="split">
+        <div class="card pad">
+          <div class="secHead" style="margin-bottom:6px">
+            <h2>Service area</h2>
+            <span>Roseville & nearby</span>
+          </div>
+          <p class="muted" style="margin:0;line-height:1.7">
             Roseville, Rocklin, Citrus Heights, Folsom, Sacramento, Elk Grove + nearby.
           </p>
+          <div class="divider"></div>
+          <a class="btn btnGhost btnSmall" href="https://nextdoor.com/page/obolenskii-handyman-service/" target="_blank" rel="noopener">View on Nextdoor</a>
         </div>
-      </section>
 
-      <section id="process">
-        <div class="secTitle">
-          <h2>How it works</h2>
-          <span>Simple</span>
-        </div>
-        <div class="card" style="padding:16px">
-          <ol class="list">
+        <div class="card pad" id="process">
+          <div class="secHead" style="margin-bottom:6px">
+            <h2>How it works</h2>
+            <span>Quick and clean</span>
+          </div>
+          <ol class="bullets" style="padding-left:18px;margin:0">
             <li>You call or request an estimate</li>
             <li>You share photos + city/address</li>
             <li>We schedule a quick on-site estimate</li>
@@ -246,112 +500,135 @@
             <li>We get it done, clean, and tidy</li>
           </ol>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section>
-        <div class="secTitle">
-          <h2>Testimonials</h2>
-          <span>Placeholders (replace later)</span>
-        </div>
-        <div class="grid">
-          <div class="card testimonial">
-            <p class="quote">“Quick response and great attention to detail. Everything was clean and done right.”</p>
-            <div class="who">Homeowner • Roseville</div>
-          </div>
-          <div class="card testimonial">
-            <p class="quote">“On time, respectful, and the work looks great. Easy communication.”</p>
-            <div class="who">Landlord • Sacramento</div>
-          </div>
-          <div class="card testimonial">
-            <p class="quote">“Fair price, no stress, would hire again.”</p>
-            <div class="who">Customer • Folsom</div>
-          </div>
-        </div>
-      </section>
+    <!-- TESTIMONIALS -->
+    <section>
+      <div class="secHead">
+        <h2>Testimonials</h2>
+        <span>Placeholders (replace later)</span>
+      </div>
 
-      <section id="faq">
-        <div class="secTitle">
-          <h2>FAQ</h2>
-          <span>Quick answers</span>
+      <div class="testGrid">
+        <div class="card test">
+          <div class="stars">★★★★★</div>
+          <p class="quote">“Quick response and great attention to detail. Everything was clean and done right.”</p>
+          <div class="who">Homeowner • Roseville</div>
         </div>
-        <div class="two">
-          <div class="faq">
-            <details open>
-              <summary>Do you offer free estimates?</summary>
-              <p class="muted">Yes, on-site estimates are free.</p>
-            </details>
-            <details>
-              <summary>How fast can you come out?</summary>
-              <p class="muted">Often same-week, sometimes same-day for urgent small jobs.</p>
-            </details>
-            <details>
-              <summary>How do you price jobs?</summary>
-              <p class="muted">Pricing depends on scope. You’ll get a clear estimate before work starts.</p>
-            </details>
+
+        <div class="card test">
+          <div class="stars">★★★★★</div>
+          <p class="quote">“On time, respectful, and the work looks great. Easy communication.”</p>
+          <div class="who">Landlord • Sacramento</div>
+        </div>
+
+        <div class="card test">
+          <div class="stars">★★★★★</div>
+          <p class="quote">“Fair price, no stress, would hire again.”</p>
+          <div class="who">Customer • Folsom</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="secHead">
+        <h2>FAQ</h2>
+        <span>Short answers</span>
+      </div>
+
+      <div class="split">
+        <div class="faqCol">
+          <details open>
+            <summary>Do you offer free estimates?</summary>
+            <p>Yes, on-site estimates are free.</p>
+          </details>
+          <details>
+            <summary>How fast can you come out?</summary>
+            <p>Often same-week, sometimes same-day for urgent small jobs.</p>
+          </details>
+          <details>
+            <summary>How do you price jobs?</summary>
+            <p>Pricing depends on scope. You’ll get a clear estimate before work starts.</p>
+          </details>
+        </div>
+
+        <div class="faqCol">
+          <details>
+            <summary>Do you work weekends?</summary>
+            <p>Yes, 6 days/week (7am–7pm).</p>
+          </details>
+          <details>
+            <summary>Can I send photos first?</summary>
+            <p>Yes. Photos help estimate faster and schedule correctly.</p>
+          </details>
+          <details>
+            <summary>Do you handle bigger projects?</summary>
+            <p>For larger scopes that require licensing, we’ll advise you upfront and can coordinate if needed.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="secHead">
+        <h2>Contact</h2>
+        <span>Call or request an estimate</span>
+      </div>
+
+      <div class="contactGrid">
+        <div class="card pad">
+          <h3 style="margin:0 0 6px;font-size:16px">Call Konstantin</h3>
+          <p class="muted" style="margin:0;line-height:1.6">
+            Prefer fast? Call and we’ll lock a time for a free on-site estimate.
+          </p>
+
+          <div class="divider"></div>
+
+          <div class="ctaRow" style="margin-top:0">
+            <a class="btn btnPrimary" href="tel:+19165008891">Call 916-500-8891</a>
+            <a class="btn" href="mailto:obolenskiikonstantin@gmail.com?subject=Estimate%20Request%20-%20Obolenskii%20Handyman%20Service">Email</a>
+            <a class="btn btnGhost" href="https://nextdoor.com/page/obolenskii-handyman-service/" target="_blank" rel="noopener">Nextdoor</a>
           </div>
-          <div class="faq">
-            <details>
-              <summary>Do you work weekends?</summary>
-              <p class="muted">Yes, 6 days/week (7am–7pm).</p>
-            </details>
-            <details>
-              <summary>Can I send photos first?</summary>
-              <p class="muted">Yes. Photos help us estimate faster and schedule correctly.</p>
-            </details>
-            <details>
-              <summary>Do you handle larger projects?</summary>
-              <p class="muted">For larger scopes that require licensing, we’ll advise you upfront and can coordinate if needed.</p>
-            </details>
+
+          <div class="fine">Hours: 7am–7pm, 6 days/week. Reply time: usually 5–15 minutes.</div>
+        </div>
+
+        <div class="card pad">
+          <h3 style="margin:0 0 6px;font-size:16px">Request an estimate</h3>
+          <p class="muted" style="margin:0;line-height:1.6">
+            Fill the form. We’ll confirm by call or text.
+          </p>
+
+          <form id="estimateForm" method="post" action="YOUR_FORM_ENDPOINT">
+            <input name="name" placeholder="Your name" required />
+            <input name="phone" placeholder="Phone number" required />
+            <input name="city" placeholder="City / area" required />
+            <textarea name="details" placeholder="What needs done? (Photos help a lot. You can text them after submitting.)"></textarea>
+            <input name="preferred_time" placeholder="Preferred day & time" />
+            <button class="btn btnPrimary" type="submit">Send request</button>
+          </form>
+
+          <div class="fine">
+            We usually reply within 5–15 minutes during business hours.
+            Form delivery will be connected to Telegram next.
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="contact">
-        <div class="secTitle">
-          <h2>Contact</h2>
-          <span>Call or request an estimate</span>
-        </div>
-        <div class="two">
-          <div class="card contact">
-            <b style="font-size:14px">Call</b>
-            <p class="muted" style="margin:8px 0 12px;line-height:1.6">
-              Prefer fast? Call and we’ll lock a time for a free on-site estimate.
-            </p>
-            <div class="ctaRow" style="margin-top:0">
-              <a class="btn btnPrimary" href="tel:+19165008891">Call 916-500-8891</a>
-              <a class="btn" href="mailto:obolenskiikonstantin@gmail.com?subject=Estimate%20Request%20-%20Obolenskii%20Handyman%20Service">Email</a>
-              <a class="btn btnGhost" href="https://nextdoor.com/page/obolenskii-handyman-service/" target="_blank" rel="noopener">Nextdoor</a>
-            </div>
-            <div class="fine">Hours: 7am–7pm, 6 days/week. We usually reply within 5–15 minutes.</div>
-          </div>
-
-          <div class="card contact">
-            <b style="font-size:14px">Request an estimate</b>
-
-            <form id="estimateForm" method="post" action="YOUR_FORM_ENDPOINT">
-              <input name="name" placeholder="Your name" required />
-              <input name="phone" placeholder="Phone number" required />
-              <input name="city" placeholder="City / area" required />
-              <textarea name="details" placeholder="What needs done? (Photos help a lot. You can text them after submitting.)"></textarea>
-              <input name="preferred_time" placeholder="Preferred day & time" />
-              <button class="btn btnPrimary" type="submit">Send request</button>
-            </form>
-
-            <div class="fine">We’ll contact you by call or text to confirm a time. Reply time: usually 5–15 minutes.</div>
-          </div>
-        </div>
-      </section>
-
-      <footer>
-        <div class="divider"></div>
-        <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between">
-          <div>© <span id="y"></span> Obolenskii Handyman Service • Roseville, CA</div>
-          <div class="muted">Free on-site estimate • Safety-trained</div>
-        </div>
-      </footer>
-    </main>
+    <footer>
+      <div class="divider"></div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between">
+        <div>© <span id="y"></span> Obolenskii Handyman Service • Roseville, CA</div>
+        <div>Free on-site estimate • Safety-trained</div>
+      </div>
+    </footer>
   </div>
 
+  <!-- MOBILE STICKY CTA -->
   <div class="stickyBar" role="navigation" aria-label="Quick actions">
     <div class="stickyInner">
       <a href="tel:+19165008891">Call</a>
@@ -361,7 +638,7 @@
   </div>
 
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear(); 
+    document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
