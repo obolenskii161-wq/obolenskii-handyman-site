@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Obolenskii Handyman Service | Roseville & Sacramento Area</title>
+  <meta name="description" content="Exterior painting and handyman services in the Sacramento area. Clear communication, clean work, fair pricing. Call or request a free on-site estimate." />
+  <meta name="robots" content="index,follow" />
+
+  <!-- GA4 placeholder -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_GA4_ID"></script> -->
+  <!-- Meta Pixel placeholder -->
+  <!-- fbq('init','YOUR_META_PIXEL_ID'); -->
+
+  <style>
+    :root{
+      --bg:#0b0f14; --card:#111824; --muted:#8ea0b8; --text:#eaf0ff;
+      --line:rgba(255,255,255,.08); --shadow:0 16px 40px rgba(0,0,0,.35);
+      --radius:16px; --max:1080px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:
+        radial-gradient(1200px 700px at 20% -10%, rgba(110,231,255,.12), transparent 60%),
+        radial-gradient(1200px 700px at 90% 10%, rgba(167,139,250,.12), transparent 55%),
+        var(--bg);
+      color:var(--text);
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max);margin:0 auto;padding:20px}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0}
+    .brand{display:flex;flex-direction:column;line-height:1.1}
+    .brand b{font-size:16px;letter-spacing:.2px}
+    .brand span{font-size:12px;color:var(--muted)}
+    .navlinks{display:none;gap:14px}
+    .navlinks a{font-size:13px;color:var(--muted)}
+    .navlinks a:hover{color:var(--text)}
+    .hero{padding:28px 0 10px}
+    .heroGrid{display:grid;grid-template-columns:1fr;gap:18px}
+    .kicker{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);
+      padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(17,24,36,.6)}
+    h1{margin:12px 0 8px;font-size:34px;letter-spacing:-.6px}
+    .sub{margin:0 0 16px;font-size:15px;line-height:1.5;color:rgba(234,240,255,.82)}
+    .trust{margin-top:12px;font-size:12px;color:var(--muted)}
+    .ctaRow{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:rgba(17,24,36,.7);
+      box-shadow:var(--shadow);font-weight:700}
+    .btnPrimary{background:linear-gradient(135deg, rgba(110,231,255,.22), rgba(167,139,250,.18));
+      border:1px solid rgba(110,231,255,.25)}
+    .btnGhost{background:rgba(17,24,36,.45)}
+    .btn:hover{transform:translateY(-1px)}
+    .btn:active{transform:translateY(0)}
+    .card{background:rgba(17,24,36,.75);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .heroCard{padding:16px}
+    .heroCard h3{margin:0 0 8px;font-size:14px}
+    .heroCard p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}
+    section{padding:18px 0}
+    .secTitle{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:12px}
+    .secTitle h2{margin:0;font-size:18px;letter-spacing:-.2px}
+    .secTitle span{color:var(--muted);font-size:12px}
+    .grid{display:grid;grid-template-columns:1fr;gap:12px}
+    .service{padding:14px}
+    .service b{display:block;margin-bottom:6px}
+    .service small{color:var(--muted);line-height:1.4}
+    .list{margin:0;padding-left:18px}
+    .list li{margin:8px 0;color:rgba(234,240,255,.86)}
+    .muted{color:var(--muted)}
+    .two{display:grid;grid-template-columns:1fr;gap:12px}
+    .testimonial{padding:14px}
+    .quote{margin:0;color:rgba(234,240,255,.88);line-height:1.5}
+    .who{margin-top:10px;color:var(--muted);font-size:12px}
+    .faq{padding:14px}
+    details{border:1px solid var(--line);border-radius:14px;padding:12px;background:rgba(17,24,36,.6)}
+    details+details{margin-top:10px}
+    summary{cursor:pointer;font-weight:700}
+    summary::-webkit-details-marker{display:none}
+    .contact{padding:16px}
+    form{display:grid;gap:10px;margin-top:10px}
+    input,textarea{
+      width:100%;padding:12px;border-radius:12px;border:1px solid var(--line);
+      background:rgba(11,15,20,.6);color:var(--text);outline:none
+    }
+    textarea{min-height:110px;resize:vertical}
+    .fine{font-size:12px;color:var(--muted);margin-top:8px;line-height:1.5}
+    .divider{height:1px;background:var(--line);margin:14px 0}
+    .pill{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:rgba(17,24,36,.6)}
+    footer{padding:22px 0 70px;color:var(--muted);font-size:12px}
+    .stickyBar{
+      position:fixed;left:0;right:0;bottom:0;background:rgba(11,15,20,.82);backdrop-filter: blur(10px);
+      border-top:1px solid var(--line);padding:10px;z-index:50;
+    }
+    .stickyInner{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;padding:0 10px}
+    .stickyInner a{padding:12px 10px;border-radius:12px;border:1px solid var(--line);text-align:center;font-weight:800}
+    .stickyInner a:nth-child(1){background:rgba(110,231,255,.10)}
+    .stickyInner a:nth-child(2){background:rgba(167,139,250,.10)}
+    .stickyInner a:nth-child(3){background:rgba(234,240,255,.06)}
+    @media (min-width: 860px){
+      .wrap{padding:26px}
+      .navlinks{display:flex}
+      h1{font-size:44px}
+      .heroGrid{grid-template-columns:1.25fr .75fr;align-items:stretch}
+      .ctaRow{flex-direction:row}
+      .grid{grid-template-columns:repeat(3,1fr)}
+      .two{grid-template-columns:1fr 1fr}
+      .stickyBar{display:none}
+    }
+  </style>
+
+  <!-- Local Business Schema -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"Obolenskii Handyman Service",
+    "areaServed":["Roseville, CA","Rocklin, CA","Citrus Heights, CA","Folsom, CA","Sacramento, CA","Elk Grove, CA"],
+    "telephone":"+19165008891",
+    "email":"obolenskiikonstantin@gmail.com",
+    "address":{"@type":"PostalAddress","addressLocality":"Roseville","addressRegion":"CA","addressCountry":"US"},
+    "priceRange":"$",
+    "description":"Exterior painting and handyman services in the Sacramento area. Clear communication, clean work, fair pricing."
+  }
+  </script>
+</head>
+
+<body>
+  <div class="wrap">
+    <header class="nav">
+      <div class="brand">
+        <b>Obolenskii Handyman Service</b>
+        <span>Konstantin • Roseville • Sacramento Area</span>
+      </div>
+      <nav class="navlinks" aria-label="Site">
+        <a href="#services">Services</a>
+        <a href="#area">Service Area</a>
+        <a href="#process">Process</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="top">
+        <div class="heroGrid">
+          <div>
+            <div class="kicker">✅ Clean work • Clear communication • Fair pricing</div>
+            <h1>Exterior painting and handyman work done right.</h1>
+            <p class="sub">
+              Reliable home repairs and upgrades in the Sacramento area.
+              Straightforward estimates, tidy work, and a smooth experience from start to done.
+            </p>
+
+            <div class="ctaRow">
+              <a class="btn btnPrimary" href="tel:+19165008891">Call now</a>
+              <a class="btn" href="#contact">Get a free on-site estimate</a>
+              <a class="btn btnGhost" href="https://nextdoor.com/page/obolenskii-handyman-service/" target="_blank" rel="noopener">See us on Nextdoor</a>
+            </div>
+
+            <div class="trust">⭐ Same-week availability | 🧾 Free on-site estimate | ✅ Safety-trained</div>
+            <div class="fine">Pricing depends on scope. You’ll get a clear estimate before work starts.</div>
+          </div>
+
+          <aside class="card heroCard">
+            <h3>Fast estimate checklist</h3>
+            <p>For the fastest estimate, include:</p>
+            <div class="divider"></div>
+            <p class="muted">• Photos of the job<br/>• City / address<br/>• Preferred day & time<br/>• Any deadlines</p>
+            <div class="divider"></div>
+            <span class="pill">Reply time: usually 5–15 min</span>
+          </aside>
+        </div>
+      </section>
+
+      <section id="services">
+        <div class="secTitle">
+          <h2>Services</h2>
+          <span>Focused on the work you want</span>
+        </div>
+        <div class="grid">
+          <div class="card service"><b>Exterior painting</b><small>Prep, trim, siding, touch-ups, clean lines.</small></div>
+          <div class="card service"><b>Drywall patch & touch-ups</b><small>Small holes, dents, ready for paint.</small></div>
+          <div class="card service"><b>Door installation & repairs</b><small>Fit, adjust, hardware, alignment.</small></div>
+          <div class="card service"><b>TV mounts & shelves</b><small>Secure mounting, level, clean finish.</small></div>
+          <div class="card service"><b>Exterior trim / facade repair</b><small>Small siding/trim fixes, rot repair prep.</small></div>
+          <div class="card service"><b>Basic carpentry</b><small>Small builds and repairs: trim, railings, stairs.</small></div>
+        </div>
+        <div class="fine">If your project requires a licensed contractor depending on scope, we’ll tell you upfront.</div>
+      </section>
+
+      <section>
+        <div class="two">
+          <div class="card" style="padding:16px">
+            <div class="secTitle" style="margin-bottom:6px">
+              <h2>Why choose us</h2>
+              <span>No surprises</span>
+            </div>
+            <ul class="list">
+              <li>Straightforward estimates (no surprises)</li>
+              <li>Clean worksite, respect your home</li>
+              <li>On time and clear communication</li>
+              <li>Quality tools, solid workmanship</li>
+              <li>Friendly, professional service</li>
+            </ul>
+          </div>
+
+          <div class="card" style="padding:16px">
+            <div class="secTitle" style="margin-bottom:6px">
+              <h2>Safety & training</h2>
+              <span>Professional mindset</span>
+            </div>
+            <p class="muted" style="margin:0;line-height:1.6">
+              Safety matters. I’ve completed industry safety training and follow best practices on every job.
+            </p>
+            <ul class="list">
+              <li>OSHA 10 (Construction)</li>
+              <li>HazCom + NFPA 70E (Electrical Safety)</li>
+              <li>NWSA Certified Telecommunications Technician (TTT-1)</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="area">
+        <div class="secTitle">
+          <h2>Service area</h2>
+          <span>Roseville & nearby</span>
+        </div>
+        <div class="card" style="padding:16px">
+          <p style="margin:0;line-height:1.7;color:rgba(234,240,255,.88)">
+            Roseville, Rocklin, Citrus Heights, Folsom, Sacramento, Elk Grove + nearby.
+          </p>
+        </div>
+      </section>
+
+      <section id="process">
+        <div class="secTitle">
+          <h2>How it works</h2>
+          <span>Simple</span>
+        </div>
+        <div class="card" style="padding:16px">
+          <ol class="list">
+            <li>You call or request an estimate</li>
+            <li>You share photos + city/address</li>
+            <li>We schedule a quick on-site estimate</li>
+            <li>You get a clear price and timeline</li>
+            <li>We get it done, clean, and tidy</li>
+          </ol>
+        </div>
+      </section>
+
+      <section>
+        <div class="secTitle">
+          <h2>Testimonials</h2>
+          <span>Placeholders (replace later)</span>
+        </div>
+        <div class="grid">
+          <div class="card testimonial">
+            <p class="quote">“Quick response and great attention to detail. Everything was clean and done right.”</p>
+            <div class="who">Homeowner • Roseville</div>
+          </div>
+          <div class="card testimonial">
+            <p class="quote">“On time, respectful, and the work looks great. Easy communication.”</p>
+            <div class="who">Landlord • Sacramento</div>
+          </div>
+          <div class="card testimonial">
+            <p class="quote">“Fair price, no stress, would hire again.”</p>
+            <div class="who">Customer • Folsom</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq">
+        <div class="secTitle">
+          <h2>FAQ</h2>
+          <span>Quick answers</span>
+        </div>
+        <div class="two">
+          <div class="faq">
+            <details open>
+              <summary>Do you offer free estimates?</summary>
+              <p class="muted">Yes, on-site estimates are free.</p>
+            </details>
+            <details>
+              <summary>How fast can you come out?</summary>
+              <p class="muted">Often same-week, sometimes same-day for urgent small jobs.</p>
+            </details>
+            <details>
+              <summary>How do you price jobs?</summary>
+              <p class="muted">Pricing depends on scope. You’ll get a clear estimate before work starts.</p>
+            </details>
+          </div>
+          <div class="faq">
+            <details>
+              <summary>Do you work weekends?</summary>
+              <p class="muted">Yes, 6 days/week (7am–7pm).</p>
+            </details>
+            <details>
+              <summary>Can I send photos first?</summary>
+              <p class="muted">Yes. Photos help us estimate faster and schedule correctly.</p>
+            </details>
+            <details>
+              <summary>Do you handle larger projects?</summary>
+              <p class="muted">For larger scopes that require licensing, we’ll advise you upfront and can coordinate if needed.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="secTitle">
+          <h2>Contact</h2>
+          <span>Call or request an estimate</span>
+        </div>
+        <div class="two">
+          <div class="card contact">
+            <b style="font-size:14px">Call</b>
+            <p class="muted" style="margin:8px 0 12px;line-height:1.6">
+              Prefer fast? Call and we’ll lock a time for a free on-site estimate.
+            </p>
+            <div class="ctaRow" style="margin-top:0">
+              <a class="btn btnPrimary" href="tel:+19165008891">Call 916-500-8891</a>
+              <a class="btn" href="mailto:obolenskiikonstantin@gmail.com?subject=Estimate%20Request%20-%20Obolenskii%20Handyman%20Service">Email</a>
+              <a class="btn btnGhost" href="https://nextdoor.com/page/obolenskii-handyman-service/" target="_blank" rel="noopener">Nextdoor</a>
+            </div>
+            <div class="fine">Hours: 7am–7pm, 6 days/week. We usually reply within 5–15 minutes.</div>
+          </div>
+
+          <div class="card contact">
+            <b style="font-size:14px">Request an estimate</b>
+
+            <form id="estimateForm" method="post" action="YOUR_FORM_ENDPOINT">
+              <input name="name" placeholder="Your name" required />
+              <input name="phone" placeholder="Phone number" required />
+              <input name="city" placeholder="City / area" required />
+              <textarea name="details" placeholder="What needs done? (Photos help a lot. You can text them after submitting.)"></textarea>
+              <input name="preferred_time" placeholder="Preferred day & time" />
+              <button class="btn btnPrimary" type="submit">Send request</button>
+            </form>
+
+            <div class="fine">We’ll contact you by call or text to confirm a time. Reply time: usually 5–15 minutes.</div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div class="divider"></div>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between">
+          <div>© <span id="y"></span> Obolenskii Handyman Service • Roseville, CA</div>
+          <div class="muted">Free on-site estimate • Safety-trained</div>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <div class="stickyBar" role="navigation" aria-label="Quick actions">
+    <div class="stickyInner">
+      <a href="tel:+19165008891">Call</a>
+      <a href="#contact">Estimate</a>
+      <a href="https://nextdoor.com/page/obolenskii-handyman-service/" target="_blank" rel="noopener">Nextdoor</a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
