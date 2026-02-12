@@ -15,8 +15,8 @@
   --text:#ffffff;
   --muted:#9da8b5;
   --line:rgba(255,255,255,.08);
-  --accent:#1e2a3a;
   --card:rgba(26,35,48,.85);
+  --gold:#c6a75e;
   --max:1200px;
 }
 
@@ -40,45 +40,40 @@ nav{
   padding:25px 0;
   border-bottom:1px solid var(--line);
 }
-
-.brand{
-  display:flex;
-  flex-direction:column;
-}
-
+.brand{display:flex;flex-direction:column}
 .brand-main{
   font-family:'Playfair Display',serif;
   font-size:28px;
   letter-spacing:1px;
 }
-
 .brand-line{
-  width:60px;
-  height:1px;
-  background:rgba(255,255,255,.3);
+  width:60px;height:1px;
+  background:var(--gold);
   margin:6px 0;
 }
-
 .brand-sub{
   font-size:11px;
   letter-spacing:3px;
   text-transform:uppercase;
   color:var(--muted);
 }
-
 .navlinks a{
-  margin-left:25px;
+  margin-left:22px;
   font-weight:500;
   color:var(--muted);
+  transition:.3s;
 }
-.navlinks a:hover{color:white}
+.navlinks a:hover{
+  color:white;
+  border-bottom:1px solid var(--gold);
+}
 
 /* HERO */
 .hero{
   position:relative;
   border-radius:28px;
   overflow:hidden;
-  margin-top:40px;
+  margin-top:36px;
   border:1px solid var(--line);
 }
 .hero::before{
@@ -86,44 +81,46 @@ nav{
   position:absolute;
   inset:0;
   background:
-  linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.85)),
-  url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=80") center/cover no-repeat;
+    linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.88)),
+    url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=80") center/cover no-repeat;
 }
 .hero-inner{
   position:relative;
-  padding:120px 60px;
-  max-width:700px;
+  padding:110px 60px;
+  max-width:760px;
 }
-
 h1{
   font-family:'Playfair Display',serif;
   font-size:52px;
-  margin-bottom:20px;
-  letter-spacing:-.5px;
+  margin-bottom:18px;
 }
-
 p{color:var(--muted);font-size:18px}
 
+/* PREMIUM BUTTON */
 .btn{
   display:inline-block;
   padding:14px 28px;
-  border-radius:14px;
-  background:var(--accent);
-  border:1px solid var(--line);
+  border-radius:0;
+  background:transparent;
+  border:1px solid rgba(255,255,255,.2);
   margin-top:25px;
-  margin-right:12px;
+  margin-right:14px;
   font-weight:600;
-  transition:.3s;
+  letter-spacing:.5px;
+  transition:.35s;
 }
-.btn:hover{background:#273648}
+.btn:hover{
+  border-color:var(--gold);
+  color:var(--gold);
+  box-shadow:0 0 0 1px var(--gold) inset;
+}
 
 /* SECTIONS */
-.section{padding:100px 0}
-
+.section{padding:95px 0}
 h2{
   font-family:'Playfair Display',serif;
   font-size:36px;
-  margin-bottom:30px;
+  margin-bottom:28px;
 }
 
 /* GALLERY */
@@ -151,17 +148,17 @@ h2{
   position:absolute;
   inset:0;
   background:
-  linear-gradient(rgba(0,0,0,.85),rgba(0,0,0,.92)),
-  url("https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=2400&q=80") center/cover no-repeat;
+    linear-gradient(rgba(0,0,0,.88),rgba(0,0,0,.95)),
+    url("https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=2400&q=80") center/cover no-repeat;
 }
 .process-inner{
   position:relative;
   padding:80px 60px;
 }
 .step{
-  margin-top:20px;
-  padding-left:20px;
-  border-left:2px solid rgba(255,255,255,.2);
+  margin-top:18px;
+  padding-left:18px;
+  border-left:2px solid var(--gold);
 }
 .step strong{display:block;margin-bottom:5px}
 
@@ -176,11 +173,10 @@ h2{
   min-width:300px;
   background:var(--card);
   padding:28px;
-  border-radius:18px;
+  border-radius:12px;
   border:1px solid var(--line);
 }
-.stars{color:#FFD700;margin-bottom:10px}
-
+.stars{color:var(--gold);margin-bottom:10px}
 @keyframes scroll{
   0%{transform:translateX(0)}
   100%{transform:translateX(-50%)}
@@ -190,9 +186,31 @@ h2{
 .about-box{
   background:var(--card);
   padding:30px;
-  border-radius:18px;
+  border-radius:12px;
   border:1px solid var(--line);
 }
+.about-box p{margin-top:14px}
+.small{font-size:14px;color:var(--muted);margin-top:10px}
+
+/* CONTACT */
+.contact-grid{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:22px;
+}
+.contact-box{
+  background:var(--card);
+  padding:30px;
+  border-radius:12px;
+  border:1px solid var(--line);
+}
+.social a{
+  display:inline-block;
+  margin-right:14px;
+  color:var(--muted);
+  transition:.3s;
+}
+.social a:hover{color:var(--gold)}
 
 /* FOOTER */
 footer{
@@ -205,23 +223,29 @@ footer{
 /* STICKY */
 .sticky{
   position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
+  bottom:0;left:0;right:0;
   background:#121821;
   border-top:1px solid var(--line);
   padding:15px;
   text-align:center;
 }
 .sticky a{
-  background:var(--accent);
+  border:1px solid rgba(255,255,255,.2);
   padding:14px 30px;
-  border-radius:16px;
-  font-weight:700;
+  letter-spacing:.5px;
+  transition:.3s;
+}
+.sticky a:hover{
+  border-color:var(--gold);
+  color:var(--gold);
 }
 
+@media(max-width:900px){
+  .contact-grid{grid-template-columns:1fr}
+}
 @media(max-width:768px){
   h1{font-size:34px}
+  h2{font-size:28px}
   .hero-inner{padding:60px 30px}
   .process-inner{padding:60px 30px}
 }
@@ -229,28 +253,29 @@ footer{
 </head>
 
 <body>
-
 <div class="container">
 
 <nav>
-  <div class="brand">
+  <a href="#top" class="brand">
     <div class="brand-main">OBOLENSKII</div>
     <div class="brand-line"></div>
     <div class="brand-sub">Handyman Services</div>
-  </div>
+  </a>
+
   <div class="navlinks">
     <a href="#projects">Projects</a>
     <a href="#process">Process</a>
+    <a href="#about">About</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
 
-<section class="hero">
+<section id="top" class="hero">
   <div class="hero-inner">
     <h1>Premium Handyman & Exterior Services</h1>
     <p>
-      Reliable residential repairs and exterior painting in Sacramento area.
-      Clean work. Clear pricing. Structured execution.
+      Structured, disciplined residential repairs and exterior painting in Sacramento.
+      Built on experience. Delivered with care.
     </p>
     <a href="tel:+19165008891" class="btn">Call 916-500-8891</a>
     <a href="#contact" class="btn">Request Estimate</a>
@@ -264,42 +289,43 @@ footer{
     <img src="https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=1800&q=80">
     <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1800&q=80">
     <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1800&q=80">
-    <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1800&q=80">
-    <img src="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=1800&q=80">
   </div>
 </section>
 
 <section id="process" class="section process">
   <div class="process-inner">
     <h2>How Your Project Goes</h2>
-    <div class="step"><strong>1. Contact</strong>You reach out by phone or request form.</div>
-    <div class="step"><strong>2. Evaluation</strong>We review scope and expectations.</div>
-    <div class="step"><strong>3. Clear Estimate</strong>Transparent pricing before work begins.</div>
-    <div class="step"><strong>4. Execution</strong>Clean, disciplined workmanship.</div>
-    <div class="step"><strong>5. Completion</strong>Final walkthrough and approval.</div>
+    <div class="step"><strong>1. Contact</strong>You reach out.</div>
+    <div class="step"><strong>2. Evaluation</strong>We review scope.</div>
+    <div class="step"><strong>3. Clear Estimate</strong>Transparent pricing.</div>
+    <div class="step"><strong>4. Execution</strong>Clean disciplined work.</div>
+    <div class="step"><strong>5. Completion</strong>Final approval.</div>
   </div>
 </section>
 
-<section class="section">
-  <h2>Client Feedback</h2>
-  <div class="testimonial-wrapper">
-    <div class="track">
-      <div class="testimonial"><div class="stars">★★★★★</div><p>Very clean finish and excellent communication.</p><strong>— Michael R.</strong></div>
-      <div class="testimonial"><div class="stars">★★★★★</div><p>Professional and reliable service.</p><strong>— Sarah L.</strong></div>
-      <div class="testimonial"><div class="stars">★★★★★</div><p>Clear estimate and smooth process.</p><strong>— Daniel K.</strong></div>
-      <div class="testimonial"><div class="stars">★★★★★</div><p>High attention to detail.</p><strong>— Emily T.</strong></div>
-      <div class="testimonial"><div class="stars">★★★★★</div><p>Premium quality work.</p><strong>— James P.</strong></div>
-      <div class="testimonial"><div class="stars">★★★★★</div><p>Would definitely hire again.</p><strong>— Olivia M.</strong></div>
-      <div class="testimonial"><div class="stars">★★★★★</div><p>Excellent execution.</p><strong>— Andrew S.</strong></div>
-      <div class="testimonial"><div class="stars">★★★★★</div><p>Very clean finish and excellent communication.</p><strong>— Michael R.</strong></div>
-    </div>
+<section id="about" class="section">
+  <h2>About & Mission</h2>
+  <div class="about-box">
+    <p>I have 15+ years of construction experience.</p>
+    <p>My mission is to build a trusted, transparent construction company in Sacramento.</p>
+    <p>Premium workmanship. Clear communication. Long-term reputation.</p>
   </div>
 </section>
 
 <section id="contact" class="section">
   <h2>Contact</h2>
-  <p>Call for fastest response.</p>
-  <a href="tel:+19165008891" class="btn">Call Now</a>
+  <div class="contact-grid">
+    <div class="contact-box">
+      <a href="tel:+19165008891" class="btn">Call Now</a>
+      <div class="small">Hours: 7am–7pm, 6 days/week</div>
+    </div>
+    <div class="contact-box">
+      <div class="social">
+        <a href="https://nextdoor.com/page/obolenskii-handyman-service/" target="_blank">Nextdoor</a>
+        <a href="https://www.instagram.com/kkkkonstantinn/" target="_blank">Instagram</a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <footer>
