@@ -1,27 +1,24 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Obolenskii Handyman Service</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Obolenskii Handyman Services</title>
 
-<meta name="description" content="Exterior painting and handyman services in Sacramento area. 15+ years construction experience. Premium structured workmanship."/>
+<meta name="description" content="Exterior painting and handyman services in Sacramento. 15+ years experience. Clean work. Reliable service.">
 
 <style>
 :root{
-  --bg:#0e1218;
-  --text:#f5f7fa;
-  --muted:#9ca9b7;
+  --bg:#0f141c;
+  --card:#1a2330;
+  --text:#ffffff;
+  --muted:#9aa6b2;
+  --accent:#1e2a3a;
   --line:rgba(255,255,255,.08);
-  --card:rgba(22,28,38,.75);
-  --radius:22px;
-  --max:1200px;
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
+*{box-sizing:border-box;margin:0;padding:0}
 body{
-  margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
   background:var(--bg);
   color:var(--text);
   line-height:1.6;
@@ -29,7 +26,7 @@ body{
 a{text-decoration:none;color:inherit}
 img{width:100%;display:block}
 
-.wrap{max-width:var(--max);margin:0 auto;padding:25px}
+.container{max-width:1200px;margin:auto;padding:20px}
 
 nav{
   display:flex;
@@ -37,60 +34,50 @@ nav{
   align-items:center;
   padding:20px 0;
 }
-.logo{
-  font-weight:900;
-  font-size:22px;
-  letter-spacing:1px;
-}
+.logo img{height:60px}
+
 nav a{
   margin-left:25px;
-  font-weight:600;
   color:var(--muted);
+  font-weight:600;
 }
 nav a:hover{color:white}
 
-h1{
-  font-size:56px;
-  line-height:1.05;
-  margin:0 0 20px;
-  letter-spacing:-1px;
-}
-h2{font-size:38px;margin-bottom:30px}
-p{color:var(--muted);font-size:18px}
-
-.btn{
-  display:inline-block;
-  padding:15px 28px;
-  border-radius:14px;
-  border:1px solid var(--line);
-  font-weight:800;
-  margin-right:12px;
-  background:#1e2a3a;
-  transition:.3s;
-}
-.btn:hover{background:#273648}
-
-.section{padding:100px 0;opacity:0;transform:translateY(30px);transition:1s ease}
-.section.visible{opacity:1;transform:translateY(0)}
-
 .hero{
+  position:relative;
   border-radius:30px;
   overflow:hidden;
-  position:relative;
   border:1px solid var(--line);
 }
 .hero-bg{
   position:absolute;
   inset:0;
   background:
-    linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.8)),
-    url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2200&q=80") center/cover no-repeat;
+  linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.8)),
+  url("https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=2200&q=80") center/cover no-repeat;
 }
-.hero-inner{
+.hero-content{
   position:relative;
-  padding:110px 60px;
-  max-width:750px;
+  padding:120px 60px;
+  max-width:700px;
 }
+h1{font-size:54px;margin-bottom:20px}
+p{color:var(--muted);font-size:18px}
+
+.btn{
+  display:inline-block;
+  padding:15px 28px;
+  background:var(--accent);
+  border-radius:14px;
+  margin-right:15px;
+  margin-top:20px;
+  font-weight:700;
+  transition:.3s;
+}
+.btn:hover{background:#273648}
+
+.section{padding:100px 0;opacity:0;transform:translateY(40px);transition:1s}
+.section.visible{opacity:1;transform:translateY(0)}
 
 .gallery{
   display:grid;
@@ -104,7 +91,7 @@ p{color:var(--muted);font-size:18px}
 }
 .gallery img:hover{transform:scale(1.05)}
 
-.process-section{
+.process{
   position:relative;
   border-radius:30px;
   overflow:hidden;
@@ -114,29 +101,24 @@ p{color:var(--muted);font-size:18px}
   position:absolute;
   inset:0;
   background:
-    linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.85)),
-    url("https://images.unsplash.com/photo-1588854337118-1c7f09fa5b52?auto=format&fit=crop&w=2200&q=80") center/cover no-repeat;
+  linear-gradient(rgba(0,0,0,.85),rgba(0,0,0,.9)),
+  url("https://images.unsplash.com/photo-1588854337118-1c7f09fa5b52?auto=format&fit=crop&w=2200&q=80") center/cover no-repeat;
 }
-.process-inner{
+.process-content{
   position:relative;
   padding:80px 60px;
 }
 .process-step{
-  margin-bottom:30px;
+  margin-bottom:25px;
   padding-left:20px;
   border-left:3px solid rgba(255,255,255,.15);
 }
 
-.testimonial-wrapper{
-  overflow:hidden;
-}
+.testimonial-wrapper{overflow:hidden;margin-top:40px}
 .testimonial-track{
   display:flex;
   gap:30px;
-  animation:scroll 50s linear infinite;
-}
-.testimonial-wrapper:hover .testimonial-track{
-  animation-play-state:paused;
+  animation:scroll 60s linear infinite;
 }
 .testimonial{
   min-width:320px;
@@ -153,8 +135,9 @@ p{color:var(--muted);font-size:18px}
 }
 
 footer{
-  padding:100px 0 120px;
+  padding:80px 0;
   border-top:1px solid var(--line);
+  text-align:center;
   color:var(--muted);
 }
 
@@ -169,47 +152,46 @@ footer{
   border-top:1px solid var(--line);
 }
 .sticky a{
-  background:#1e2a3a;
+  background:var(--accent);
   padding:15px 30px;
   border-radius:16px;
   font-weight:900;
 }
 
 @media(max-width:768px){
-  h1{font-size:38px}
-  .hero-inner,.process-inner{padding:60px 30px}
+  h1{font-size:36px}
+  .hero-content{padding:60px 30px}
+  .process-content{padding:60px 30px}
 }
 </style>
 </head>
 
 <body>
 
-<div class="wrap">
+<div class="container">
 
 <nav>
-  <div class="logo">OBOLENSKII</div>
+  <div class="logo">
+    <a href="#"><img src="logo.png" alt="Obolenskii Handyman Services"></a>
+  </div>
   <div>
     <a href="#projects">Projects</a>
-    <a href="#about">About</a>
+    <a href="#process">Process</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
 
-<section class="section hero">
+<section class="hero section">
   <div class="hero-bg"></div>
-  <div class="hero-inner">
-    <h1>HANDYMAN SERVICE</h1>
-    <p>
-      Exterior painting and residential repairs in Sacramento.
-      Structured work. Premium quality. Built on experience.
-    </p>
-    <br>
+  <div class="hero-content">
+    <h1>Premium Handyman Service</h1>
+    <p>Exterior painting, facade repair and structured home improvements in Sacramento area.</p>
     <a href="tel:+19165008891" class="btn">Call 916-500-8891</a>
     <a href="#contact" class="btn">Request Estimate</a>
   </div>
 </section>
 
-<section class="section" id="projects">
+<section id="projects" class="section">
   <h2>Recent Projects</h2>
   <div class="gallery">
     <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=1800&q=80">
@@ -217,60 +199,46 @@ footer{
     <img src="https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=1800&q=80">
     <img src="https://images.unsplash.com/photo-1560185127-6ed189bf02f4?auto=format&fit=crop&w=1800&q=80">
     <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=1800&q=80">
-    <img src="https://images.unsplash.com/photo-1588854337118-1c7f09fa5b52?auto=format&fit=crop&w=1800&q=80">
+    <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=1800&q=80">
   </div>
 </section>
 
-<section class="section process-section">
+<section id="process" class="section process">
   <div class="process-bg"></div>
-  <div class="process-inner">
+  <div class="process-content">
     <h2>How Your Project Goes</h2>
-
-    <div class="process-step"><strong>1. Contact</strong><br>You call or submit request.</div>
+    <div class="process-step"><strong>1. Contact</strong><br>You reach out.</div>
     <div class="process-step"><strong>2. Evaluation</strong><br>We review scope and expectations.</div>
     <div class="process-step"><strong>3. Clear Estimate</strong><br>Transparent pricing.</div>
-    <div class="process-step"><strong>4. Execution</strong><br>Clean, disciplined work.</div>
-    <div class="process-step"><strong>5. Completion</strong><br>Final review.</div>
-    <div class="process-step"><strong>6. Happy Client</strong><br>Finished right.</div>
-
+    <div class="process-step"><strong>4. Execution</strong><br>Clean structured work.</div>
+    <div class="process-step"><strong>5. Completion</strong><br>Final walkthrough.</div>
+    <div class="process-step"><strong>6. Happy Client</strong><br>Project delivered right.</div>
   </div>
 </section>
 
-<section class="section" id="testimonials">
+<section class="section">
   <h2>Client Feedback</h2>
   <div class="testimonial-wrapper">
     <div class="testimonial-track">
-
-      <div class="testimonial"><div class="stars">★★★★★</div><p>Excellent communication and very clean execution.</p><strong>— Michael R.</strong></div>
-      <div class="testimonial"><div class="stars">★★★★★</div><p>Professional and reliable. Exterior paint looks great.</p><strong>— Sarah L.</strong></div>
+      <div class="testimonial"><div class="stars">★★★★★</div><p>Excellent communication and clean finish.</p><strong>— Michael R.</strong></div>
+      <div class="testimonial"><div class="stars">★★★★★</div><p>Very reliable and professional.</p><strong>— Sarah L.</strong></div>
       <div class="testimonial"><div class="stars">★★★★★</div><p>Clear estimate, no surprises.</p><strong>— Daniel K.</strong></div>
       <div class="testimonial"><div class="stars">★★★★★</div><p>Strong attention to detail.</p><strong>— Emily T.</strong></div>
-      <div class="testimonial"><div class="stars">★★★★★</div><p>On schedule and very structured.</p><strong>— James P.</strong></div>
-      <div class="testimonial"><div class="stars">★★★★★</div><p>Fair pricing and premium finish.</p><strong>— Olivia M.</strong></div>
-      <div class="testimonial"><div class="stars">★★★★★</div><p>Highly recommend for exterior work.</p><strong>— Andrew S.</strong></div>
-
-      <div class="testimonial"><div class="stars">★★★★★</div><p>Excellent communication and very clean execution.</p><strong>— Michael R.</strong></div>
-
+      <div class="testimonial"><div class="stars">★★★★★</div><p>Premium quality work.</p><strong>— James P.</strong></div>
+      <div class="testimonial"><div class="stars">★★★★★</div><p>On schedule and organized.</p><strong>— Olivia M.</strong></div>
+      <div class="testimonial"><div class="stars">★★★★★</div><p>Would definitely hire again.</p><strong>— Andrew S.</strong></div>
+      <div class="testimonial"><div class="stars">★★★★★</div><p>Excellent communication and clean finish.</p><strong>— Michael R.</strong></div>
     </div>
   </div>
 </section>
 
-<section class="section" id="about">
-  <h2>About Konstantin</h2>
-  <p>
-    15+ years in construction. Started in facade systems and grew into managing
-    complex building projects. My mission is to build a trusted, transparent
-    construction company in Sacramento — focused on premium quality and long-term reputation.
-  </p>
-</section>
-
-<section class="section" id="contact">
+<section id="contact" class="section">
   <h2>Request Estimate</h2>
   <a href="tel:+19165008891" class="btn">Call Now</a>
 </section>
 
 <footer>
-  © 2026 Obolenskii Handyman Service • Roseville, CA
+  © 2026 Obolenskii Handyman Services • Sacramento Area
 </footer>
 
 </div>
