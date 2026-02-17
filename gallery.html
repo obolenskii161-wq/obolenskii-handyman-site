@@ -345,18 +345,22 @@
       try{ localStorage.setItem(CACHE_KEY, JSON.stringify({ ts: Date.now(), items })); }catch{}
     }
 
-    async function fetchFromGitHub(){
-      const url = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${FOLDER}?ref=${BRANCH}`;
-      const res = await fetch(url, { headers: { "Accept": "application/vnd.github+json" } });
-      if(!res.ok) throw new Error(`GitHub API ${res.status}`);
-      const data = await res.json();
+   async function fetchFromGitHub(){
+  const url = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${FOLDER}?ref=${BRANCH}`;
+  const res = await fetch(url, { headers: { "Accept": "application/vnd.github+json" } });
+  if(!res.ok) throw new Error(`GitHub API ${res.status}`);
+  const data = await res.json();
 
-      return (Array.isArray(data) ? data : [])
-        .map(x => ({ name: x?.name, type: x?.type }))
-        .filter(x => x.type === "file" && isImage(x.name))
-        .map(x => ({ name: x.name, url: toSiteUrl(x.name) }))
-        .sort((a,b) => a.name.localeCompare(b.name));
-    }
+  return (Array.isArray(data) ? data : [])
+    .filter(x => x && x.type === "file" && isImage(x.name))
+    .map(x => ({
+      name: x.name,
+      // use GitHub-provided direct URL (always valid)
+      url: x.download_url
+    }))
+    .sort((a,b) => a.name.localeCompare(b.name));
+}
+
 
     function buildObserver(){
       if(state.io) return;
