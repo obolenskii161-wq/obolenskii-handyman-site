@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Obolenskii Handyman Services</title>
 
-<meta name="description" content="Premium handyman and exterior painting services in Sacramento. 15+ years construction experience. Clean execution. Transparent pricing.">
+<meta name="description" content="Exterior painting, facade repair and professional handyman services in Sacramento. 15+ years construction experience.">
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
@@ -77,7 +77,7 @@ nav{
   position:absolute;
   inset:0;
   background:
-    linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.9)),
+    linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.9)),
     url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=80") center/cover no-repeat;
 }
 .hero-inner{
@@ -87,21 +87,18 @@ nav{
 }
 h1{
   font-family:'Playfair Display',serif;
-  font-size:52px;
+  font-size:50px;
   margin-bottom:18px;
 }
-p{color:var(--muted);font-size:18px;margin-bottom:10px}
+p{color:var(--muted);font-size:18px;margin-bottom:12px}
 
 .btn{
   display:inline-block;
   padding:14px 28px;
-  border-radius:0;
+  border:1px solid rgba(255,255,255,.25);
   background:transparent;
-  border:1px solid rgba(255,255,255,.2);
-  margin-top:25px;
-  margin-right:14px;
   font-weight:600;
-  transition:.35s;
+  transition:.3s;
 }
 .btn:hover{
   border-color:var(--gold);
@@ -112,8 +109,8 @@ p{color:var(--muted);font-size:18px;margin-bottom:10px}
 .section{padding:95px 0}
 h2{
   font-family:'Playfair Display',serif;
-  font-size:36px;
-  margin-bottom:28px;
+  font-size:34px;
+  margin-bottom:30px;
 }
 
 /* GALLERY */
@@ -127,36 +124,41 @@ h2{
   border:1px solid var(--line);
   transition:.35s;
 }
-.gallery img:hover{transform:scale(1.03)}
+.gallery img:hover{transform:scale(1.04)}
 
-/* PROCESS WITH BACKGROUND */
+/* ABOUT */
+.about-box{
+  background:var(--card);
+  padding:40px;
+  border-radius:14px;
+  border:1px solid var(--line);
+}
+.about-box p{margin-bottom:18px}
+
+/* PROCESS */
 .process{
   position:relative;
   border-radius:28px;
   overflow:hidden;
   border:1px solid var(--line);
-  margin-top:40px;
 }
 .process::before{
   content:"";
   position:absolute;
   inset:0;
   background:
-    linear-gradient(rgba(0,0,0,.88),rgba(0,0,0,.95)),
-    url("https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=2400&q=80") center/cover no-repeat;
-  z-index:0;
+    linear-gradient(rgba(0,0,0,.9),rgba(0,0,0,.95)),
+    url("https://images.unsplash.com/photo-1598300053653-9e6a9c41b3b2?auto=format&fit=crop&w=2400&q=80") center/cover no-repeat;
 }
 .process-inner{
   position:relative;
   padding:80px 60px;
-  z-index:1;
 }
 .step{
-  margin-top:18px;
+  margin-top:16px;
   padding-left:18px;
   border-left:2px solid var(--gold);
 }
-.step strong{display:block;margin-bottom:5px}
 
 /* FORM */
 .contact-box{
@@ -171,7 +173,7 @@ form{
 }
 input,textarea{
   background:transparent;
-  border:1px solid rgba(255,255,255,.2);
+  border:1px solid rgba(255,255,255,.25);
   padding:12px;
   color:white;
 }
@@ -180,24 +182,40 @@ input:focus,textarea:focus{
   outline:none;
 }
 
-/* ABOUT */
-.about-box{
-  background:var(--card);
-  padding:40px;
-  border-radius:14px;
-  border:1px solid var(--line);
-  margin-top:60px;
+/* CERT CAROUSEL */
+.cert-wrapper{
+  overflow:hidden;
+  margin-top:30px;
 }
-.about-box p{
-  margin-bottom:18px;
+.cert-track{
+  display:flex;
+  gap:40px;
+  animation:scroll 40s linear infinite;
+}
+.cert{
+  min-width:220px;
+  text-align:center;
+  background:var(--card);
+  padding:25px;
+  border-radius:12px;
+  border:1px solid var(--line);
+}
+.cert span{
+  font-size:30px;
+  display:block;
+  margin-bottom:10px;
+}
+@keyframes scroll{
+  0%{transform:translateX(0)}
+  100%{transform:translateX(-50%)}
 }
 
 /* FOOTER */
 footer{
   padding:60px 0 20px;
   border-top:1px solid var(--line);
-  color:var(--muted);
   text-align:center;
+  color:var(--muted);
 }
 
 .dev-banner{
@@ -211,7 +229,7 @@ footer{
 
 @media(max-width:768px){
   h1{font-size:34px}
-  h2{font-size:28px}
+  h2{font-size:26px}
   .hero-inner{padding:60px 30px}
   .process-inner{padding:60px 30px}
 }
@@ -222,13 +240,13 @@ footer{
 <div class="container">
 
 <nav>
-  <a href="#" class="brand">
+  <div class="brand">
     <div class="brand-main">OBOLENSKII</div>
     <div class="brand-line"></div>
     <div class="brand-sub">Handyman Services</div>
-  </a>
+  </div>
   <div class="navlinks">
-    <a href="#projects">Projects</a>
+    <a href="#projects">Gallery</a>
     <a href="#contact">Estimate</a>
   </div>
 </nav>
@@ -236,31 +254,37 @@ footer{
 <section class="hero">
   <div class="hero-inner">
     <h1>Built on Experience. Delivered with Discipline.</h1>
-    <p>Exterior painting and structured home improvements in Sacramento.</p>
-    <a href="tel:+19165008891" class="btn">Call 916-500-8891</a>
+    <p>Exterior painting, facade repair and structured home improvements in Sacramento.</p>
     <a href="#contact" class="btn">Request Estimate</a>
   </div>
 </section>
 
 <section id="projects" class="section">
-  <h2>Recent Work</h2>
+  <h2>Project Gallery</h2>
   <div class="gallery">
     <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=1800&q=80">
     <img src="https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=1800&q=80">
     <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=1800&q=80">
     <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=1800&q=80">
-    <img src="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=1800&q=80">
+  </div>
+</section>
+
+<section class="section">
+  <h2>About Konstantin</h2>
+  <div class="about-box">
+    <p>I bring over 15 years of hands-on construction experience. My background started in facade systems and expanded into coordinating multi-trade construction projects.</p>
+    <p>My mission is to build a transparent, trusted construction company in Sacramento — one that focuses on structure, discipline and premium workmanship.</p>
+    <p>Many of my past projects can be seen in the gallery above. I believe results should speak louder than promises.</p>
   </div>
 </section>
 
 <section class="section process">
   <div class="process-inner">
     <h2>How Your Project Moves Forward</h2>
-    <div class="step"><strong>1.</strong> Initial contact and discussion.</div>
-    <div class="step"><strong>2.</strong> On-site evaluation.</div>
-    <div class="step"><strong>3.</strong> Transparent estimate.</div>
-    <div class="step"><strong>4.</strong> Clean, disciplined execution.</div>
-    <div class="step"><strong>5.</strong> Final walkthrough.</div>
+    <div class="step">Initial contact and scope discussion.</div>
+    <div class="step">On-site evaluation and clear estimate.</div>
+    <div class="step">Structured execution and clean job site.</div>
+    <div class="step">Final walkthrough and approval.</div>
   </div>
 </section>
 
@@ -273,22 +297,27 @@ footer{
       <textarea name="Details" rows="4" placeholder="Describe your project"></textarea>
       <button type="submit" class="btn">Send Request</button>
     </form>
-    <p style="margin-top:20px;">Direct: 916-500-8891</p>
+    <p style="margin-top:15px;color:var(--muted);">AI scheduling assistant launching soon.</p>
   </div>
 </section>
 
 <section class="section">
-  <h2>About Konstantin</h2>
-  <div class="about-box">
-    <p>
-      I bring over 15 years of construction experience. My background began in facade systems and expanded into managing complex construction projects and coordinating multiple trades.
-    </p>
-    <p>
-      My mission is to build a trusted, transparent construction company in Sacramento, based on discipline, communication, and premium workmanship.
-    </p>
-    <p>
-      Every project is treated with respect and attention to detail. Clean job sites, clear expectations, and long-term results.
-    </p>
+  <h2>Certifications & Safety</h2>
+  <div class="cert-wrapper">
+    <div class="cert-track">
+      <div class="cert"><span>🛠</span>OSHA 10 Certified</div>
+      <div class="cert"><span>📡</span>NWSA TTT-1</div>
+      <div class="cert"><span>⚡</span>Electrical Safety</div>
+      <div class="cert"><span>🩺</span>CPR & First Aid</div>
+      <div class="cert"><span>📶</span>RF Awareness</div>
+      <div class="cert"><span>🏗</span>Site Safety Training</div>
+
+      <!-- repeat for loop -->
+      <div class="cert"><span>🛠</span>OSHA 10 Certified</div>
+      <div class="cert"><span>📡</span>NWSA TTT-1</div>
+      <div class="cert"><span>⚡</span>Electrical Safety</div>
+      <div class="cert"><span>🩺</span>CPR & First Aid</div>
+    </div>
   </div>
 </section>
 
