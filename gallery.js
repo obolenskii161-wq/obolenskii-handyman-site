@@ -1,4 +1,4 @@
-/* gallery.js */
+// gallery.js — waits for OBOLENSKII_PHOTOS_READY and renders gallery
 (() => {
   const state = {
     inited: false,
@@ -71,38 +71,26 @@
     updateCounter();
   }
 
-  function ensureInit(){
+  async function ensureInit(){
     if (state.inited) return;
+
+    // wait for photos to load
+    if (window.OBOLENSKII_PHOTOS_READY) {
+      try { await window.OBOLENSKII_PHOTOS_READY; } catch {}
+    }
 
     const photos = window.OBOLENSKII_PHOTOS?.all || [];
     const featured = window.OBOLENSKII_PHOTOS?.featured || [];
-
-    // Prefer full list; fall back to featured
     const base = photos.length ? photos : featured;
+
     state.order = shuffle(base);
 
-    // Wire button + infinite scroll
     const btn = $('gLoadBtn');
     if (btn) btn.addEventListener('click', loadMore);
 
-    window.addEventListener('scroll', () => {
-      const overlay = document.getElementById('galleryOverlay');
-      if (!overlay || !overlay.classList.contains('active')) return;
-
-      const btn2 = $('gLoadBtn');
-      if (!btn2 || btn2.disabled) return;
-
-      const doc = overlay;
-      // use viewport of window; load when near bottom
-      const nearBottom = (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 800);
-      if (nearBottom) loadMore();
-    }, { passive: true });
-
-    // First load
     loadMore();
     state.inited = true;
   }
 
-  // expose
   window.OBOLENSKII_GALLERY = { ensureInit };
 })();
