@@ -1,1 +1,486 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0b0b0d" />
+  <title>Project Gallery | Obolenskii Handyman Services</title>
+  <meta name="description" content="Project gallery for Obolenskii Handyman Services." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0b0b0d;
+      --card:#121217;
+      --stroke:rgba(255,255,255,.08);
+      --text:rgba(255,255,255,.90);
+      --muted:rgba(255,255,255,.66);
+      --muted2:rgba(255,255,255,.52);
+      --gold:#c7a567;
+      --gold2:#e3c88a;
+      --max:1120px;
+      --pad:16px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:
+        radial-gradient(900px 420px at 70% -10%, rgba(199,165,103,.12), transparent 55%),
+        radial-gradient(700px 380px at 20% 10%, rgba(255,255,255,.05), transparent 60%),
+        linear-gradient(180deg, var(--bg) 0%, #070709 100%);
+      color:var(--text);
+      overflow-x:hidden;
+    }
+    a{color:inherit; text-decoration:none}
+    .container{max-width:var(--max); margin:0 auto; padding:0 var(--pad)}
+
+    header{
+      position:sticky; top:0; z-index:50;
+      background: linear-gradient(180deg, rgba(11,11,13,.86), rgba(11,11,13,.55));
+      border-bottom:1px solid rgba(255,255,255,.06);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:12px 0;
+      gap:12px;
+    }
+    .title{
+      display:flex; flex-direction:column; gap:2px;
+      min-width:0;
+    }
+    .title b{
+      font-family:"Playfair Display", serif;
+      font-size:18px;
+      letter-spacing:.2px;
+      font-weight:600;
+      line-height:1.15;
+    }
+    .title span{color:var(--muted2); font-size:12px; line-height:1.3}
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      color: rgba(255,255,255,.92);
+      font-weight:600;
+      font-size:14px;
+      cursor:pointer;
+      user-select:none;
+      transition: transform .15s ease, background .2s ease, border-color .2s ease;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.05); border-color: rgba(255,255,255,.14)}
+    .btnGold{
+      border-color: rgba(199,165,103,.40);
+      background: linear-gradient(180deg, rgba(199,165,103,.18), rgba(199,165,103,.06));
+    }
+    .btnGold:hover{border-color: rgba(227,200,138,.65)}
+    .btn svg{width:18px;height:18px; fill:none; stroke:rgba(255,255,255,.88); stroke-width:2}
+
+    main{padding:18px 0 80px}
+
+    .toolbar{
+      display:flex; flex-wrap:wrap; gap:10px;
+      align-items:center; justify-content:space-between;
+      margin:14px 0 12px;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:8px 12px; border:1px solid var(--stroke);
+      border-radius:999px; background:rgba(255,255,255,.03);
+      color:var(--muted);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      font-size:13px;
+    }
+
+    .search{
+      flex: 1 1 240px;
+      display:flex; align-items:center; gap:10px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      border-radius:14px;
+      padding:10px 12px;
+      max-width:420px;
+    }
+    .search svg{width:18px;height:18px; stroke:rgba(255,255,255,.70); stroke-width:2; fill:none}
+    .search input{
+      width:100%;
+      border:0;
+      outline:0;
+      background:transparent;
+      color:rgba(255,255,255,.88);
+      font: inherit;
+      font-size:14px;
+    }
+    .search input::placeholder{color:rgba(255,255,255,.45)}
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+    }
+    .item{
+      position:relative;
+      border-radius: 16px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.02);
+      min-height: 150px;
+      box-shadow: 0 12px 40px rgba(0,0,0,.35);
+      opacity:0;
+      transform: translateY(6px);
+      transition: opacity .35s ease, transform .35s ease;
+      cursor:pointer;
+    }
+    .item.in{opacity:1; transform: translateY(0)}
+    .item img{
+      width:100%; height:100%;
+      object-fit:cover;
+      display:block;
+      filter: contrast(1.03) brightness(.92);
+      transform: scale(1.02);
+    }
+    .item::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,.18));
+      pointer-events:none;
+    }
+    .cap{
+      position:absolute; left:10px; right:10px; bottom:10px;
+      display:flex; align-items:flex-end; justify-content:space-between; gap:10px;
+      pointer-events:none;
+    }
+    .cap span{
+      font-size:11px;
+      color:rgba(255,255,255,.72);
+      background: rgba(0,0,0,.35);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:999px;
+      padding:6px 9px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      max-width:100%;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+    }
+
+    .controls{
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      margin-top:14px;
+    }
+    .counter{color:var(--muted2); font-size:12px}
+    .load{
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(199,165,103,.35);
+      background: rgba(199,165,103,.08);
+      color: rgba(255,255,255,.86);
+      font-weight:600;
+      cursor:pointer;
+    }
+    .load:hover{border-color: rgba(227,200,138,.65)}
+    .load[disabled]{opacity:.55; cursor:not-allowed}
+
+    .toast{
+      margin:14px 0 0;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      border-radius:16px;
+      padding:12px 12px;
+      color:rgba(255,255,255,.78);
+      font-size:13px;
+      line-height:1.45;
+    }
+    .toast b{color:rgba(255,255,255,.90)}
+    .toast code{
+      background: rgba(0,0,0,.35);
+      border:1px solid rgba(255,255,255,.10);
+      padding:2px 6px;
+      border-radius:8px;
+      color:rgba(227,200,138,.92);
+    }
+
+    .devBanner{
+      position:fixed; left:12px; right:12px; bottom:12px;
+      z-index:90;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(10,10,12,.72);
+      color: rgba(255,255,255,.78);
+      font-size:12px;
+      padding:10px 12px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      box-shadow: 0 14px 44px rgba(0,0,0,.45);
+    }
+    .devBanner b{color:rgba(255,255,255,.90); font-weight:600}
+    .devBanner .dot{
+      width:8px; height:8px; border-radius:999px;
+      background: rgba(199,165,103,.85);
+      box-shadow: 0 0 0 4px rgba(199,165,103,.18);
+      flex:0 0 auto;
+    }
+
+    @media (min-width: 860px){
+      :root{--pad:20px}
+      .grid{grid-template-columns: 1fr 1fr 1fr}
+      .item{min-height: 190px}
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="nav">
+        <div class="title">
+          <b>Project Gallery</b>
+          <span>Auto-loaded from <span style="color:var(--gold2)">/assets/projects/</span></span>
+        </div>
+        <div style="display:flex; gap:10px; align-items:center;">
+          <a class="btn" href="./index.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Back
+          </a>
+          <button class="btn btnGold" id="refreshBtn" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a9 9 0 10-3 6.7" stroke-linecap="round"/><path d="M21 12v-7h-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Refresh
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="toolbar">
+        <span class="pill" id="statusPill">Loading photos…</span>
+
+        <div class="search" title="Filter by filename (optional)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 21l-4.3-4.3" stroke-linecap="round"/><path d="M10.5 18a7.5 7.5 0 110-15 7.5 7.5 0 010 15z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <input id="filterInput" placeholder="Filter (optional)…" autocomplete="off" />
+        </div>
+      </div>
+
+      <div class="grid" id="grid" aria-label="Gallery grid"></div>
+
+      <div class="controls">
+        <div class="counter" id="counter">Loaded 0 / 0</div>
+        <button class="load" id="loadBtn" type="button">Load more</button>
+      </div>
+
+      <div class="toast" id="hintBox" style="display:none;"></div>
+    </div>
+  </main>
+
+  <div class="devBanner" role="status" aria-live="polite">
+    <div style="display:flex; align-items:center; gap:10px;">
+      <span class="dot" aria-hidden="true"></span>
+      <div>
+        <b>Website in development</b>
+        <div style="color:rgba(255,255,255,.62); font-size:12px;">Gallery is updated as new photos are uploaded.</div>
+      </div>
+    </div>
+    <div style="color:rgba(255,255,255,.60); font-size:12px;">v0.1</div>
+  </div>
+
+  <script>
+    const OWNER  = "obolenskii161-wq";
+    const REPO   = "obolenskii-handyman-site";
+    const BRANCH = "main";
+    const FOLDER = "assets/projects";
+
+    const CACHE_KEY = "obolenskii_gallery_cache_v2";
+    const CACHE_TTL = 6 * 60 * 60 * 1000;
+
+    const state = { all: [], view: [], cursor: 0, batch: 24, io: null };
+
+    const el = {
+      grid: document.getElementById("grid"),
+      counter: document.getElementById("counter"),
+      loadBtn: document.getElementById("loadBtn"),
+      filterInput: document.getElementById("filterInput"),
+      pill: document.getElementById("statusPill"),
+      hint: document.getElementById("hintBox"),
+      refreshBtn: document.getElementById("refreshBtn"),
+    };
+
+    function isImage(name){ return /\.(jpg|jpeg|png|webp|gif)$/i.test(name || ""); }
+    function toSiteUrl(name){ return `/${FOLDER}/${encodeURIComponent(name)}`.replace(/%2F/g, "/"); }
+
+    function setPill(text, ok=true){
+      el.pill.textContent = text;
+      el.pill.style.borderColor = ok ? "rgba(255,255,255,.10)" : "rgba(199,165,103,.45)";
+      el.pill.style.color = ok ? "rgba(255,255,255,.72)" : "rgba(227,200,138,.92)";
+    }
+
+    function showHint(html){ el.hint.style.display = "block"; el.hint.innerHTML = html; }
+    function hideHint(){ el.hint.style.display = "none"; el.hint.innerHTML = ""; }
+
+    function loadCache(){
+      try{
+        const raw = localStorage.getItem(CACHE_KEY);
+        if(!raw) return null;
+        const obj = JSON.parse(raw);
+        if(!obj || !obj.ts || !Array.isArray(obj.items)) return null;
+        if(Date.now() - obj.ts > CACHE_TTL) return null;
+        return obj.items;
+      }catch{return null;}
+    }
+
+    function saveCache(items){
+      try{ localStorage.setItem(CACHE_KEY, JSON.stringify({ ts: Date.now(), items })); }catch{}
+    }
+
+    async function fetchFromGitHub(){
+      const url = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${FOLDER}?ref=${BRANCH}`;
+      const res = await fetch(url, { headers: { "Accept": "application/vnd.github+json" } });
+      if(!res.ok) throw new Error(`GitHub API ${res.status}`);
+      const data = await res.json();
+
+      return (Array.isArray(data) ? data : [])
+        .map(x => ({ name: x?.name, type: x?.type }))
+        .filter(x => x.type === "file" && isImage(x.name))
+        .map(x => ({ name: x.name, url: toSiteUrl(x.name) }))
+        .sort((a,b) => a.name.localeCompare(b.name));
+    }
+
+    function buildObserver(){
+      if(state.io) return;
+      state.io = new IntersectionObserver((entries) => {
+        for(const e of entries){
+          if(e.isIntersecting){
+            e.target.classList.add("in");
+            state.io.unobserve(e.target);
+          }
+        }
+      }, { threshold: 0.08 });
+    }
+
+    function createItem(item){
+      const wrap = document.createElement("div");
+      wrap.className = "item";
+
+      const img = document.createElement("img");
+      img.loading = "lazy";
+      img.decoding = "async";
+      img.alt = "Project photo";
+      img.src = item.url;
+
+      const cap = document.createElement("div");
+      cap.className = "cap";
+      const label = document.createElement("span");
+      label.textContent = item.name;
+      cap.appendChild(label);
+
+      wrap.appendChild(img);
+      wrap.appendChild(cap);
+
+      wrap.addEventListener("click", () => window.open(item.url, "_blank", "noopener"));
+      return wrap;
+    }
+
+    function updateCounter(){
+      const total = state.view.length;
+      const loaded = Math.min(state.cursor, total);
+      el.counter.textContent = `Loaded ${loaded} / ${total}`;
+      el.loadBtn.disabled = loaded >= total;
+    }
+
+    function clearGrid(){ el.grid.innerHTML = ""; state.cursor = 0; updateCounter(); }
+
+    function renderMore(){
+      buildObserver();
+      const total = state.view.length;
+      const end = Math.min(state.cursor + state.batch, total);
+      for(let i = state.cursor; i < end; i++){
+        const node = createItem(state.view[i]);
+        el.grid.appendChild(node);
+        state.io.observe(node);
+      }
+      state.cursor = end;
+      updateCounter();
+    }
+
+    function applyFilter(){
+      const q = (el.filterInput.value || "").trim().toLowerCase();
+      state.view = !q ? state.all.slice() : state.all.filter(x => x.name.toLowerCase().includes(q));
+      clearGrid();
+      renderMore();
+    }
+
+    async function init(forceRefresh=false){
+      hideHint();
+      setPill("Loading photos…", true);
+
+      try{
+        let items = (!forceRefresh) ? loadCache() : null;
+
+        if(items?.length){
+          state.all = items;
+          setPill(`Loaded ${items.length} photos (cached)`, true);
+          applyFilter();
+          fetchFromGitHub().then(fresh => {
+            if(fresh.length){
+              state.all = fresh;
+              saveCache(fresh);
+              setPill(`Loaded ${fresh.length} photos`, true);
+              applyFilter();
+            }
+          }).catch(()=>{});
+          return;
+        }
+
+        const fresh = await fetchFromGitHub();
+        state.all = fresh;
+        saveCache(fresh);
+
+        if(!fresh.length){
+          setPill("No photos found", false);
+          showHint(`<b>No images detected.</b><br>
+            Upload image files into <code>${FOLDER}</code> and refresh.`);
+        } else {
+          setPill(`Loaded ${fresh.length} photos`, true);
+        }
+
+        applyFilter();
+      } catch (e){
+        setPill("Could not load photos", false);
+        showHint(`<b>Gallery failed to load.</b><br>
+          Error: <code>${String(e.message || e)}</code>`);
+        state.all = [];
+        applyFilter();
+      }
+    }
+
+    el.loadBtn.addEventListener("click", renderMore);
+    el.filterInput.addEventListener("input", () => {
+      clearTimeout(el.filterInput._t);
+      el.filterInput._t = setTimeout(applyFilter, 120);
+    });
+    el.refreshBtn.addEventListener("click", () => init(true));
+
+    window.addEventListener("scroll", () => {
+      if(el.loadBtn.disabled) return;
+      const nearBottom = (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 900);
+      if(nearBottom) renderMore();
+    }, { passive:true });
+
+    init(false);
+  </script>
+</body>
+</html>
 
