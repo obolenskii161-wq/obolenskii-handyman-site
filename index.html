@@ -6,9 +6,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="theme-color" content="#0b0b0d" />
   <title>Obolenskii Handyman Services | Sacramento</title>
-  <meta name="description" content="Premium handyman and light construction services in Sacramento. Request an estimate." />
+  <meta name="description" content="Premium handyman services in Sacramento. Request an estimate." />
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
@@ -26,8 +25,8 @@
       --gold:#c7a567;
       --gold2:#e3c88a;
       --shadow: 0 18px 60px rgba(0,0,0,.55);
-      --radius:18px;
-      --radius2:24px;
+      --r:18px;
+      --r2:24px;
       --max:1120px;
       --pad:16px;
     }
@@ -37,586 +36,459 @@
     html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       background:
-        radial-gradient(900px 420px at 70% -10%, rgba(199,165,103,.12), transparent 55%),
-        radial-gradient(700px 380px at 20% 10%, rgba(255,255,255,.05), transparent 60%),
+        radial-gradient(900px 420px at 72% -10%, rgba(199,165,103,.12), transparent 55%),
+        radial-gradient(700px 380px at 18% 10%, rgba(255,255,255,.05), transparent 60%),
         linear-gradient(180deg, var(--bg) 0%, #070709 100%);
       color:var(--text);
       overflow-x:hidden;
     }
-
     a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
     .container{max-width:var(--max); margin:0 auto; padding:0 var(--pad)}
-    .pill{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:8px 12px; border:1px solid var(--stroke);
-      border-radius:999px; background:rgba(255,255,255,.03);
-      color:var(--muted);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      font-size:13px;
-    }
 
-    /* Header */
     header{
-      position:sticky; top:0; z-index:50;
-      background: linear-gradient(180deg, rgba(11,11,13,.86), rgba(11,11,13,.55));
+      position:sticky; top:0; z-index:60;
+      background: linear-gradient(180deg, rgba(11,11,13,.86), rgba(11,11,13,.58));
       border-bottom:1px solid rgba(255,255,255,.06);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
     }
     .nav{
       display:flex; align-items:center; justify-content:space-between;
+      gap:12px;
       padding:12px 0;
-      gap:14px;
     }
+
     .brand{
-      display:flex; align-items:center; gap:12px; min-width:0;
+      display:flex; align-items:center; gap:12px;
+      min-width:0;
     }
-    .brandIcon{
-      width:34px; height:34px; flex:0 0 auto;
-      border-radius:10px;
-      border:1px solid rgba(199,165,103,.35);
-      background: rgba(199,165,103,.06);
+    .logoBox{
+      width:40px; height:40px;
+      border-radius:14px;
+      border:1px solid rgba(199,165,103,.25);
+      background: linear-gradient(180deg, rgba(199,165,103,.14), rgba(255,255,255,.02));
       display:grid; place-items:center;
+      box-shadow: 0 12px 40px rgba(0,0,0,.35);
+      flex:0 0 auto;
       overflow:hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,.35);
     }
-    .brandIcon img{
-      width:100%; height:100%; object-fit:cover;
-      display:block;
+    .logoBox img{
+      width:24px; height:24px; object-fit:contain;
+      filter: drop-shadow(0 8px 22px rgba(0,0,0,.45));
     }
-    .brandText{
-      display:flex; flex-direction:column; line-height:1.05; min-width:0;
-    }
-    .brandLine1{
-      font-family:"Playfair Display", serif;
-      letter-spacing:.3px;
-      font-size:16px;
+    .brandText{min-width:0}
+    .brandTop{
+      font-family: "Playfair Display", serif;
+      font-size:18px;
+      line-height:1.1;
+      letter-spacing:.2px;
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
     }
-    .brandLine1 .gold{color:var(--gold2)}
-    .brandLine2{
+    .brandTop .gold{color:var(--gold2)}
+    .brandTop .muted{color:rgba(255,255,255,.78)}
+    .brandBottomRow{
+      display:flex; align-items:center; gap:10px;
+      margin-top:4px;
+      min-width:0;
+    }
+    .divider{
+      height:1px;
+      width:42px;
+      background: linear-gradient(90deg, rgba(227,200,138,.0), rgba(227,200,138,.8), rgba(227,200,138,.0));
+      flex:0 0 auto;
+      opacity:.9;
+    }
+    .brandBottom{
+      font-size:15px;                /* bigger as requested */
       font-weight:600;
-      font-size:15px;
-      color:rgba(255,255,255,.92);
+      color:rgba(255,255,255,.88);
+      letter-spacing:.2px;
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
     }
 
-    .menu{
-      display:flex; align-items:center; gap:10px; flex:0 0 auto;
+    .navLinks{
+      display:flex; align-items:center; gap:10px;
     }
-    .menu a{
-      padding:10px 10px;
-      font-size:14px;
-      color:var(--muted);
+    .link{
+      font-size:13px;
+      color:rgba(255,255,255,.74);
+      padding:8px 10px;
       border-radius:12px;
-      transition: background .2s ease, color .2s ease, border-color .2s ease;
       border:1px solid transparent;
+      transition: background .2s ease, border-color .2s ease, transform .15s ease;
+      user-select:none;
     }
-    .menu a:hover{
-      background:rgba(255,255,255,.04);
-      color:rgba(255,255,255,.88);
-      border-color:rgba(255,255,255,.06);
+    .link:hover{
+      background: rgba(255,255,255,.03);
+      border-color: rgba(255,255,255,.08);
+      transform: translateY(-1px);
+      color: rgba(255,255,255,.86);
     }
-    .cta{
+
+    .btn{
       display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
       padding:10px 12px;
       border-radius:14px;
-      border:1px solid rgba(199,165,103,.40);
-      background: linear-gradient(180deg, rgba(199,165,103,.18), rgba(199,165,103,.07));
-      color: rgba(255,255,255,.92);
+      border:1px solid rgba(199,165,103,.38);
+      background: linear-gradient(180deg, rgba(199,165,103,.18), rgba(199,165,103,.06));
+      color: rgba(255,255,255,.90);
       font-weight:600;
       font-size:14px;
-      box-shadow: 0 16px 36px rgba(0,0,0,.35);
+      cursor:pointer;
+      transition: transform .15s ease, border-color .2s ease;
+      user-select:none;
+      white-space:nowrap;
     }
-    .cta:hover{border-color:rgba(227,200,138,.65)}
-    .cta svg{width:16px;height:16px}
+    .btn:hover{transform: translateY(-1px); border-color: rgba(227,200,138,.65)}
+    .btn svg{width:18px;height:18px; stroke:rgba(255,255,255,.88); stroke-width:2; fill:none}
 
-    /* Hero */
+    /* HERO */
     .hero{
       position:relative;
-      padding:28px 0 22px;
-      overflow:hidden;
-    }
-    .heroGrid{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:16px;
-      align-items:stretch;
+      padding:28px 0 18px;
     }
     .heroCard{
       position:relative;
-      border-radius:var(--radius2);
-      border:1px solid rgba(255,255,255,.08);
-      background:
-        linear-gradient(180deg, rgba(18,18,23,.86), rgba(10,10,12,.86)),
-        radial-gradient(700px 340px at 15% 0%, rgba(199,165,103,.18), transparent 60%),
-        radial-gradient(700px 420px at 90% 20%, rgba(255,255,255,.08), transparent 60%);
-      box-shadow: var(--shadow);
+      border-radius: var(--r2);
       overflow:hidden;
-      min-height: 520px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.02);
+      box-shadow: var(--shadow);
     }
     .heroMedia{
       position:absolute; inset:0;
-      pointer-events:none;
-      opacity:.58;
-    }
-    .heroMedia::after{
-      content:"";
-      position:absolute; inset:0;
-      background:
-        linear-gradient(180deg, rgba(11,11,13,.20) 0%, rgba(11,11,13,.92) 78%),
-        radial-gradient(900px 420px at 20% 10%, rgba(199,165,103,.12), transparent 60%);
     }
     .heroMedia img{
       position:absolute; inset:0;
       width:100%; height:100%;
       object-fit:cover;
-      filter: contrast(1.05) saturate(.98) brightness(.90);
-      transform: scale(1.03);
       opacity:0;
-      transition: opacity 1200ms ease;
+      transition: opacity 1.2s ease;
+      filter: contrast(1.05) brightness(.72);
+      transform: scale(1.03);
     }
     .heroMedia img.active{opacity:1}
+    .heroOverlay{
+      position:absolute; inset:0;
+      background:
+        radial-gradient(900px 420px at 60% 0%, rgba(199,165,103,.10), transparent 55%),
+        linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.62));
+    }
     .heroInner{
       position:relative;
-      padding:24px;
-      display:flex;
-      flex-direction:column;
-      height:100%;
+      padding:22px 16px 16px;
+      display:grid;
+      gap:12px;
     }
-    .heroTop{
-      display:flex; flex-direction:column; gap:14px;
-      max-width: 720px;
-      padding-top:6px;
+    .kicker{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.28);
+      color: rgba(255,255,255,.76);
+      font-size:13px;
+      width:fit-content;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
-    .hEyebrow{
-      display:flex; flex-wrap:wrap; gap:10px;
+    .kicker .dot{
+      width:8px;height:8px;border-radius:99px;
+      background: rgba(227,200,138,.9);
+      box-shadow: 0 0 0 4px rgba(199,165,103,.18);
     }
     h1{
       margin:0;
       font-family:"Playfair Display", serif;
       font-weight:700;
-      letter-spacing:.3px;
-      font-size: clamp(30px, 7vw, 54px);
-      line-height:1.05;
+      letter-spacing:.2px;
+      font-size:30px;
+      line-height:1.08;
     }
     .sub{
       margin:0;
-      color:var(--muted);
-      font-size:16px;
-      line-height:1.6;
-      max-width:62ch;
+      color: rgba(255,255,255,.74);
+      font-size:15px;
+      line-height:1.5;
+      max-width: 58ch;
     }
     .heroActions{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      margin-top:10px;
-      max-width: 360px;
+      display:flex; gap:10px; flex-wrap:wrap;
+      padding-top:4px;
     }
-    .btn{
+    .softBtn{
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding:13px 14px;
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
-      color: rgba(255,255,255,.92);
-      font-weight:600;
-      transition: transform .15s ease, background .2s ease, border-color .2s ease;
-      cursor:pointer;
-      user-select:none;
-      text-align:center;
-    }
-    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.14)}
-    .btnGold{
-      border-color: rgba(199,165,103,.42);
-      background: linear-gradient(180deg, rgba(199,165,103,.20), rgba(199,165,103,.07));
-    }
-    .btnGold:hover{border-color: rgba(227,200,138,.70)}
-    .btn svg{width:18px;height:18px; opacity:.9}
-    .heroBottom{
-      margin-top:auto;
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:12px;
-      padding-top:18px;
-    }
-    .miniStats{
-      display:grid; grid-template-columns: 1fr 1fr;
-      gap:12px;
-    }
-    .stat{
-      border:1px solid rgba(255,255,255,.08);
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.03);
-      border-radius:16px;
-      padding:14px;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      color: rgba(255,255,255,.86);
+      font-weight:600;
+      font-size:14px;
+      cursor:pointer;
+      transition: transform .15s ease, background .2s ease, border-color .2s ease;
+      user-select:none;
+      white-space:nowrap;
     }
-    .stat b{
-      display:block;
-      font-family:"Playfair Display", serif;
-      font-size:18px;
-      color: rgba(255,255,255,.92);
-      margin-bottom:4px;
-    }
-    .stat span{color: var(--muted2); font-size:13px; line-height:1.35}
+    .softBtn:hover{transform: translateY(-1px); background: rgba(255,255,255,.05); border-color: rgba(255,255,255,.16)}
+    .softBtn svg{width:18px;height:18px; stroke:rgba(255,255,255,.86); stroke-width:2; fill:none}
 
     /* Sections */
-    section{padding:28px 0}
+    section{padding:22px 0}
     .sectionHead{
       display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
-      margin-bottom:14px;
+      margin-bottom:12px;
     }
     .sectionHead h2{
       margin:0;
       font-family:"Playfair Display", serif;
+      font-size:22px;
       font-weight:600;
       letter-spacing:.2px;
-      font-size:22px;
     }
     .sectionHead p{
       margin:0;
-      color:var(--muted2);
+      color: var(--muted2);
       font-size:13px;
       line-height:1.45;
-      max-width:50ch;
+      max-width: 52ch;
     }
 
-    /* Featured (home) project carousel */
-    .featuredWrap{
-      border:1px solid rgba(255,255,255,.08);
-      background: linear-gradient(180deg, rgba(18,18,23,.55), rgba(10,10,12,.55));
-      border-radius: var(--radius2);
+    /* Featured carousel on homepage */
+    .featuredCard{
+      border-radius: var(--r2);
       overflow:hidden;
-      box-shadow: var(--shadow);
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.02);
+      box-shadow: 0 12px 44px rgba(0,0,0,.40);
     }
-    .featuredTop{
-      display:flex; align-items:center; justify-content:space-between; gap:12px;
-      padding:16px;
-      border-bottom:1px solid rgba(255,255,255,.06);
-    }
-    .featuredTop .hint{color:var(--muted2); font-size:13px}
-    .featuredStage{
+    .featMedia{
       position:relative;
-      height: 240px;
+      aspect-ratio: 16/10;
+      min-height: 220px;
       background: rgba(255,255,255,.02);
     }
-    .featuredStage::after{
-      content:"";
-      position:absolute; inset:0;
-      background: linear-gradient(180deg, rgba(11,11,13,.18), rgba(11,11,13,.92));
-      pointer-events:none;
-    }
-    .featuredStage img{
+    .fadeImg{
       position:absolute; inset:0;
       width:100%; height:100%;
       object-fit:cover;
       opacity:0;
-      transition: opacity 1200ms ease;
-      filter: contrast(1.02) saturate(.98) brightness(.92);
+      transition: opacity 1.2s ease;
+      filter: contrast(1.03) brightness(.86);
       transform: scale(1.02);
     }
-    .featuredStage img.active{opacity:1}
-    .featuredBottom{
-      padding:14px 16px 16px;
-      display:flex; flex-direction:column; gap:10px;
+    .fadeImg.active{opacity:1}
+    .featOverlay{
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, rgba(0,0,0,.0), rgba(0,0,0,.35));
+      pointer-events:none;
     }
-    .chips{display:flex; flex-wrap:wrap; gap:8px}
-    .chip{
-      padding:7px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.08);
-      background: rgba(255,255,255,.03);
-      color: var(--muted);
-      font-size:12px;
+    .featBar{
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      padding:12px 14px;
+      border-top:1px solid rgba(255,255,255,.08);
+      background: rgba(0,0,0,.18);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
-    .chip.gold{
-      border-color: rgba(199,165,103,.25);
-      background: rgba(199,165,103,.10);
-      color: rgba(255,255,255,.86);
+    .featMeta{
+      color: rgba(255,255,255,.70);
+      font-size:13px;
+      line-height:1.35;
     }
+    .featMeta b{color: rgba(255,255,255,.88); font-weight:600}
 
-    /* Process */
+    /* Process section with background image */
     .process{
       position:relative;
-      border-top:1px solid rgba(255,255,255,.06);
-      border-bottom:1px solid rgba(255,255,255,.06);
-      background:
-        linear-gradient(180deg, rgba(10,10,12,.78), rgba(10,10,12,.90));
+      border-radius: var(--r2);
       overflow:hidden;
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow: var(--shadow);
     }
     .processBg{
-      position:absolute; inset:0; pointer-events:none;
-      opacity:.36;
-    }
-    .processBg img{
-      width:100%; height:100%;
-      object-fit:cover;
-      filter: contrast(1.04) brightness(.88) saturate(.95);
-      transform: scale(1.03);
-    }
-    .processBg::after{
-      content:"";
       position:absolute; inset:0;
       background:
-        radial-gradient(900px 420px at 20% 10%, rgba(199,165,103,.14), transparent 58%),
-        linear-gradient(180deg, rgba(11,11,13,.25), rgba(11,11,13,.96));
+        linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.72)),
+        url("/assets/hero/process-bg.jpg") center/cover no-repeat;
+      filter: contrast(1.03) brightness(.82);
     }
-    .processInner{position:relative}
+    .processInner{
+      position:relative;
+      padding:18px 14px;
+      display:grid;
+      gap:12px;
+    }
     .steps{
       display:grid;
-      grid-template-columns: 1fr;
-      gap:12px;
-      margin-top:14px;
+      gap:10px;
     }
     .step{
       display:flex; gap:12px;
-      padding:14px;
-      border-radius:var(--radius);
-      border:1px solid rgba(255,255,255,.08);
-      background: rgba(255,255,255,.03);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      padding:12px 12px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.22);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
-    .icon{
-      width:36px; height:36px; flex:0 0 auto;
-      border-radius:14px;
+    .ico{
+      width:38px;height:38px;border-radius:14px;
       border:1px solid rgba(199,165,103,.30);
-      background: rgba(199,165,103,.08);
+      background: rgba(199,165,103,.10);
       display:grid; place-items:center;
+      flex:0 0 auto;
     }
-    .icon svg{width:18px;height:18px; fill:none; stroke:rgba(255,255,255,.86); stroke-width:1.8}
-    .step b{display:block; margin:0 0 4px; font-size:14px}
-    .step p{margin:0; color:var(--muted); font-size:13px; line-height:1.5}
+    .ico svg{width:18px;height:18px; stroke:rgba(255,255,255,.88); stroke-width:2; fill:none}
+    .step h3{
+      margin:0;
+      font-size:15px;
+      font-weight:600;
+      color: rgba(255,255,255,.90);
+    }
+    .step p{
+      margin:4px 0 0;
+      color: rgba(255,255,255,.70);
+      font-size:13px;
+      line-height:1.45;
+    }
 
-    /* About + Form */
-    .grid2{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:14px;
-    }
-    .card{
-      border-radius:var(--radius2);
-      border:1px solid rgba(255,255,255,.08);
-      background: linear-gradient(180deg, rgba(18,18,23,.60), rgba(10,10,12,.60));
-      box-shadow: var(--shadow);
+    /* Form */
+    .formCard{
+      border-radius: var(--r2);
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.02);
+      box-shadow: 0 12px 44px rgba(0,0,0,.40);
       overflow:hidden;
     }
-    .cardInner{padding:18px}
-    .card h3{
-      margin:0 0 10px;
-      font-family:"Playfair Display", serif;
-      font-weight:600;
-      font-size:18px;
-      letter-spacing:.2px;
+    form{padding:14px}
+    .grid2{display:grid; gap:10px}
+    .field label{
+      display:block;
+      color: rgba(255,255,255,.72);
+      font-size:12px;
+      margin:0 0 6px;
     }
-    .card p{margin:0; color:var(--muted); font-size:14px; line-height:1.7}
-    .list{
-      margin:14px 0 0;
-      padding:0;
-      list-style:none;
-      display:grid;
-      gap:10px;
-    }
-    .list li{
-      display:flex; gap:10px; align-items:flex-start;
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.55;
-    }
-    .bullet{
-      width:20px;height:20px; flex:0 0 auto;
-      border-radius:8px;
-      border:1px solid rgba(199,165,103,.28);
-      background: rgba(199,165,103,.08);
-      display:grid; place-items:center;
-      margin-top:2px;
-    }
-    .bullet svg{width:12px;height:12px; stroke:rgba(255,255,255,.86); stroke-width:2; fill:none}
-
-    form{display:grid; gap:10px; margin-top:10px}
-    label{font-size:12px; color:var(--muted2)}
-    input, textarea{
+    .field input, .field textarea{
       width:100%;
-      padding:12px 12px;
-      border-radius:14px;
+      border-radius: 14px;
       border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
-      color: rgba(255,255,255,.92);
+      background: rgba(0,0,0,.22);
+      color: rgba(255,255,255,.88);
+      padding:12px 12px;
       outline:none;
       font: inherit;
+      font-size:14px;
       transition: border-color .2s ease, background .2s ease;
     }
-    textarea{min-height:120px; resize:vertical}
-    input:focus, textarea:focus{
-      border-color: rgba(199,165,103,.55);
-      background: rgba(255,255,255,.04);
+    .field input:focus, .field textarea:focus{
+      border-color: rgba(227,200,138,.55);
+      background: rgba(0,0,0,.28);
     }
-    .formRow{display:grid; gap:10px}
-    .note{color:var(--muted2); font-size:12px; line-height:1.5; margin:6px 0 0}
+    .field textarea{min-height:110px; resize:vertical}
+    .formActions{
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      margin-top:12px;
+    }
+    .small{
+      color: rgba(255,255,255,.58);
+      font-size:12px;
+      line-height:1.35;
+    }
+
+    /* About */
+    .twoCol{
+      display:grid;
+      gap:12px;
+    }
+    .card{
+      border-radius: var(--r2);
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.02);
+      box-shadow: 0 12px 44px rgba(0,0,0,.40);
+      padding:14px;
+    }
+    .card p{margin:0; color: rgba(255,255,255,.72); font-size:14px; line-height:1.55}
+    .badgeRow{
+      display:flex; flex-wrap:wrap; gap:8px;
+      margin-top:12px;
+    }
+    .badge{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+      color: rgba(255,255,255,.76);
+      font-size:12px;
+      padding:7px 10px;
+      border-radius:999px;
+    }
+    .badge b{color: rgba(227,200,138,.92); font-weight:600}
 
     /* Certifications (smaller cards, at bottom) */
-    .certBar{
-      display:flex;
-      gap:10px;
-      overflow:auto;
-      padding:12px 2px 8px;
-      scroll-snap-type:x mandatory;
-      -webkit-overflow-scrolling: touch;
-    }
-    .cert{
-      flex:0 0 auto;
-      width: 140px; /* smaller */
-      border-radius: 14px;
-      border:1px solid rgba(255,255,255,.08);
-      background: rgba(255,255,255,.03);
-      padding:10px;
-      scroll-snap-align:start;
+    .certWrap{
+      border-radius: var(--r2);
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.02);
+      overflow:hidden;
+      box-shadow: 0 12px 44px rgba(0,0,0,.40);
     }
     .certTop{
-      display:flex; align-items:center; gap:10px; margin-bottom:8px;
-    }
-    .certIcon{
-      width:30px; height:30px;
-      border-radius:12px;
-      border:1px solid rgba(199,165,103,.26);
-      background: rgba(199,165,103,.08);
-      display:grid; place-items:center;
-      flex:0 0 auto;
-    }
-    .certIcon svg{width:14px;height:14px; stroke:rgba(255,255,255,.86); stroke-width:1.8; fill:none}
-    .cert b{display:block; font-size:13px; line-height:1.2}
-    .cert span{display:block; margin-top:2px; font-size:11px; color:var(--muted2); line-height:1.25}
-
-    /* Footer */
-    footer{
-      padding:22px 0 66px;
-      border-top:1px solid rgba(255,255,255,.06);
-      color: var(--muted2);
-      font-size:12px;
-    }
-    .foot{
-      display:flex; flex-direction:column; gap:10px;
-      align-items:flex-start; justify-content:space-between;
-    }
-    .foot small{line-height:1.6}
-    .foot .links{display:flex; gap:10px; flex-wrap:wrap}
-    .foot .links a{
-      border:1px solid rgba(255,255,255,.08);
-      background: rgba(255,255,255,.03);
-      padding:8px 10px;
-      border-radius:999px;
-      color: rgba(255,255,255,.72);
-    }
-
-    /* "Gallery tab" overlay page */
-    .pageOverlay{
-      position:fixed; inset:0;
-      background:
-        radial-gradient(900px 420px at 70% -10%, rgba(199,165,103,.12), transparent 55%),
-        linear-gradient(180deg, rgba(11,11,13,.92), rgba(7,7,9,.98));
-      z-index:80;
-      transform: translateY(10px);
-      opacity:0;
-      pointer-events:none;
-      transition: opacity .22s ease, transform .22s ease;
-    }
-    .pageOverlay.active{
-      opacity:1;
-      transform: translateY(0);
-      pointer-events:auto;
-    }
-    .overlayTop{
-      position:sticky; top:0;
-      z-index:2;
-      padding:12px 0;
-      border-bottom:1px solid rgba(255,255,255,.06);
-      background: rgba(11,11,13,.72);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-    }
-    .overlayNav{
+      padding:12px 14px;
       display:flex; align-items:center; justify-content:space-between; gap:10px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
     }
-    .overlayTitle{
-      display:flex; flex-direction:column; gap:2px;
-      min-width:0;
-    }
-    .overlayTitle b{
+    .certTop b{
       font-family:"Playfair Display", serif;
-      font-size:18px; letter-spacing:.2px;
-    }
-    .overlayTitle span{color:var(--muted2); font-size:12px}
-    .xbtn{
-      display:inline-flex; align-items:center; justify-content:center;
-      width:42px; height:42px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
-      cursor:pointer;
-    }
-    .xbtn svg{width:18px;height:18px; stroke:rgba(255,255,255,.86); stroke-width:2; fill:none}
-
-    .galleryWrap{padding:18px 0 30px}
-    .galleryGrid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:10px;
-    }
-    .gItem{
-      position:relative;
-      border-radius: 16px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.08);
-      background: rgba(255,255,255,.02);
-      min-height: 140px;
-      box-shadow: 0 12px 40px rgba(0,0,0,.35);
-      opacity:0;
-      transform: translateY(6px);
-      transition: opacity .35s ease, transform .35s ease;
-    }
-    .gItem.in{
-      opacity:1; transform: translateY(0);
-    }
-    .gItem img{
-      width:100%; height:100%;
-      object-fit:cover;
-      display:block;
-      filter: contrast(1.03) brightness(.92);
-      transform: scale(1.02);
-    }
-    .gItem::after{
-      content:"";
-      position:absolute; inset:0;
-      background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,.18));
-      pointer-events:none;
-    }
-    .gControls{
-      display:flex; align-items:center; justify-content:space-between; gap:10px;
-      margin:12px 0 0;
-    }
-    .gCounter{color:var(--muted2); font-size:12px}
-    .gLoad{
-      padding:10px 12px;
-      border-radius:14px;
-      border:1px solid rgba(199,165,103,.35);
-      background: rgba(199,165,103,.08);
-      color: rgba(255,255,255,.86);
+      font-size:18px;
       font-weight:600;
-      cursor:pointer;
     }
-    .gLoad:hover{border-color: rgba(227,200,138,.65)}
-    .gLoad[disabled]{opacity:.55; cursor:not-allowed}
+    .certTop span{color: var(--muted2); font-size:12px}
+    .certCarousel{
+      display:flex;
+      gap:10px;
+      padding:12px 12px 14px;
+      overflow:auto;
+      scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;
+    }
+    .certCarousel::-webkit-scrollbar{height:10px}
+    .certCarousel::-webkit-scrollbar-thumb{background: rgba(255,255,255,.10); border-radius:99px}
+    .cert{
+      scroll-snap-align:start;
+      min-width: 160px;              /* smaller */
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+      padding:10px 10px;
+    }
+    .cert h4{
+      margin:0;
+      font-size:13px;
+      font-weight:600;
+      color: rgba(255,255,255,.88);
+    }
+    .cert p{
+      margin:6px 0 0;
+      font-size:12px;
+      color: rgba(255,255,255,.62);
+      line-height:1.35;
+    }
 
-    /* Dev banner */
+    footer{
+      padding:18px 0 90px;
+      color: rgba(255,255,255,.60);
+      font-size:12px;
+      border-top:1px solid rgba(255,255,255,.06);
+      margin-top: 12px;
+    }
+
     .devBanner{
       position:fixed; left:12px; right:12px; bottom:12px;
       z-index:90;
@@ -639,524 +511,373 @@
       flex:0 0 auto;
     }
 
-    /* Responsive */
     @media (min-width: 860px){
       :root{--pad:20px}
-      .heroGrid{grid-template-columns: 1.15fr .85fr}
-      .heroCard{min-height: 560px}
-      .heroInner{padding:28px}
-      .heroBottom{grid-template-columns: 1fr}
-      .featuredStage{height: 340px}
-      .steps{grid-template-columns: 1fr 1fr}
-      .grid2{grid-template-columns: 1.05fr .95fr}
-      .formRow{grid-template-columns: 1fr 1fr}
-      .galleryGrid{grid-template-columns: 1fr 1fr 1fr}
-      .foot{flex-direction:row; align-items:center}
-      .cert{width:150px}
+      h1{font-size:44px}
+      .heroInner{padding:34px 26px 26px}
+      .twoCol{grid-template-columns: 1.1fr .9fr}
+      .grid2{grid-template-columns:1fr 1fr}
+      .featMedia{min-height: 320px}
+      .brandTop{font-size:20px}
+      .brandBottom{font-size:17px}
     }
 
     @media (prefers-reduced-motion: reduce){
       html{scroll-behavior:auto}
-      .btn:hover{transform:none}
-      .heroMedia img, .featuredStage img{transition:none}
-      .gItem{transition:none}
+      .btn:hover,.link:hover,.softBtn:hover{transform:none}
+      .fadeImg,.heroMedia img{transition:none}
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <div class="container">
-      <div class="nav">
-        <a class="brand" href="#top" aria-label="Home">
-          <div class="brandIcon" title="Logo">
-            <!-- Replace with your real icon file -->
-            <img src="/assets/brand/icon.png" alt="Obolenskii icon" loading="lazy" />
+<header>
+  <div class="container">
+    <div class="nav">
+      <div class="brand" aria-label="Obolenskii Handyman Services">
+        <div class="logoBox" aria-hidden="true">
+          <img src="/assets/brand/icon.png" alt="">
+        </div>
+        <div class="brandText">
+          <div class="brandTop">
+            <span class="gold">Obolenskii</span> <span class="muted">Group</span>
           </div>
-          <div class="brandText">
-            <div class="brandLine1"><span class="gold">Obolenskii</span> Group LLC</div>
-            <div class="brandLine2">Handyman Services</div>
+          <div class="brandBottomRow">
+            <span class="divider" aria-hidden="true"></span>
+            <div class="brandBottom">Handyman Services</div>
           </div>
+        </div>
+      </div>
+
+      <nav class="navLinks" aria-label="Primary">
+        <a class="link" href="#process">Process</a>
+        <a class="link" href="#estimate">Request</a>
+        <a class="link" href="#about">About</a>
+        <a class="link" href="./gallery.html">Gallery</a>
+        <a class="btn" href="#estimate">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16" stroke-linecap="round"/><path d="M14 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Request Estimate
         </a>
+      </nav>
+    </div>
+  </div>
+</header>
 
-        <nav class="menu" aria-label="Primary">
-          <a href="#process">Process</a>
-          <a href="#estimate">Request</a>
-          <a href="#about">About</a>
-          <a href="./gallery.html">Gallery</a>
-          <a class="cta" href="#estimate">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7h-7V4l-9 8 9 8v-3h7V7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Request Estimate
+<main>
+  <section class="hero" id="top">
+    <div class="container">
+      <div class="heroCard">
+        <div class="heroMedia" aria-hidden="true">
+          <img id="heroImgA" alt="" decoding="async" loading="eager">
+          <img id="heroImgB" alt="" decoding="async" loading="eager">
+        </div>
+        <div class="heroOverlay" aria-hidden="true"></div>
+
+        <div class="heroInner">
+          <div class="kicker">
+            <span class="dot" aria-hidden="true"></span>
+            Sacramento Region • Premium finish • Built for trust
+          </div>
+
+          <h1>Repairs and upgrades that feel <span style="color:var(--gold2)">intentional</span>.</h1>
+          <p class="sub">
+            One-point-of-contact handyman service focused on clean execution, clear communication, and results that look right up close.
+          </p>
+
+          <div class="heroActions">
+            <a class="btn" href="#estimate">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16" stroke-linecap="round"/><path d="M14 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Request Estimate
+            </a>
+            <a class="softBtn" href="./gallery.html">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16" stroke-linecap="round"/><path d="M4 17h16" stroke-linecap="round"/><path d="M7 7v10" stroke-linecap="round"/></svg>
+              View Full Gallery
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured projects (slowly changing photos on main) -->
+  <section id="featured">
+    <div class="container">
+      <div class="sectionHead">
+        <div>
+          <h2>Featured projects</h2>
+          <p>Slow highlights from recent work. Full set lives in the Gallery tab.</p>
+        </div>
+      </div>
+
+      <div class="featuredCard">
+        <div class="featMedia">
+          <img id="featImgA" class="fadeImg" alt="Featured project" decoding="async" loading="lazy">
+          <img id="featImgB" class="fadeImg" alt="Featured project" decoding="async" loading="lazy">
+          <div class="featOverlay" aria-hidden="true"></div>
+        </div>
+        <div class="featBar">
+          <div class="featMeta">
+            <b>Quality like it’s for myself.</b><br>
+            Many more photos available in the full gallery.
+          </div>
+          <a class="btn" href="./gallery.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16" stroke-linecap="round"/><path d="M14 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Open Gallery
           </a>
-        </nav>
-      </div>
-    </div>
-  </header>
-
-  <main id="top">
-    <section class="hero">
-      <div class="container">
-        <div class="heroGrid">
-          <div class="heroCard">
-            <div class="heroMedia" aria-hidden="true">
-              <!-- hero slideshow images injected by JS -->
-              <img id="heroImgA" alt="" />
-              <img id="heroImgB" alt="" />
-            </div>
-
-            <div class="heroInner">
-              <div class="heroTop">
-                <div class="hEyebrow">
-                  <span class="pill">Sacramento region</span>
-                  <span class="pill">Premium craftsmanship</span>
-                  <span class="pill">Calm, clean, reliable</span>
-                </div>
-
-                <h1>Premium handyman work, done like it’s my own home.</h1>
-                <p class="sub">
-                  Focused on quality, clear communication, and results that hold up. Request an estimate and I’ll follow up with next steps.
-                </p>
-
-                <div class="heroActions">
-                  <a class="btn btnGold" href="#estimate">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                    Request Estimate
-                  </a>
-                  <a class="btn" href="#process">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6v12m0 0l-5-5m5 5l5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    See how it works
-                  </a>
-                  <a class="btn" href="#gallery" data-open-gallery>
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 17h16M7 7v10M17 7v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                    Open full gallery
-                  </a>
-                </div>
-              </div>
-
-              <div class="heroBottom">
-                <div class="miniStats">
-                  <div class="stat">
-                    <b>15+ years</b>
-                    <span>Hands-on construction experience across repairs, upgrades, and finish work.</span>
-                  </div>
-                  <div class="stat">
-                    <b>Trusted approach</b>
-                    <span>Mission: build a construction company people truly trust. Honest, open, premium.</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Featured Projects (slowly changing photos on main page) -->
-          <div class="featuredWrap" id="featured">
-            <div class="featuredTop">
-              <div>
-                <div style="font-family:'Playfair Display',serif; font-weight:600; font-size:18px; letter-spacing:.2px;">
-                  Featured Projects
-                </div>
-                <div class="hint">A small preview. Full set is in the Gallery tab.</div>
-              </div>
-              <a class="chip gold" href="#gallery" data-open-gallery>View all</a>
-            </div>
-
-            <div class="featuredStage" aria-hidden="true">
-              <img id="featImgA" alt="" />
-              <img id="featImgB" alt="" />
-            </div>
-
-            <div class="featuredBottom">
-              <div class="chips">
-                <span class="chip gold">Premium finish</span>
-                <span class="chip">Clean edges</span>
-                <span class="chip">Solid installs</span>
-                <span class="chip">Before/after quality</span>
-              </div>
-              <div style="color:var(--muted2); font-size:12px; line-height:1.5;">
-                Photos auto-load from <span style="color:rgba(255,255,255,.78)">/assets/projects/</span> via <span style="color:rgba(255,255,255,.78)">photos.js</span>.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="process" id="process">
-      <div class="processBg" aria-hidden="true">
-        <!-- Replace with your preferred premium background image -->
-        <img src="/assets/hero/process-bg.jpg" alt="" loading="lazy" />
-      </div>
-
-      <div class="container processInner">
-        <div class="sectionHead">
-          <div>
-            <h2>How your project moves forward</h2>
-            <p>Simple steps, less chaos, better results.</p>
-          </div>
-          <span class="pill">Clear plan, calm execution</span>
-        </div>
-
-        <div class="steps">
-          <div class="step">
-            <div class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M6 7h12M6 12h12M6 17h8" stroke-linecap="round"/></svg>
-            </div>
-            <div>
-              <b>1) You send the details</b>
-              <p>Name, phone, and what you want done. Photos help, but not required.</p>
-            </div>
-          </div>
-
-          <div class="step">
-            <div class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M21 8l-9 8-4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <div>
-              <b>2) Quick confirmation</b>
-              <p>I reply with clarifying questions (if needed) and confirm the next step.</p>
-            </div>
-          </div>
-
-          <div class="step">
-            <div class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 3v7m0 0l3-3m-3 3L9 7M5 13h14v8H5z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <div>
-              <b>3) On-site estimate</b>
-              <p>Walk-through, scope, materials, timeline. Then a clear estimate.</p>
-            </div>
-          </div>
-
-          <div class="step">
-            <div class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M4 20h16M7 20V9l5-5 5 5v11" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <div>
-              <b>4) Clean execution</b>
-              <p>Protect surfaces, tidy jobsite, strong finish. Quality like it’s for myself.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="estimate">
-      <div class="container">
-        <div class="sectionHead">
-          <div>
-            <h2>Request Estimate</h2>
-            <p>Send a quick message. I’ll follow up to confirm details.</p>
-          </div>
-          <span class="pill">No phone number listed yet</span>
-        </div>
-
-        <div class="grid2">
-          <div class="card">
-            <div class="cardInner">
-              <h3>Tell me what you need</h3>
-              <form id="estimateForm" autocomplete="on">
-                <div class="formRow">
-                  <div>
-                    <label for="name">Name</label>
-                    <input id="name" name="name" placeholder="Your name" required />
-                  </div>
-                  <div>
-                    <label for="phone">Phone</label>
-                    <input id="phone" name="phone" inputmode="tel" placeholder="(###) ###-####" required />
-                  </div>
-                </div>
-                <div>
-                  <label for="message">Message</label>
-                  <textarea id="message" name="message" placeholder="What should be done? Any deadlines? Address (optional)..." required></textarea>
-                </div>
-                <button class="btn btnGold" type="submit">
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="none"/></svg>
-                  Send Request
-                </button>
-                <div class="note" id="formNote">
-                  This form is ready. Hook it to your backend (Email/Telegram/CRM) when you’re ready.
-                </div>
-              </form>
-            </div>
-          </div>
-
-          <div class="card" id="about">
-            <div class="cardInner">
-              <h3>About</h3>
-              <p>
-                I have <span style="color:rgba(255,255,255,.90); font-weight:600;">15+ years</span> of hands-on construction experience.
-                My mission is to build a construction company people truly trust, open, honest, and focused on premium quality.
-                Many recent projects are visible in the Gallery.
-              </p>
-
-              <ul class="list">
-                <li>
-                  <span class="bullet" aria-hidden="true">
-                    <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  </span>
-                  Careful prep, clean lines, durable results.
-                </li>
-                <li>
-                  <span class="bullet" aria-hidden="true">
-                    <svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-7-10a7 7 0 0114 0c0 5.6-7 10-7 10z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  </span>
-                  Respect for your home: protection, dust control, cleanup.
-                </li>
-                <li>
-                  <span class="bullet" aria-hidden="true">
-                    <svg viewBox="0 0 24 24"><path d="M7 12h10M12 7v10" stroke-linecap="round"/></svg>
-                  </span>
-                  Straightforward scope, no “mystery charges”.
-                </li>
-                <li>
-                  <span class="bullet" aria-hidden="true">
-                    <svg viewBox="0 0 24 24"><path d="M4 12l4 4L20 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  </span>
-                  Gallery shows real work in progress and finished results.
-                </li>
-              </ul>
-
-              <div style="margin-top:14px;">
-                <a class="btn" href="#gallery" data-open-gallery>
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="2" fill="none"/><path d="M8 10h.01M4 16l5-5 4 4 3-3 4 4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  Open Gallery
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Certifications moved to bottom and smaller -->
-    <section id="certs" style="padding-top:10px;">
-      <div class="container">
-        <div class="sectionHead">
-          <div>
-            <h2>Certifications & Safety</h2>
-            <p>Training that supports safer, cleaner work.</p>
-          </div>
-          <span class="pill">Swipe</span>
-        </div>
-
-        <div class="certBar" aria-label="Certifications carousel">
-          <div class="cert">
-            <div class="certTop">
-              <div class="certIcon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M12 2l7 4v6c0 5-3 9-7 10-4-1-7-5-7-10V6l7-4z"/></svg>
-              </div>
-              <div>
-                <b>OSHA 10</b>
-                <span>Safety training</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="cert">
-            <div class="certTop">
-              <div class="certIcon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M5 20h14M7 20V9l5-5 5 5v11"/></svg>
-              </div>
-              <div>
-                <b>NWSA</b>
-                <span>TTT-1</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="cert">
-            <div class="certTop">
-              <div class="certIcon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-10a7 7 0 0114 0c0 5.5-7 10-7 10z"/><path d="M12 11v4M10 13h4"/></svg>
-              </div>
-              <div>
-                <b>CPR</b>
-                <span>First aid</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="cert">
-            <div class="certTop">
-              <div class="certIcon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M13 2L3 14h7l-1 8 12-14h-7l-1-6z"/></svg>
-              </div>
-              <div>
-                <b>Electrical</b>
-                <span>Safety</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="cert">
-            <div class="certTop">
-              <div class="certIcon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0116 0"/><path d="M7 12a5 5 0 0110 0"/><path d="M10 12a2 2 0 014 0"/><path d="M12 14v8"/></svg>
-              </div>
-              <div>
-                <b>RF</b>
-                <span>Safety</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <div class="container">
-        <div class="foot">
-          <small>
-            © <span id="year"></span> <span style="color:rgba(255,255,255,.82)">Obolenskii Handyman Services</span> · Sacramento, CA<br>
-            <span style="color:rgba(255,255,255,.60)">Obolenskii</span> Group LLC
-          </small>
-          <div class="links">
-            <a href="#estimate">Request Estimate</a>
-            <a href="#process">Process</a>
-            <a href="#gallery" data-open-gallery>Gallery</a>
-            <a href="#top">Top</a>
-          </div>
-        </div>
-      </div>
-    </footer>
-  </main>
-
-  <!-- Gallery overlay "tab" (single-page, separate view) -->
-  <div class="pageOverlay" id="galleryOverlay" aria-hidden="true">
-    <div class="overlayTop">
-      <div class="container">
-        <div class="overlayNav">
-          <div class="overlayTitle">
-            <b>Project Gallery</b>
-            <span>Auto-loaded from /assets/projects/ via photos.js</span>
-          </div>
-          <button class="xbtn" type="button" id="closeGallery" aria-label="Close gallery">
-            <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
-          </button>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="container galleryWrap">
-      <div class="galleryGrid" id="galleryGrid" aria-label="Gallery grid"></div>
-      <div class="gControls">
-        <div class="gCounter" id="gCounter">Loaded 0 / 0</div>
-        <button class="gLoad" id="gLoadBtn" type="button">Load more</button>
+  <!-- Process -->
+  <section id="process">
+    <div class="container">
+      <div class="sectionHead">
+        <div>
+          <h2>How your project moves forward</h2>
+          <p>Simple, human, and clear. No drama, no guesswork.</p>
+        </div>
       </div>
+
+      <div class="process">
+        <div class="processBg" aria-hidden="true"></div>
+        <div class="processInner">
+          <div class="steps">
+            <div class="step">
+              <div class="ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M7 8h10" stroke-linecap="round"/><path d="M7 12h6" stroke-linecap="round"/><path d="M7 16h8" stroke-linecap="round"/><path d="M6 3h12a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V5a2 2 0 012-2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div>
+                <h3>1) Quick details</h3>
+                <p>You send what you need, where it is, and your preferred time. Photos help.</p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 21s7-4.4 7-11a7 7 0 10-14 0c0 6.6 7 11 7 11z" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 10.5a2 2 0 100-4 2 2 0 000 4z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div>
+                <h3>2) On-site estimate</h3>
+                <p>We review scope, options, and finish level. Clear plan, clear price.</p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 12h4l2 7 4-14 2 7h4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div>
+                <h3>3) Clean execution</h3>
+                <p>Protect surfaces, tidy work, premium finish. You’ll feel the difference.</p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M20 7l-8.5 8.5L7 11" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 22a10 10 0 110-20 10 10 0 010 20z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div>
+                <h3>4) Final walkthrough</h3>
+                <p>We confirm details and finish. If something isn’t right, it gets fixed.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Request Estimate -->
+  <section id="estimate">
+    <div class="container">
+      <div class="sectionHead">
+        <div>
+          <h2>Request an estimate</h2>
+          <p>No phone number yet. Send details here and we’ll respond.</p>
+        </div>
+      </div>
+
+      <div class="formCard">
+        <form id="estimateForm" autocomplete="on">
+          <div class="grid2">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" placeholder="Your name" required />
+            </div>
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" placeholder="Your phone number" required />
+            </div>
+          </div>
+
+          <div class="field" style="margin-top:10px;">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="What do you need help with? Include city, address (optional), and preferred time." required></textarea>
+          </div>
+
+          <div class="formActions">
+            <button class="btn" type="submit">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16" stroke-linecap="round"/><path d="M14 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Send Request
+            </button>
+            <div class="small">By sending, you agree to be contacted about this request.</div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <div class="sectionHead">
+        <div>
+          <h2>About</h2>
+          <p>Mission-first workmanship and a long horizon.</p>
+        </div>
+      </div>
+
+      <div class="twoCol">
+        <div class="card">
+          <p>
+            I have <b style="color:rgba(255,255,255,.92)">15+ years</b> of hands-on experience across repair, finish carpentry, interior upgrades, and practical problem-solving.
+            My mission is to build a construction company people truly trust: open, honest, and consistent. Quality is done like it’s for myself.
+          </p>
+          <div class="badgeRow">
+            <div class="badge"><b>Premium finish</b> mindset</div>
+            <div class="badge">Clear communication</div>
+            <div class="badge">Respect for your home</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <p>
+            Many projects are visible in the gallery. If you want a similar result, send your details and we’ll map the fastest, cleanest route to done.
+          </p>
+          <div class="badgeRow">
+            <div class="badge">Sacramento region</div>
+            <div class="badge">Mobile-first service</div>
+            <div class="badge">Estimate by visit</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications (smaller, at bottom) -->
+  <section id="certifications">
+    <div class="container">
+      <div class="certWrap">
+        <div class="certTop">
+          <b>Certifications & Safety</b>
+          <span>Swipe →</span>
+        </div>
+        <div class="certCarousel" aria-label="Certifications carousel">
+          <div class="cert">
+            <h4>OSHA 10</h4>
+            <p>Core safety fundamentals.</p>
+          </div>
+          <div class="cert">
+            <h4>NWSA TTT-1</h4>
+            <p>Training & tower safety.</p>
+          </div>
+          <div class="cert">
+            <h4>CPR</h4>
+            <p>Emergency response basics.</p>
+          </div>
+          <div class="cert">
+            <h4>Electrical Safety</h4>
+            <p>Safe work practices.</p>
+          </div>
+          <div class="cert">
+            <h4>RF Safety</h4>
+            <p>Exposure awareness.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      © <span id="y"></span> Obolenskii Handyman Services • Sacramento Region
+    </div>
+  </footer>
+</main>
+
+<div class="devBanner" role="status" aria-live="polite">
+  <div style="display:flex; align-items:center; gap:10px;">
+    <span class="dot" aria-hidden="true"></span>
+    <div>
+      <b>Website in development</b>
+      <div style="color:rgba(255,255,255,.62); font-size:12px;">Content and gallery are actively being updated.</div>
     </div>
   </div>
+  <div style="color:rgba(255,255,255,.60); font-size:12px;">v0.2</div>
+</div>
 
-  <div class="devBanner" role="status" aria-live="polite">
-    <div style="display:flex; align-items:center; gap:10px;">
-      <span class="dot" aria-hidden="true"></span>
-      <div>
-        <b>Website in development</b>
-        <div style="color:rgba(255,255,255,.62); font-size:12px;">Content and gallery are being updated.</div>
-      </div>
-    </div>
-    <div style="color:rgba(255,255,255,.60); font-size:12px;">v0.1</div>
-  </div>
+<script src="./photos.js"></script>
+<script src="./gallery.js"></script>
 
-  <!-- Photo list + gallery logic -->
-  <script src="./photos.js"></script>
-  <script src="./gallery.js"></script>
+<script>
+  // Year
+  document.getElementById('y').textContent = new Date().getFullYear();
 
-  <script>
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
+  // Form (placeholder: no backend)
+  document.getElementById('estimateForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const fd = new FormData(e.target);
+    const payload = {
+      name: (fd.get('name') || '').toString().trim(),
+      phone: (fd.get('phone') || '').toString().trim(),
+      message: (fd.get('message') || '').toString().trim(),
+      createdAt: new Date().toISOString()
+    };
+    console.log('Estimate request:', payload);
+    alert("Request sent. We'll get back to you soon.");
+    e.target.reset();
+  });
 
-    // Simple form handler (placeholder)
-    document.getElementById('estimateForm').addEventListener('submit', (e) => {
+  // Smooth scroll (offset header)
+  (function(){
+    const header = document.querySelector('header');
+    const offset = () => (header?.getBoundingClientRect().height || 0) + 8;
+    document.addEventListener('click', (e) => {
+      const a = e.target.closest('a[href^="#"]');
+      if(!a) return;
+      const id = a.getAttribute('href');
+      if(!id || id.length < 2) return;
+      const el = document.querySelector(id);
+      if(!el) return;
       e.preventDefault();
-      const note = document.getElementById('formNote');
-      note.textContent = "Request captured (demo). Connect this form to your backend when ready.";
-      note.style.color = "rgba(227,200,138,.85)";
-      e.target.reset();
-      setTimeout(() => {
-        note.textContent = "This form is ready. Hook it to your backend (Email/Telegram/CRM) when you’re ready.";
-        note.style.color = "rgba(255,255,255,.52)";
-      }, 4500);
+      const top = el.getBoundingClientRect().top + window.pageYOffset - offset();
+      window.scrollTo({ top, behavior: 'smooth' });
     });
+  })();
 
-    // Overlay open/close
-    const overlay = document.getElementById('galleryOverlay');
-    const openers = [...document.querySelectorAll('[data-open-gallery]')];
-    const closeBtn = document.getElementById('closeGallery');
-
-    function openGallery(){
-      overlay.classList.add('active');
-      overlay.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-      if (window.OBOLENSKII_GALLERY?.ensureInit) window.OBOLENSKII_GALLERY.ensureInit();
-      history.replaceState(null, "", "#gallery");
-    }
-
-    function closeGallery(){
-      overlay.classList.remove('active');
-      overlay.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-      if (location.hash === "#gallery") history.replaceState(null, "", "#top");
-    }
-
-    openers.forEach(a => a.addEventListener('click', (e) => { e.preventDefault(); openGallery(); }));
-    closeBtn.addEventListener('click', closeGallery);
-    overlay.addEventListener('click', (e) => { if (e.target === overlay) closeGallery(); });
-
-    // Hash behavior
-    function syncHash(){
-      if (location.hash === "#gallery") openGallery();
-    }
-    window.addEventListener('hashchange', syncHash);
-    syncHash();
-
-    <script>
-  // Hero + Featured slideshow (waits for photos)
+  // Hero + Featured slow slideshow (waits for OBOLENSKII_PHOTOS_READY)
   (async function(){
-    if (window.OBOLENSKII_PHOTOS_READY) {
-      try { await window.OBOLENSKII_PHOTOS_READY; } catch {}
-    }
-
-    const photos = (window.OBOLENSKII_PHOTOS?.all || []).slice();
-    const featured = (window.OBOLENSKII_PHOTOS?.featured && window.OBOLENSKII_PHOTOS.featured.length)
-      ? window.OBOLENSKII_PHOTOS.featured.slice()
-      : photos.slice(0, 10);
-
-    function pick(list, n){
-      const a = list.slice();
-      for (let i=a.length-1; i>0; i--){
-        const j = Math.floor(Math.random()*(i+1));
-        [a[i], a[j]] = [a[j], a[i]];
-      }
-      return a.slice(0, Math.max(2, n));
-    }
-
-    const heroSet = pick(featured, 6);
-    const featSet = pick(featured, 8);
-
     const heroA = document.getElementById('heroImgA');
     const heroB = document.getElementById('heroImgB');
     const featA = document.getElementById('featImgA');
     const featB = document.getElementById('featImgB');
 
-    if (!heroSet.length){
-      const fallback = "/assets/hero/hero.jpg";
-      heroA.src = fallback; heroA.classList.add('active');
-      featA.src = fallback; featA.classList.add('active');
-      return;
-    }
+    // fallback images if no photos
+    const fallbackHero = "/assets/hero/hero.jpg";
 
     function slidePair(img1, img2, list, intervalMs){
       let idx = 0;
       let flip = false;
 
-      img1.src = list[0];
+      img1.src = list[0] || fallbackHero;
       img1.classList.add('active');
+      img2.src = list[1] || list[0] || fallbackHero;
 
-      img2.src = list[1] || list[0];
-
-      function next(){
+      setInterval(() => {
         idx = (idx + 1) % list.length;
-        const nextSrc = list[idx];
+        const nextSrc = list[idx] || fallbackHero;
 
         const show = flip ? img1 : img2;
         const hide = flip ? img2 : img1;
@@ -1166,78 +887,47 @@
         hide.classList.remove('active');
 
         flip = !flip;
-      }
-
-      setInterval(next, intervalMs);
+      }, intervalMs);
     }
 
-    slidePair(heroA, heroB, heroSet, 7000);
-    slidePair(featA, featB, featSet, 6500);
-  })();
-</script>
-
-
-      function pick(list, n){
-        const a = list.slice();
-        // simple shuffle
-        for (let i=a.length-1; i>0; i--){
-          const j = Math.floor(Math.random()*(i+1));
-          [a[i], a[j]] = [a[j], a[i]];
-        }
-        return a.slice(0, Math.max(2, n));
+    try{
+      if (window.OBOLENSKII_PHOTOS_READY) {
+        await window.OBOLENSKII_PHOTOS_READY;
       }
 
-      const heroSet = pick(featured, 6);
-      const featSet = pick(featured, 8);
+      const featured = (window.OBOLENSKII_PHOTOS?.featured || []).slice();
+      const all = (window.OBOLENSKII_PHOTOS?.all || []).slice();
+      const list = featured.length ? featured : all;
 
-      const heroA = document.getElementById('heroImgA');
-      const heroB = document.getElementById('heroImgB');
-      const featA = document.getElementById('featImgA');
-      const featB = document.getElementById('featImgB');
-
-      // Guard if no photos yet
-      if (!heroSet.length){
-        const fallback = "/assets/hero/hero.jpg";
-        heroA.src = fallback; heroA.classList.add('active');
-        featA.src = fallback; featA.classList.add('active');
+      if(!list.length){
+        heroA.src = fallbackHero; heroA.classList.add('active');
+        featA.src = fallbackHero; featA.classList.add('active');
         return;
       }
 
-      function slidePair(img1, img2, list, intervalMs){
-        let idx = 0;
-        let flip = false;
-
-        // preload first two
-        const first = list[0];
-        const second = list[1] || list[0];
-
-        img1.src = first;
-        img1.classList.add('active');
-
-        img2.src = second;
-
-        function next(){
-          idx = (idx + 1) % list.length;
-          const nextSrc = list[idx];
-
-          const show = flip ? img1 : img2;
-          const hide = flip ? img2 : img1;
-
-          show.src = nextSrc;
-          show.classList.add('active');
-          hide.classList.remove('active');
-
-          flip = !flip;
+      // Pick a few (stable but varied)
+      const pick = (arr, n) => {
+        const a = arr.slice();
+        for(let i=a.length-1;i>0;i--){
+          const j = Math.floor(Math.random()*(i+1));
+          [a[i], a[j]] = [a[j], a[i]];
         }
+        return a.slice(0, Math.max(2, Math.min(n, a.length)));
+      };
 
-        // Start after initial
-        setInterval(next, intervalMs);
-      }
+      const heroSet = pick(list, 6);
+      const featSet = pick(list, 4);
 
-      // Slower, premium pace
-      slidePair(heroA, heroB, heroSet, 7000);
-      slidePair(featA, featB, featSet, 6500);
-    })();
-  </script>
+      // Ensure images exist
+      if(heroA && heroB) slidePair(heroA, heroB, heroSet, 7000);
+      if(featA && featB) slidePair(featA, featB, featSet, 6500);
+
+    }catch(e){
+      console.log("Slideshow error:", e);
+      heroA.src = fallbackHero; heroA.classList.add('active');
+      featA.src = fallbackHero; featA.classList.add('active');
+    }
+  })();
+</script>
 </body>
 </html>
