@@ -1109,12 +1109,73 @@
     window.addEventListener('hashchange', syncHash);
     syncHash();
 
-    // Hero + Featured slow slideshow (uses photo list)
-    (function(){
-      const photos = (window.OBOLENSKII_PHOTOS?.all || []).slice();
-      const featured = (window.OBOLENSKII_PHOTOS?.featured && window.OBOLENSKII_PHOTOS.featured.length)
-        ? window.OBOLENSKII_PHOTOS.featured.slice()
-        : photos.slice(0, 10);
+    <script>
+  // Hero + Featured slideshow (waits for photos)
+  (async function(){
+    if (window.OBOLENSKII_PHOTOS_READY) {
+      try { await window.OBOLENSKII_PHOTOS_READY; } catch {}
+    }
+
+    const photos = (window.OBOLENSKII_PHOTOS?.all || []).slice();
+    const featured = (window.OBOLENSKII_PHOTOS?.featured && window.OBOLENSKII_PHOTOS.featured.length)
+      ? window.OBOLENSKII_PHOTOS.featured.slice()
+      : photos.slice(0, 10);
+
+    function pick(list, n){
+      const a = list.slice();
+      for (let i=a.length-1; i>0; i--){
+        const j = Math.floor(Math.random()*(i+1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a.slice(0, Math.max(2, n));
+    }
+
+    const heroSet = pick(featured, 6);
+    const featSet = pick(featured, 8);
+
+    const heroA = document.getElementById('heroImgA');
+    const heroB = document.getElementById('heroImgB');
+    const featA = document.getElementById('featImgA');
+    const featB = document.getElementById('featImgB');
+
+    if (!heroSet.length){
+      const fallback = "/assets/hero/hero.jpg";
+      heroA.src = fallback; heroA.classList.add('active');
+      featA.src = fallback; featA.classList.add('active');
+      return;
+    }
+
+    function slidePair(img1, img2, list, intervalMs){
+      let idx = 0;
+      let flip = false;
+
+      img1.src = list[0];
+      img1.classList.add('active');
+
+      img2.src = list[1] || list[0];
+
+      function next(){
+        idx = (idx + 1) % list.length;
+        const nextSrc = list[idx];
+
+        const show = flip ? img1 : img2;
+        const hide = flip ? img2 : img1;
+
+        show.src = nextSrc;
+        show.classList.add('active');
+        hide.classList.remove('active');
+
+        flip = !flip;
+      }
+
+      setInterval(next, intervalMs);
+    }
+
+    slidePair(heroA, heroB, heroSet, 7000);
+    slidePair(featA, featB, featSet, 6500);
+  })();
+</script>
+
 
       function pick(list, n){
         const a = list.slice();
