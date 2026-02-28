@@ -1,933 +1,247 @@
-<!-- index.html -->
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="theme-color" content="#0b0b0d" />
-  <title>Obolenskii Handyman Services | Sacramento</title>
-  <meta name="description" content="Premium handyman services in Sacramento. Request an estimate." />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root{
-      --bg:#0b0b0d;
-      --bg2:#101014;
-      --card:#121217;
-      --stroke:rgba(255,255,255,.08);
-      --stroke2:rgba(255,255,255,.12);
-      --text:rgba(255,255,255,.90);
-      --muted:rgba(255,255,255,.66);
-      --muted2:rgba(255,255,255,.52);
-      --gold:#c7a567;
-      --gold2:#e3c88a;
-      --shadow: 0 18px 60px rgba(0,0,0,.55);
-      --r:18px;
-      --r2:24px;
-      --max:1120px;
-      --pad:16px;
-    }
-
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background:
-        radial-gradient(900px 420px at 72% -10%, rgba(199,165,103,.12), transparent 55%),
-        radial-gradient(700px 380px at 18% 10%, rgba(255,255,255,.05), transparent 60%),
-        linear-gradient(180deg, var(--bg) 0%, #070709 100%);
-      color:var(--text);
-      overflow-x:hidden;
-    }
-    a{color:inherit; text-decoration:none}
-    img{max-width:100%; display:block}
-    .container{max-width:var(--max); margin:0 auto; padding:0 var(--pad)}
-
-    header{
-      position:sticky; top:0; z-index:60;
-      background: linear-gradient(180deg, rgba(11,11,13,.86), rgba(11,11,13,.58));
-      border-bottom:1px solid rgba(255,255,255,.06);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-    }
-    .nav{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:12px;
-      padding:12px 0;
-    }
-
-    .brand{
-      display:flex; align-items:center; gap:12px;
-      min-width:0;
-    }
-    .logoBox{
-      width:40px; height:40px;
-      border-radius:14px;
-      border:1px solid rgba(199,165,103,.25);
-      background: linear-gradient(180deg, rgba(199,165,103,.14), rgba(255,255,255,.02));
-      display:grid; place-items:center;
-      box-shadow: 0 12px 40px rgba(0,0,0,.35);
-      flex:0 0 auto;
-      overflow:hidden;
-    }
-    .logoBox img{
-      width:24px; height:24px; object-fit:contain;
-      filter: drop-shadow(0 8px 22px rgba(0,0,0,.45));
-    }
-    .brandText{min-width:0}
-    .brandTop{
-      font-family: "Playfair Display", serif;
-      font-size:18px;
-      line-height:1.1;
-      letter-spacing:.2px;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
-    .brandTop .gold{color:var(--gold2)}
-    .brandTop .muted{color:rgba(255,255,255,.78)}
-    .brandBottomRow{
-      display:flex; align-items:center; gap:10px;
-      margin-top:4px;
-      min-width:0;
-    }
-    .divider{
-      height:1px;
-      width:42px;
-      background: linear-gradient(90deg, rgba(227,200,138,.0), rgba(227,200,138,.8), rgba(227,200,138,.0));
-      flex:0 0 auto;
-      opacity:.9;
-    }
-    .brandBottom{
-      font-size:15px;                /* bigger as requested */
-      font-weight:600;
-      color:rgba(255,255,255,.88);
-      letter-spacing:.2px;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
-
-    .navLinks{
-      display:flex; align-items:center; gap:10px;
-    }
-    .link{
-      font-size:13px;
-      color:rgba(255,255,255,.74);
-      padding:8px 10px;
-      border-radius:12px;
-      border:1px solid transparent;
-      transition: background .2s ease, border-color .2s ease, transform .15s ease;
-      user-select:none;
-    }
-    .link:hover{
-      background: rgba(255,255,255,.03);
-      border-color: rgba(255,255,255,.08);
-      transform: translateY(-1px);
-      color: rgba(255,255,255,.86);
-    }
-
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      gap:10px;
-      padding:10px 12px;
-      border-radius:14px;
-      border:1px solid rgba(199,165,103,.38);
-      background: linear-gradient(180deg, rgba(199,165,103,.18), rgba(199,165,103,.06));
-      color: rgba(255,255,255,.90);
-      font-weight:600;
-      font-size:14px;
-      cursor:pointer;
-      transition: transform .15s ease, border-color .2s ease;
-      user-select:none;
-      white-space:nowrap;
-    }
-    .btn:hover{transform: translateY(-1px); border-color: rgba(227,200,138,.65)}
-    .btn svg{width:18px;height:18px; stroke:rgba(255,255,255,.88); stroke-width:2; fill:none}
-
-    /* HERO */
-    .hero{
-      position:relative;
-      padding:28px 0 18px;
-    }
-    .heroCard{
-      position:relative;
-      border-radius: var(--r2);
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.02);
-      box-shadow: var(--shadow);
-    }
-    .heroMedia{
-      position:absolute; inset:0;
-    }
-    .heroMedia img{
-      position:absolute; inset:0;
-      width:100%; height:100%;
-      object-fit:cover;
-      opacity:0;
-      transition: opacity 1.2s ease;
-      filter: contrast(1.05) brightness(.72);
-      transform: scale(1.03);
-    }
-    .heroMedia img.active{opacity:1}
-    .heroOverlay{
-      position:absolute; inset:0;
-      background:
-        radial-gradient(900px 420px at 60% 0%, rgba(199,165,103,.10), transparent 55%),
-        linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.62));
-    }
-    .heroInner{
-      position:relative;
-      padding:22px 16px 16px;
-      display:grid;
-      gap:12px;
-    }
-    .kicker{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.28);
-      color: rgba(255,255,255,.76);
-      font-size:13px;
-      width:fit-content;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-    }
-    .kicker .dot{
-      width:8px;height:8px;border-radius:99px;
-      background: rgba(227,200,138,.9);
-      box-shadow: 0 0 0 4px rgba(199,165,103,.18);
-    }
-    h1{
-      margin:0;
-      font-family:"Playfair Display", serif;
-      font-weight:700;
-      letter-spacing:.2px;
-      font-size:30px;
-      line-height:1.08;
-    }
-    .sub{
-      margin:0;
-      color: rgba(255,255,255,.74);
-      font-size:15px;
-      line-height:1.5;
-      max-width: 58ch;
-    }
-    .heroActions{
-      display:flex; gap:10px; flex-wrap:wrap;
-      padding-top:4px;
-    }
-    .softBtn{
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding:10px 12px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.03);
-      color: rgba(255,255,255,.86);
-      font-weight:600;
-      font-size:14px;
-      cursor:pointer;
-      transition: transform .15s ease, background .2s ease, border-color .2s ease;
-      user-select:none;
-      white-space:nowrap;
-    }
-    .softBtn:hover{transform: translateY(-1px); background: rgba(255,255,255,.05); border-color: rgba(255,255,255,.16)}
-    .softBtn svg{width:18px;height:18px; stroke:rgba(255,255,255,.86); stroke-width:2; fill:none}
-
-    /* Sections */
-    section{padding:22px 0}
-    .sectionHead{
-      display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
-      margin-bottom:12px;
-    }
-    .sectionHead h2{
-      margin:0;
-      font-family:"Playfair Display", serif;
-      font-size:22px;
-      font-weight:600;
-      letter-spacing:.2px;
-    }
-    .sectionHead p{
-      margin:0;
-      color: var(--muted2);
-      font-size:13px;
-      line-height:1.45;
-      max-width: 52ch;
-    }
-
-    /* Featured carousel on homepage */
-    .featuredCard{
-      border-radius: var(--r2);
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.02);
-      box-shadow: 0 12px 44px rgba(0,0,0,.40);
-    }
-    .featMedia{
-      position:relative;
-      aspect-ratio: 16/10;
-      min-height: 220px;
-      background: rgba(255,255,255,.02);
-    }
-    .fadeImg{
-      position:absolute; inset:0;
-      width:100%; height:100%;
-      object-fit:cover;
-      opacity:0;
-      transition: opacity 1.2s ease;
-      filter: contrast(1.03) brightness(.86);
-      transform: scale(1.02);
-    }
-    .fadeImg.active{opacity:1}
-    .featOverlay{
-      position:absolute; inset:0;
-      background: linear-gradient(180deg, rgba(0,0,0,.0), rgba(0,0,0,.35));
-      pointer-events:none;
-    }
-    .featBar{
-      display:flex; align-items:center; justify-content:space-between; gap:10px;
-      padding:12px 14px;
-      border-top:1px solid rgba(255,255,255,.08);
-      background: rgba(0,0,0,.18);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-    }
-    .featMeta{
-      color: rgba(255,255,255,.70);
-      font-size:13px;
-      line-height:1.35;
-    }
-    .featMeta b{color: rgba(255,255,255,.88); font-weight:600}
-
-    /* Process section with background image */
-    .process{
-      position:relative;
-      border-radius: var(--r2);
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.10);
-      box-shadow: var(--shadow);
-    }
-    .processBg{
-      position:absolute; inset:0;
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.72)),
-        url("/assets/hero/process-bg.jpg") center/cover no-repeat;
-      filter: contrast(1.03) brightness(.82);
-    }
-    .processInner{
-      position:relative;
-      padding:18px 14px;
-      display:grid;
-      gap:12px;
-    }
-    .steps{
-      display:grid;
-      gap:10px;
-    }
-    .step{
-      display:flex; gap:12px;
-      padding:12px 12px;
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.22);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-    }
-    .ico{
-      width:38px;height:38px;border-radius:14px;
-      border:1px solid rgba(199,165,103,.30);
-      background: rgba(199,165,103,.10);
-      display:grid; place-items:center;
-      flex:0 0 auto;
-    }
-    .ico svg{width:18px;height:18px; stroke:rgba(255,255,255,.88); stroke-width:2; fill:none}
-    .step h3{
-      margin:0;
-      font-size:15px;
-      font-weight:600;
-      color: rgba(255,255,255,.90);
-    }
-    .step p{
-      margin:4px 0 0;
-      color: rgba(255,255,255,.70);
-      font-size:13px;
-      line-height:1.45;
-    }
-
-    /* Form */
-    .formCard{
-      border-radius: var(--r2);
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.02);
-      box-shadow: 0 12px 44px rgba(0,0,0,.40);
-      overflow:hidden;
-    }
-    form{padding:14px}
-    .grid2{display:grid; gap:10px}
-    .field label{
-      display:block;
-      color: rgba(255,255,255,.72);
-      font-size:12px;
-      margin:0 0 6px;
-    }
-    .field input, .field textarea{
-      width:100%;
-      border-radius: 14px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.22);
-      color: rgba(255,255,255,.88);
-      padding:12px 12px;
-      outline:none;
-      font: inherit;
-      font-size:14px;
-      transition: border-color .2s ease, background .2s ease;
-    }
-    .field input:focus, .field textarea:focus{
-      border-color: rgba(227,200,138,.55);
-      background: rgba(0,0,0,.28);
-    }
-    .field textarea{min-height:110px; resize:vertical}
-    .formActions{
-      display:flex; align-items:center; justify-content:space-between; gap:10px;
-      margin-top:12px;
-    }
-    .small{
-      color: rgba(255,255,255,.58);
-      font-size:12px;
-      line-height:1.35;
-    }
-
-    /* About */
-    .twoCol{
-      display:grid;
-      gap:12px;
-    }
-    .card{
-      border-radius: var(--r2);
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.02);
-      box-shadow: 0 12px 44px rgba(0,0,0,.40);
-      padding:14px;
-    }
-    .card p{margin:0; color: rgba(255,255,255,.72); font-size:14px; line-height:1.55}
-    .badgeRow{
-      display:flex; flex-wrap:wrap; gap:8px;
-      margin-top:12px;
-    }
-    .badge{
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.18);
-      color: rgba(255,255,255,.76);
-      font-size:12px;
-      padding:7px 10px;
-      border-radius:999px;
-    }
-    .badge b{color: rgba(227,200,138,.92); font-weight:600}
-
-    /* Certifications (smaller cards, at bottom) */
-    .certWrap{
-      border-radius: var(--r2);
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.02);
-      overflow:hidden;
-      box-shadow: 0 12px 44px rgba(0,0,0,.40);
-    }
-    .certTop{
-      padding:12px 14px;
-      display:flex; align-items:center; justify-content:space-between; gap:10px;
-      border-bottom: 1px solid rgba(255,255,255,.08);
-    }
-    .certTop b{
-      font-family:"Playfair Display", serif;
-      font-size:18px;
-      font-weight:600;
-    }
-    .certTop span{color: var(--muted2); font-size:12px}
-    .certCarousel{
-      display:flex;
-      gap:10px;
-      padding:12px 12px 14px;
-      overflow:auto;
-      scroll-snap-type:x mandatory;
-      -webkit-overflow-scrolling:touch;
-    }
-    .certCarousel::-webkit-scrollbar{height:10px}
-    .certCarousel::-webkit-scrollbar-thumb{background: rgba(255,255,255,.10); border-radius:99px}
-    .cert{
-      scroll-snap-align:start;
-      min-width: 160px;              /* smaller */
-      border-radius: 14px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.18);
-      padding:10px 10px;
-    }
-    .cert h4{
-      margin:0;
-      font-size:13px;
-      font-weight:600;
-      color: rgba(255,255,255,.88);
-    }
-    .cert p{
-      margin:6px 0 0;
-      font-size:12px;
-      color: rgba(255,255,255,.62);
-      line-height:1.35;
-    }
-
-    footer{
-      padding:18px 0 90px;
-      color: rgba(255,255,255,.60);
-      font-size:12px;
-      border-top:1px solid rgba(255,255,255,.06);
-      margin-top: 12px;
-    }
-
-    .devBanner{
-      position:fixed; left:12px; right:12px; bottom:12px;
-      z-index:90;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(10,10,12,.72);
-      color: rgba(255,255,255,.78);
-      font-size:12px;
-      padding:10px 12px;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      display:flex; align-items:center; justify-content:space-between; gap:10px;
-      box-shadow: 0 14px 44px rgba(0,0,0,.45);
-    }
-    .devBanner b{color:rgba(255,255,255,.90); font-weight:600}
-    .devBanner .dot{
-      width:8px; height:8px; border-radius:999px;
-      background: rgba(199,165,103,.85);
-      box-shadow: 0 0 0 4px rgba(199,165,103,.18);
-      flex:0 0 auto;
-    }
-
-    @media (min-width: 860px){
-      :root{--pad:20px}
-      h1{font-size:44px}
-      .heroInner{padding:34px 26px 26px}
-      .twoCol{grid-template-columns: 1.1fr .9fr}
-      .grid2{grid-template-columns:1fr 1fr}
-      .featMedia{min-height: 320px}
-      .brandTop{font-size:20px}
-      .brandBottom{font-size:17px}
-    }
-
-    @media (prefers-reduced-motion: reduce){
-      html{scroll-behavior:auto}
-      .btn:hover,.link:hover,.softBtn:hover{transform:none}
-      .fadeImg,.heroMedia img{transition:none}
-    }
-  </style>
-</head>
-
-<body>
-<header>
-  <div class="container">
-    <div class="nav">
-      <div class="brand" aria-label="Obolenskii Handyman Services">
-        <div class="logoBox" aria-hidden="true">
-          <img src="/assets/brand/icon.png" alt="">
-        </div>
-        <div class="brandText">
-          <div class="brandTop">
-            <span class="gold">Obolenskii</span> <span class="muted">Group</span>
-          </div>
-          <div class="brandBottomRow">
-            <span class="divider" aria-hidden="true"></span>
-            <div class="brandBottom">Handyman Services</div>
-          </div>
-        </div>
-      </div>
-
-      <nav class="navLinks" aria-label="Primary">
-        <a class="link" href="#process">Process</a>
-        <a class="link" href="#estimate">Request</a>
-        <a class="link" href="#about">About</a>
-        <a class="link" href="./gallery.html">Gallery</a>
-        <a class="btn" href="#estimate">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16" stroke-linecap="round"/><path d="M14 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Request Estimate
-        </a>
-      </nav>
-    </div>
-  </div>
-</header>
-
-<main>
-  <section class="hero" id="top">
-    <div class="container">
-      <div class="heroCard">
-        <div class="heroMedia" aria-hidden="true">
-          <img id="heroImgA" alt="" decoding="async" loading="eager">
-          <img id="heroImgB" alt="" decoding="async" loading="eager">
-        </div>
-        <div class="heroOverlay" aria-hidden="true"></div>
-
-        <div class="heroInner">
-          <div class="kicker">
-            <span class="dot" aria-hidden="true"></span>
-            Sacramento Region • Premium finish • Built for trust
-          </div>
-
-          <h1>Repairs and upgrades that feel <span style="color:var(--gold2)">intentional</span>.</h1>
-          <p class="sub">
-            One-point-of-contact handyman service focused on clean execution, clear communication, and results that look right up close.
-          </p>
-
-          <div class="heroActions">
-            <a class="btn" href="#estimate">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16" stroke-linecap="round"/><path d="M14 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Request Estimate
-            </a>
-            <a class="softBtn" href="./gallery.html">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16" stroke-linecap="round"/><path d="M4 17h16" stroke-linecap="round"/><path d="M7 7v10" stroke-linecap="round"/></svg>
-              View Full Gallery
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Featured projects (slowly changing photos on main) -->
-  <section id="featured">
-    <div class="container">
-      <div class="sectionHead">
-        <div>
-          <h2>Featured projects</h2>
-          <p>Slow highlights from recent work. Full set lives in the Gallery tab.</p>
-        </div>
-      </div>
-
-      <div class="featuredCard">
-        <div class="featMedia">
-          <img id="featImgA" class="fadeImg" alt="Featured project" decoding="async" loading="lazy">
-          <img id="featImgB" class="fadeImg" alt="Featured project" decoding="async" loading="lazy">
-          <div class="featOverlay" aria-hidden="true"></div>
-        </div>
-        <div class="featBar">
-          <div class="featMeta">
-            <b>Quality like it’s for myself.</b><br>
-            Many more photos available in the full gallery.
-          </div>
-          <a class="btn" href="./gallery.html">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16" stroke-linecap="round"/><path d="M14 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Open Gallery
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Process -->
-  <section id="process">
-    <div class="container">
-      <div class="sectionHead">
-        <div>
-          <h2>How your project moves forward</h2>
-          <p>Simple, human, and clear. No drama, no guesswork.</p>
-        </div>
-      </div>
-
-      <div class="process">
-        <div class="processBg" aria-hidden="true"></div>
-        <div class="processInner">
-          <div class="steps">
-            <div class="step">
-              <div class="ico" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M7 8h10" stroke-linecap="round"/><path d="M7 12h6" stroke-linecap="round"/><path d="M7 16h8" stroke-linecap="round"/><path d="M6 3h12a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V5a2 2 0 012-2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              <div>
-                <h3>1) Quick details</h3>
-                <p>You send what you need, where it is, and your preferred time. Photos help.</p>
-              </div>
-            </div>
-
-            <div class="step">
-              <div class="ico" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M12 21s7-4.4 7-11a7 7 0 10-14 0c0 6.6 7 11 7 11z" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 10.5a2 2 0 100-4 2 2 0 000 4z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              <div>
-                <h3>2) On-site estimate</h3>
-                <p>We review scope, options, and finish level. Clear plan, clear price.</p>
-              </div>
-            </div>
-
-            <div class="step">
-              <div class="ico" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M4 12h4l2 7 4-14 2 7h4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              <div>
-                <h3>3) Clean execution</h3>
-                <p>Protect surfaces, tidy work, premium finish. You’ll feel the difference.</p>
-              </div>
-            </div>
-
-            <div class="step">
-              <div class="ico" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M20 7l-8.5 8.5L7 11" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 22a10 10 0 110-20 10 10 0 010 20z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              <div>
-                <h3>4) Final walkthrough</h3>
-                <p>We confirm details and finish. If something isn’t right, it gets fixed.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Request Estimate -->
-  <section id="estimate">
-    <div class="container">
-      <div class="sectionHead">
-        <div>
-          <h2>Request an estimate</h2>
-          <p>No phone number yet. Send details here and we’ll respond.</p>
-        </div>
-      </div>
-
-      <div class="formCard">
-        <form id="estimateForm" autocomplete="on">
-          <div class="grid2">
-            <div class="field">
-              <label for="name">Name</label>
-              <input id="name" name="name" placeholder="Your name" required />
-            </div>
-            <div class="field">
-              <label for="phone">Phone</label>
-              <input id="phone" name="phone" placeholder="Your phone number" required />
-            </div>
-          </div>
-
-          <div class="field" style="margin-top:10px;">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="What do you need help with? Include city, address (optional), and preferred time." required></textarea>
-          </div>
-
-          <div class="formActions">
-            <button class="btn" type="submit">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16" stroke-linecap="round"/><path d="M14 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Send Request
-            </button>
-            <div class="small">By sending, you agree to be contacted about this request.</div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- About -->
-  <section id="about">
-    <div class="container">
-      <div class="sectionHead">
-        <div>
-          <h2>About</h2>
-          <p>Mission-first workmanship and a long horizon.</p>
-        </div>
-      </div>
-
-      <div class="twoCol">
-        <div class="card">
-          <p>
-            I have <b style="color:rgba(255,255,255,.92)">15+ years</b> of hands-on experience across repair, finish carpentry, interior upgrades, and practical problem-solving.
-            My mission is to build a construction company people truly trust: open, honest, and consistent. Quality is done like it’s for myself.
-          </p>
-          <div class="badgeRow">
-            <div class="badge"><b>Premium finish</b> mindset</div>
-            <div class="badge">Clear communication</div>
-            <div class="badge">Respect for your home</div>
-          </div>
-        </div>
-
-        <div class="card">
-          <p>
-            Many projects are visible in the gallery. If you want a similar result, send your details and we’ll map the fastest, cleanest route to done.
-          </p>
-          <div class="badgeRow">
-            <div class="badge">Sacramento region</div>
-            <div class="badge">Mobile-first service</div>
-            <div class="badge">Estimate by visit</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Certifications (smaller, at bottom) -->
-  <section id="certifications">
-    <div class="container">
-      <div class="certWrap">
-        <div class="certTop">
-          <b>Certifications & Safety</b>
-          <span>Swipe →</span>
-        </div>
-        <div class="certCarousel" aria-label="Certifications carousel">
-          <div class="cert">
-            <h4>OSHA 10</h4>
-            <p>Core safety fundamentals.</p>
-          </div>
-          <div class="cert">
-            <h4>NWSA TTT-1</h4>
-            <p>Training & tower safety.</p>
-          </div>
-          <div class="cert">
-            <h4>CPR</h4>
-            <p>Emergency response basics.</p>
-          </div>
-          <div class="cert">
-            <h4>Electrical Safety</h4>
-            <p>Safe work practices.</p>
-          </div>
-          <div class="cert">
-            <h4>RF Safety</h4>
-            <p>Exposure awareness.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      © <span id="y"></span> Obolenskii Handyman Services • Sacramento Region
-    </div>
-  </footer>
-</main>
-
-<div class="devBanner" role="status" aria-live="polite">
-  <div style="display:flex; align-items:center; gap:10px;">
-    <span class="dot" aria-hidden="true"></span>
-    <div>
-      <b>Website in development</b>
-      <div style="color:rgba(255,255,255,.62); font-size:12px;">Content and gallery are actively being updated.</div>
-    </div>
-  </div>
-  <div style="color:rgba(255,255,255,.60); font-size:12px;">v0.2</div>
-</div>
-
-<script src="./photos.js"></script>
-<script src="./gallery.js"></script>
-
-<script>
-  // Year
-  document.getElementById('y').textContent = new Date().getFullYear();
-
-  // Form (placeholder: no backend)
-  document.getElementById('estimateForm').addEventListener('submit', (e) => {
-    e.preventDefault();
-    const fd = new FormData(e.target);
-    const payload = {
-      name: (fd.get('name') || '').toString().trim(),
-      phone: (fd.get('phone') || '').toString().trim(),
-      message: (fd.get('message') || '').toString().trim(),
-      createdAt: new Date().toISOString()
-    };
-    console.log('Estimate request:', payload);
-    alert("Request sent. We'll get back to you soon.");
-    e.target.reset();
-  });
-
-  // Smooth scroll (offset header)
-  (function(){
-    const header = document.querySelector('header');
-    const offset = () => (header?.getBoundingClientRect().height || 0) + 8;
-    document.addEventListener('click', (e) => {
-      const a = e.target.closest('a[href^="#"]');
-      if(!a) return;
-      const id = a.getAttribute('href');
-      if(!id || id.length < 2) return;
-      const el = document.querySelector(id);
-      if(!el) return;
-      e.preventDefault();
-      const top = el.getBoundingClientRect().top + window.pageYOffset - offset();
-      window.scrollTo({ top, behavior: 'smooth' });
-    });
-  })();
-
-  // Hero + Featured slow slideshow (waits for OBOLENSKII_PHOTOS_READY)
-  (async function(){
-    const heroA = document.getElementById('heroImgA');
-    const heroB = document.getElementById('heroImgB');
-    const featA = document.getElementById('featImgA');
-    const featB = document.getElementById('featImgB');
-
-    // fallback images if no photos
-    const fallbackHero = "/assets/hero/hero.jpg";
-
-    function slidePair(img1, img2, list, intervalMs){
-      let idx = 0;
-      let flip = false;
-
-      img1.src = list[0] || fallbackHero;
-      img1.classList.add('active');
-      img2.src = list[1] || list[0] || fallbackHero;
-
-      setInterval(() => {
-        idx = (idx + 1) % list.length;
-        const nextSrc = list[idx] || fallbackHero;
-
-        const show = flip ? img1 : img2;
-        const hide = flip ? img2 : img1;
-
-        show.src = nextSrc;
-        show.classList.add('active');
-        hide.classList.remove('active');
-
-        flip = !flip;
-      }, intervalMs);
-    }
-
-    try{
-      if (window.OBOLENSKII_PHOTOS_READY) {
-        await window.OBOLENSKII_PHOTOS_READY;
-      }
-
-      const featured = (window.OBOLENSKII_PHOTOS?.featured || []).slice();
-      const all = (window.OBOLENSKII_PHOTOS?.all || []).slice();
-      const list = featured.length ? featured : all;
-
-      if(!list.length){
-        heroA.src = fallbackHero; heroA.classList.add('active');
-        featA.src = fallbackHero; featA.classList.add('active');
-        return;
-      }
-
-      // Pick a few (stable but varied)
-      const pick = (arr, n) => {
-        const a = arr.slice();
-        for(let i=a.length-1;i>0;i--){
-          const j = Math.floor(Math.random()*(i+1));
-          [a[i], a[j]] = [a[j], a[i]];
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obolenskii Handyman Services | Sacramento Premium Home Care</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0d0d0f;
+            --card-bg: #16161a;
+            --gold: #c5a059;
+            --gold-light: #e3c88a;
+            --text: #e0e0e0;
+            --text-muted: #a0a0a5;
+            --border: rgba(197, 160, 89, 0.2);
         }
-        return a.slice(0, Math.max(2, Math.min(n, a.length)));
-      };
 
-      const heroSet = pick(list, 6);
-      const featSet = pick(list, 4);
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            background-color: var(--bg); 
+            color: var(--text); 
+            font-family: 'Inter', sans-serif; 
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-      // Ensure images exist
-      if(heroA && heroB) slidePair(heroA, heroB, heroSet, 7000);
-      if(featA && featB) slidePair(featA, featB, featSet, 6500);
+        /* Header & Logo Section */
+        header {
+            padding: 2rem 1rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+            background: linear-gradient(to bottom, #1a1a1e, var(--bg));
+        }
 
-    }catch(e){
-      console.log("Slideshow error:", e);
-      heroA.src = fallbackHero; heroA.classList.add('active');
-      featA.src = fallbackHero; featA.classList.add('active');
-    }
-  })();
-</script>
+        .brand-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-img {
+            width: 60px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .brand-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            line-height: 1.1;
+        }
+
+        .brand-name span { color: var(--gold); }
+
+        .divider {
+            width: 80px;
+            height: 1px;
+            background: var(--gold);
+            margin: 15px 0;
+            opacity: 0.6;
+        }
+
+        .brand-subtext {
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        /* Hero Carousel */
+        .hero {
+            position: relative;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        #hero-carousel {
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+        }
+
+        .carousel-img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            filter: brightness(0.4);
+        }
+
+        .carousel-img.active { opacity: 1; }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 40px;
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+
+        .cta-button:hover {
+            background: var(--gold);
+            color: #000;
+        }
+
+        /* Process Section */
+        .process {
+            padding: 80px 5%;
+            background: url('assets/hero/process-bg.jpg') center/cover fixed;
+            position: relative;
+        }
+
+        .process::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(13, 13, 15, 0.9);
+        }
+
+        .process-grid {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .process-card {
+            background: var(--card-bg);
+            padding: 40px;
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        .process-card:hover { border-color: var(--gold); transform: translateY(-5px); }
+        .process-card h4 { font-family: 'Playfair Display', serif; color: var(--gold); margin: 15px 0; font-size: 1.4rem; }
+
+        /* Certs - Small Cards */
+        .certs { padding: 40px 5%; display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
+        .cert-tag {
+            background: #1a1a1e;
+            padding: 8px 15px;
+            border-radius: 2px;
+            font-size: 0.8rem;
+            border: 1px solid #333;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 768px) {
+            .brand-name { font-size: 1.8rem; }
+            .hero-content h2 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand-container">
+            <img src="assets/brand/icon.png" alt="Obolenskii Logo" class="logo-img">
+            <h1 class="brand-name"><span>Obolenskii</span> Group</h1>
+            <div class="divider"></div>
+            <p class="brand-subtext">Handyman Services</p>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div id="hero-carousel"></div>
+        <div class="hero-content">
+            <h2>Craftsmanship You Can Trust</h2>
+            <p style="margin-bottom: 2rem; color: var(--text-muted);">Premium home repairs and light construction in Sacramento.</p>
+            <a href="#request" class="cta-button">Request Estimate</a>
+            <br><br>
+            <a href="gallery.html" style="color: var(--text-muted); text-decoration: underline;">View Full Gallery</a>
+        </div>
+    </section>
+
+    <section class="process">
+        <div style="position: relative; text-align: center;">
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem;">How We Move Forward</h2>
+            <div class="process-grid">
+                <div class="process-card">
+                    <span>01</span>
+                    <h4>Consultation</h4>
+                    <p>We discuss your vision and specific project needs with a focus on detail.</p>
+                </div>
+                <div class="process-card">
+                    <span>02</span>
+                    <h4>Clear Estimate</h4>
+                    <p>Transparent pricing with no hidden fees. Quality materials only.</p>
+                </div>
+                <div class="process-card">
+                    <span>03</span>
+                    <h4>Expert Execution</h4>
+                    <p>Professional, clean work site and precise craftsmanship at every step.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="request" style="padding: 80px 5%; max-width: 600px; margin: 0 auto;">
+        <h2 style="text-align: center; font-family: 'Playfair Display', serif; margin-bottom: 30px;">Request Estimate</h2>
+        <form style="display: flex; flex-direction: column; gap: 15px;">
+            <input type="text" placeholder="Name" style="padding: 15px; background: #1a1a1e; border: 1px solid #333; color: white;">
+            <input type="tel" placeholder="Phone" style="padding: 15px; background: #1a1a1e; border: 1px solid #333; color: white;">
+            <textarea placeholder="Tell us about your project" rows="5" style="padding: 15px; background: #1a1a1e; border: 1px solid #333; color: white;"></textarea>
+            <button type="submit" class="cta-button" style="cursor: pointer; background: var(--gold); color: black;">Send Message</button>
+        </form>
+    </section>
+
+    <div class="certs">
+        <div class="cert-tag">OSHA 10</div>
+        <div class="cert-tag">NWSA TTT-1</div>
+        <div class="cert-tag">CPR Certified</div>
+        <div class="cert-tag">Electrical Safety</div>
+        <div class="cert-tag">RF Safety</div>
+    </div>
+
+    <script src="photos.js"></script>
+    <script src="gallery.js"></script>
 </body>
 </html>
