@@ -3,20 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Obolenskii Handyman Services | Sacramento Premium Home Care</title>
+    <title>Obolenskii Handyman Services | Sacramento Premium Craftsmanship</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --bg: #0d0d0f;
-            --card-bg: #16161a;
+            --bg: #0b0b0d;
+            --card-bg: #141417;
             --gold: #c5a059;
-            --gold-light: #e3c88a;
+            --gold-bright: #e3c88a;
             --text: #e0e0e0;
             --text-muted: #a0a0a5;
-            --border: rgba(197, 160, 89, 0.2);
+            --border: rgba(197, 160, 89, 0.15);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
         body { 
             background-color: var(--bg); 
             color: var(--text); 
@@ -25,59 +28,60 @@
             overflow-x: hidden;
         }
 
-        /* Header & Logo Section */
+        /* --- Header & Brand --- */
         header {
-            padding: 2rem 1rem;
+            padding: 2.5rem 1rem;
             text-align: center;
+            background: linear-gradient(to bottom, #16161a, var(--bg));
             border-bottom: 1px solid var(--border);
-            background: linear-gradient(to bottom, #1a1a1e, var(--bg));
         }
 
         .brand-container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 10px;
         }
 
         .logo-img {
-            width: 60px;
+            width: 70px;
             height: auto;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 0 10px rgba(197, 160, 89, 0.2));
         }
 
         .brand-name {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            line-height: 1.1;
+            font-size: 2.8rem;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
         }
 
         .brand-name span { color: var(--gold); }
 
-        .divider {
-            width: 80px;
+        .gold-line {
+            width: 120px;
             height: 1px;
-            background: var(--gold);
-            margin: 15px 0;
-            opacity: 0.6;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 12px 0;
         }
 
         .brand-subtext {
-            font-size: 1.2rem;
-            letter-spacing: 3px;
+            font-size: 1.3rem;
             text-transform: uppercase;
+            letter-spacing: 4px;
             color: var(--text-muted);
             font-weight: 300;
         }
 
-        /* Hero Carousel */
+        /* --- Hero & Carousel --- */
         .hero {
             position: relative;
-            height: 70vh;
+            height: 75vh;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            border-bottom: 1px solid var(--border);
         }
 
         #hero-carousel {
@@ -92,8 +96,8 @@
             height: 100%;
             object-fit: cover;
             opacity: 0;
-            transition: opacity 1.5s ease-in-out;
-            filter: brightness(0.4);
+            transition: opacity 2s ease-in-out;
+            filter: brightness(0.35);
         }
 
         .carousel-img.active { opacity: 1; }
@@ -102,89 +106,155 @@
             text-align: center;
             max-width: 800px;
             padding: 20px;
+            z-index: 2;
         }
 
         .hero-content h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 3rem;
+            font-size: clamp(2rem, 8vw, 3.5rem);
             margin-bottom: 1.5rem;
+            line-height: 1.1;
         }
 
         .cta-button {
             display: inline-block;
-            padding: 18px 40px;
-            background: transparent;
-            border: 1px solid var(--gold);
-            color: var(--gold);
+            padding: 20px 45px;
+            background: var(--gold);
+            color: #000;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
+            border-radius: 2px;
             transition: 0.3s;
+            border: 1px solid var(--gold);
         }
 
         .cta-button:hover {
-            background: var(--gold);
-            color: #000;
+            background: transparent;
+            color: var(--gold);
         }
 
-        /* Process Section */
-        .process {
-            padding: 80px 5%;
-            background: url('assets/hero/process-bg.jpg') center/cover fixed;
-            position: relative;
+        /* --- Floating Call Button (Mobile) --- */
+        .call-sam-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25d366; /* Green for urgency/action */
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 2px solid rgba(255,255,255,0.2);
         }
 
-        .process::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: rgba(13, 13, 15, 0.9);
+        /* --- Process Cards --- */
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
         }
 
         .process-grid {
-            position: relative;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 0 5%;
+            margin-bottom: 80px;
         }
 
         .process-card {
             background: var(--card-bg);
             padding: 40px;
-            border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 4px;
-            transition: 0.3s;
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: 0.4s;
         }
 
-        .process-card:hover { border-color: var(--gold); transform: translateY(-5px); }
-        .process-card h4 { font-family: 'Playfair Display', serif; color: var(--gold); margin: 15px 0; font-size: 1.4rem; }
+        .process-card:hover { border-color: var(--gold); transform: translateY(-10px); }
+        .process-card .step-num { color: var(--gold); font-size: 0.9rem; font-weight: 600; letter-spacing: 2px; }
+        .process-card h4 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin: 15px 0; }
 
-        /* Certs - Small Cards */
-        .certs { padding: 40px 5%; display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
-        .cert-tag {
+        /* --- About Section (Personal) --- */
+        .about-personal {
+            background: #111114;
+            padding: 100px 10%;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h3 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 20px; color: var(--gold); }
+        .about-text p { margin-bottom: 20px; color: var(--text-muted); font-size: 1.1rem; }
+
+        /* --- Form --- */
+        .form-container {
+            max-width: 700px;
+            margin: 100px auto;
+            padding: 0 20px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 18px;
             background: #1a1a1e;
-            padding: 8px 15px;
-            border-radius: 2px;
-            font-size: 0.8rem;
             border: 1px solid #333;
+            color: white;
+            margin-bottom: 15px;
+            font-family: inherit;
+        }
+
+        input:focus, textarea:focus { border-color: var(--gold); outline: none; }
+
+        /* --- Certs --- */
+        .certs-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            padding: 40px;
+            opacity: 0.6;
+        }
+
+        .cert-tag {
+            font-size: 0.75rem;
+            padding: 6px 15px;
+            border: 1px solid #333;
+            letter-spacing: 1px;
             color: var(--text-muted);
         }
 
         @media (max-width: 768px) {
-            .brand-name { font-size: 1.8rem; }
-            .hero-content h2 { font-size: 2rem; }
+            .about-grid { grid-template-columns: 1fr; }
+            .brand-name { font-size: 2rem; }
+            .about-personal { padding: 60px 5%; }
         }
     </style>
 </head>
 <body>
 
+    <a href="tel:9162322011" class="call-sam-float">
+        <span>📞 Call Sam</span>
+    </a>
+
     <header>
         <div class="brand-container">
             <img src="assets/brand/icon.png" alt="Obolenskii Logo" class="logo-img">
             <h1 class="brand-name"><span>Obolenskii</span> Group</h1>
-            <div class="divider"></div>
+            <div class="gold-line"></div>
             <p class="brand-subtext">Handyman Services</p>
         </div>
     </header>
@@ -192,56 +262,77 @@
     <section class="hero">
         <div id="hero-carousel"></div>
         <div class="hero-content">
-            <h2>Craftsmanship You Can Trust</h2>
-            <p style="margin-bottom: 2rem; color: var(--text-muted);">Premium home repairs and light construction in Sacramento.</p>
-            <a href="#request" class="cta-button">Request Estimate</a>
-            <br><br>
-            <a href="gallery.html" style="color: var(--text-muted); text-decoration: underline;">View Full Gallery</a>
+            <h2>Sacramento’s Finest Home Repairs</h2>
+            <p style="margin-bottom: 2.5rem; color: var(--text-muted); font-size: 1.2rem;">Expert solutions for homeowners who value precision over speed.</p>
+            <a href="#estimate" class="cta-button">Get Your Estimate</a>
         </div>
     </section>
 
-    <section class="process">
-        <div style="position: relative; text-align: center;">
-            <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem;">How We Move Forward</h2>
-            <div class="process-grid">
-                <div class="process-card">
-                    <span>01</span>
-                    <h4>Consultation</h4>
-                    <p>We discuss your vision and specific project needs with a focus on detail.</p>
-                </div>
-                <div class="process-card">
-                    <span>02</span>
-                    <h4>Clear Estimate</h4>
-                    <p>Transparent pricing with no hidden fees. Quality materials only.</p>
-                </div>
-                <div class="process-card">
-                    <span>03</span>
-                    <h4>Expert Execution</h4>
-                    <p>Professional, clean work site and precise craftsmanship at every step.</p>
-                </div>
+    <section style="padding: 100px 0;">
+        <h2 class="section-title">A Seamless Experience</h2>
+        <div class="process-grid">
+            <div class="process-card">
+                <div class="step-num">STEP 01</div>
+                <h4>Consultation</h4>
+                <p>Contact Sam to discuss your project. We offer clear, professional advice from the start.</p>
+            </div>
+            <div class="process-card">
+                <div class="step-num">STEP 02</div>
+                <h4>Fair Pricing</h4>
+                <p>We provide detailed estimates based on your specific needs. No hidden fees, ever.</p>
+            </div>
+            <div class="process-card">
+                <div class="step-num">STEP 03</div>
+                <h4>Precision Work</h4>
+                <p>From painting to electrical safety, we treat every project with absolute care.</p>
             </div>
         </div>
     </section>
 
-    <section id="request" style="padding: 80px 5%; max-width: 600px; margin: 0 auto;">
-        <h2 style="text-align: center; font-family: 'Playfair Display', serif; margin-bottom: 30px;">Request Estimate</h2>
-        <form style="display: flex; flex-direction: column; gap: 15px;">
-            <input type="text" placeholder="Name" style="padding: 15px; background: #1a1a1e; border: 1px solid #333; color: white;">
-            <input type="tel" placeholder="Phone" style="padding: 15px; background: #1a1a1e; border: 1px solid #333; color: white;">
-            <textarea placeholder="Tell us about your project" rows="5" style="padding: 15px; background: #1a1a1e; border: 1px solid #333; color: white;"></textarea>
-            <button type="submit" class="cta-button" style="cursor: pointer; background: var(--gold); color: black;">Send Message</button>
+    <section class="about-personal" id="about">
+        <div class="about-grid">
+            <div class="about-text">
+                <h3>Built on Trust and Heritage</h3>
+                <p>Originally from Russia, I brought a deep-rooted tradition of craftsmanship to Sacramento. With over 15 years in the construction industry, I don’t just "fix things"—I build long-term reliability.</p>
+                <p>My mission is to create a company that homeowners can trust implicitly. When I take on a project, I take responsibility for the final result as if it were my own home.</p>
+                <p><b>Quality isn't a goal; it's our standard.</b></p>
+            </div>
+            <div style="border: 1px solid var(--border); padding: 10px;">
+                <img src="assets/hero/process-bg.jpg" alt="Workmanship" style="width: 100%; filter: grayscale(0.5);">
+            </div>
+        </div>
+    </section>
+
+    <section class="form-container" id="estimate">
+        <h2 class="section-title">Request Estimate</h2>
+        <form action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="777b25a1-9be3-4586-b5cb-fa54b5f88ee9">
+            <input type="hidden" name="subject" value="New Estimate Request - Obolenskii Group">
+            <input type="hidden" name="from_name" value="Obolenskii.com">
+            
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="tel" name="phone" placeholder="Phone Number (e.g. 916-XXX-XXXX)" required>
+            <textarea name="message" rows="6" placeholder="Tell us about your project (Painting, Drywall, Electrical, etc.)" required></textarea>
+            
+            <button type="submit" class="cta-button" style="width: 100%; border: none; cursor: pointer;">Send Request</button>
         </form>
     </section>
 
-    <div class="certs">
+    <div class="certs-container">
         <div class="cert-tag">OSHA 10</div>
         <div class="cert-tag">NWSA TTT-1</div>
-        <div class="cert-tag">CPR Certified</div>
-        <div class="cert-tag">Electrical Safety</div>
-        <div class="cert-tag">RF Safety</div>
+        <div class="cert-tag">CPR / FIRST AID</div>
+        <div class="cert-tag">ELECTRICAL SAFETY</div>
+        <div class="cert-tag">RF SAFETY</div>
     </div>
+
+    <footer style="text-align: center; padding: 50px 0; border-top: 1px solid #1a1a1e; font-size: 0.9rem; color: var(--text-muted);">
+        <p>&copy; 2024 Obolenskii Group LLC. Sacramento, CA</p>
+        <p style="margin-top: 10px;">Office: 916-500-8891 | Email: Obolenskii61@gmail.com</p>
+    </footer>
 
     <script src="photos.js"></script>
     <script src="gallery.js"></script>
+
 </body>
 </html>
