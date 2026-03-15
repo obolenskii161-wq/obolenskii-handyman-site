@@ -3,13 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>Handyman Sacramento | Obolenskii Handyman Services</title>
-    <meta name="description" content="Premium handyman services in Sacramento. 15+ years experience in exterior painting, roof repairs, furniture assembly, and fitness equipment setup. Built for trust.">
-    <meta name="keywords" content="Handyman Sacramento, Exterior Painting, Roof Repair, Furniture Assembly, Gym Equipment Assembly, Drywall Repair, Obolenskii Group">
-    
+    <meta name="description" content="Premium handyman services in Sacramento. Licensed & Fully Insured. 15+ years experience. OSHA certified.">
+    <meta name="keywords" content="Handyman Sacramento, Licensed Handyman, Insured Handyman, OSHA 10, Exterior Painting, Roof Repair, Obolenskii Group">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -21,7 +18,6 @@
       "serviceType": ["Exterior Painting", "Roof Repair", "Furniture Assembly", "Fitness Equipment Assembly", "Drywall"]
     }
     </script>
-
     <style>
         :root {
             --bg: #0b0b0d;
@@ -39,40 +35,20 @@
 
         /* Floating Call Button */
         .call-sam-btn {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            background: #25d366;
-            color: white;
-            padding: 15px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            border: 2px solid rgba(255,255,255,0.2);
+            position: fixed; bottom: 25px; right: 25px; background: #25d366; color: white;
+            padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: bold;
+            z-index: 1000; display: flex; align-items: center; gap: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 2px solid rgba(255,255,255,0.2);
         }
 
-        /* Premium Header */
+        /* Header */
         header {
-            padding: 1.5rem 5%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: rgba(11, 11, 13, 0.95);
-            position: sticky;
-            top: 0;
-            z-index: 900;
-            border-bottom: 1px solid var(--border);
-            backdrop-filter: blur(10px);
+            padding: 1.5rem 5%; display: flex; align-items: center; justify-content: space-between;
+            background: rgba(11, 11, 13, 0.95); position: sticky; top: 0; z-index: 900;
+            border-bottom: 1px solid var(--border); backdrop-filter: blur(10px);
         }
-
         .brand-block { display: flex; align-items: center; gap: 20px; text-decoration: none; color: inherit; }
         .logo-main { width: 85px; height: auto; }
-        .brand-text-container { display: flex; flex-direction: column; }
         .brand-main-title { font-family: 'Playfair Display', serif; font-size: 2.2rem; line-height: 1; }
         .brand-main-title span { color: var(--gold); }
         .gold-line-divider { height: 1px; width: 100%; background: linear-gradient(90deg, var(--gold), transparent); margin: 8px 0; }
@@ -84,25 +60,42 @@
         .slide-img { position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 2s; filter: brightness(0.3); }
         .slide-img.active { opacity: 1; }
 
-        /* Services Grid */
+        /* Sections */
         section { padding: 90px 5%; }
         .section-h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: var(--gold); margin-bottom: 50px; text-align: center; }
+
+        /* Services */
         .services-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
         .service-card { background: var(--card-bg); padding: 40px; border: 1px solid var(--border); transition: 0.4s; }
         .service-card:hover { border-color: var(--gold-light); transform: translateY(-5px); }
         .service-card h3 { font-family: 'Playfair Display', serif; margin-bottom: 15px; font-size: 1.7rem; color: var(--gold-light); }
 
-        /* About Section */
+        /* About & Trust */
         .about-box { background: #111114; padding: 100px 10%; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
         .about-content { max-width: 900px; margin: 0 auto; text-align: center; }
         .about-content p { font-size: 1.2rem; margin-bottom: 20px; color: var(--text-muted); }
+        .trust-info { display: flex; justify-content: center; gap: 40px; margin-top: 40px; flex-wrap: wrap; }
+        .trust-item { display: flex; align-items: center; gap: 12px; font-weight: 600; color: var(--gold-light); }
 
-        /* FAQ */
+        /* Certificates Badges */
+        .certs-section { background: var(--bg); text-align: center; padding-bottom: 60px; }
+        .certs-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; max-width: 1000px; margin: 0 auto; }
+        .cert-badge {
+            padding: 10px 20px;
+            border: 1px solid var(--gold);
+            background: rgba(197, 160, 89, 0.05);
+            color: var(--gold-light);
+            border-radius: 4px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        /* FAQ & Form */
         .faq-list { max-width: 800px; margin: 0 auto; }
         .faq-card { background: var(--card-bg); padding: 25px; border: 1px solid var(--border); margin-bottom: 20px; }
         .faq-card h4 { color: var(--gold); margin-bottom: 10px; font-size: 1.3rem; }
-
-        /* Request Form */
         .form-holder { max-width: 650px; margin: 0 auto; }
         input, textarea { width: 100%; padding: 18px; background: #1a1a1e; border: 1px solid #333; color: white; margin-bottom: 15px; font-family: inherit; }
         .submit-btn { width: 100%; padding: 20px; background: var(--gold); color: black; border: none; font-weight: bold; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; }
@@ -111,130 +104,150 @@
             header { flex-direction: column; padding: 1rem; }
             .brand-block { margin-bottom: 15px; }
             .brand-main-title { font-size: 1.8rem; }
+            .trust-info { gap: 20px; }
         }
     </style>
 </head>
 <body>
 
-    <a href="tel:9162322011" class="call-sam-btn">📞 Call Sam</a>
+<a href="tel:9162322011" class="call-sam-btn">📞 Call Sam</a>
 
-    <header>
-        <a href="#top" class="brand-block">
-            <img src="assets/brand/icon.png" alt="Obolenskii Logo" class="logo-main">
-            <div class="brand-text-container">
-                <div class="brand-main-title"><span>Obolenskii</span> Group</div>
-                <div class="gold-line-divider"></div>
-                <div class="brand-sub-title">Handyman Services</div>
-            </div>
-        </a>
-        <nav style="display: flex; gap: 20px;">
-            <a href="gallery.html" style="color: var(--gold); text-decoration: none; font-weight: 600;">Gallery</a>
-            <a href="#estimate" style="color: white; text-decoration: none;">Request Quote</a>
-        </nav>
-    </header>
-
-    <section class="hero-section" id="top">
-        <div id="hero-slideshow"></div>
-        <div style="text-align: center; z-index: 2; padding: 20px;">
-            <h1 style="font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 8vw, 4rem); margin-bottom: 20px;">Sacramento's Premium Handyman</h1>
-            <p style="color: var(--text-muted); font-size: 1.3rem; margin-bottom: 40px;">Specializing in High-End Finishing & Restoration.</p>
-            <a href="#estimate" class="submit-btn" style="text-decoration: none; display: inline-block; width: auto; padding: 15px 50px;">Get Estimate</a>
+<header>
+    <a href="#top" class="brand-block">
+        <img src="assets/brand/icon.png" alt="Obolenskii Logo" class="logo-main">
+        <div class="brand-text-container">
+            <div class="brand-main-title"><span>Obolenskii</span> Group</div>
+            <div class="gold-line-divider"></div>
+            <div class="brand-sub-title">Handyman Services</div>
         </div>
-    </section>
+    </a>
+    <nav style="display: flex; gap: 20px;">
+        <a href="gallery.html" style="color: var(--gold); text-decoration: none; font-weight: 600;">Gallery</a>
+        <a href="#estimate" style="color: white; text-decoration: none;">Request Quote</a>
+    </nav>
+</header>
 
-    <section id="services">
-        <h2 class="section-h2">Professional Services</h2>
-        <div class="services-container">
-            <div class="service-card">
-                <h3>Exterior & Interior Painting</h3>
-                <p>Meticulous preparation and premium paint application. Sharp lines and flawless exterior restoration.</p>
-            </div>
-            <div class="service-card">
-                <h3>Roof & Siding Repair</h3>
-                <p>Expert leak detection, shingle replacement, and siding fixes to protect your investment.</p>
-            </div>
-            <div class="service-card">
-                <h3>Fitness & Equipment Setup</h3>
-                <p>Professional assembly of treadmills, home gyms, and complex fitness equipment. Safe and sturdy.</p>
-            </div>
-            <div class="service-card">
-                <h3>Furniture & Home Upgrades</h3>
-                <p>High-end furniture assembly, TV mounting, drywall repair, and custom carpentry tasks.</p>
-            </div>
+<section class="hero-section" id="top">
+    <div id="hero-slideshow"></div>
+    <div style="text-align: center; z-index: 2; padding: 20px;">
+        <h1 style="font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 8vw, 4rem); margin-bottom: 20px;">Sacramento's Premium Handyman</h1>
+        <p style="color: var(--text-muted); font-size: 1.3rem; margin-bottom: 40px;">Specializing in High-End Finishing & Restoration.</p>
+        <a href="#estimate" class="submit-btn" style="text-decoration: none; display: inline-block; width: auto; padding: 15px 50px;">Get Estimate</a>
+    </div>
+</section>
+
+<section id="services">
+    <h2 class="section-h2">Professional Services</h2>
+    <div class="services-container">
+        <div class="service-card">
+            <h3>Exterior & Interior Painting</h3>
+            <p>Meticulous preparation and premium paint application. Sharp lines and flawless exterior restoration.</p>
         </div>
-    </section>
-
-    <section class="about-box" id="about">
-        <div class="about-content">
-            <h2 class="section-h2">Built on Trust & Heritage</h2>
-            <p>Originally from Russia, I brought a 15-year legacy of rigorous construction expertise to Sacramento. My goal is to build a company that homeowners can rely on without hesitation.</p>
-            <p>I personally oversee the quality of every project. Whether it’s exterior restoration or intricate interior work, I take full responsibility for the result. When we work on your home, we treat it with the absolute respect it deserves.</p>
-            <p style="color: var(--gold); font-weight: 700; font-size: 1.4rem;">Quality is our only standard.</p>
+        <div class="service-card">
+            <h3>Roof & Siding Repair</h3>
+            <p>Expert leak detection, shingle replacement, and siding fixes to protect your investment.</p>
         </div>
-    </section>
-
-    <section id="faq">
-        <h2 class="section-h2">Common Questions</h2>
-        <div class="faq-list">
-            <div class="faq-card">
-                <h4>What areas do you serve?</h4>
-                <p>We are based in Sacramento and serve Roseville, Rocklin, Citrus Heights, Folsom, and surrounding areas.</p>
-            </div>
-            <div class="faq-card">
-                <h4>How do I book a job?</h4>
-                <p>Fill out the form below or Call Sam. We usually provide an estimate within 24-48 hours.</p>
-            </div>
-            <div class="faq-card">
-                <h4>Do you do large projects?</h4>
-                <p>We handle everything from small home repairs to full exterior painting and equipment installations.</p>
-            </div>
+        <div class="service-card">
+            <h3>Fitness & Equipment Setup</h3>
+            <p>Professional assembly of treadmills, home gyms, and complex fitness equipment. Safe and sturdy.</p>
         </div>
-    </section>
+        <div class="service-card">
+            <h3>Furniture & Home Upgrades</h3>
+            <p>High-end furniture assembly, TV mounting, drywall repair, and custom carpentry tasks.</p>
+        </div>
+    </div>
+</section>
 
-    <section id="estimate" class="form-holder">
-        <h2 class="section-h2">Request Quote</h2>
-        <form action="https://api.web3forms.com/submit" method="POST">
-            <input type="hidden" name="access_key" value="777b25a1-9be3-4586-b5cb-fa54b5f88ee9">
-            <input type="text" name="name" placeholder="Your Full Name" required>
-            <input type="tel" name="phone" placeholder="Phone Number" required>
-            <textarea name="message" rows="6" placeholder="Describe your project (e.g., Roof repair, Exterior painting, Treadmill assembly...)" required></textarea>
-            <button type="submit" class="submit-btn">Send to Obolenskii Group</button>
-        </form>
-    </section>
+<section class="about-box" id="about">
+    <div class="about-content">
+        <h2 class="section-h2">Built on Trust & Heritage</h2>
+        <p>Originally from Russia, I brought a 15-year legacy of rigorous construction expertise to Sacramento. My goal is to build a company that homeowners can rely on without hesitation.</p>
+        
+        <div class="trust-info">
+            <div class="trust-item"><span>🛡️</span> General Liability Insured</div>
+            <div class="trust-item"><span>📜</span> Licensed Business</div>
+        </div>
 
-    <footer style="text-align: center; padding: 60px 0; border-top: 1px solid var(--border); color: #555;">
-        <p>© 2026 Obolenskii Group LLC. Sacramento, CA</p>
-        <p style="margin-top: 10px;">Office: 916-500-8891 | Email: Obolenskii61@gmail.com</p>
-    </footer>
+        <p style="margin-top: 30px;">I personally oversee the quality of every project. When we work on your home, we treat it with the absolute respect it deserves.</p>
+        <p style="color: var(--gold); font-weight: 700; font-size: 1.4rem;">Quality is our only standard.</p>
+    </div>
+</section>
 
-    <script src="photos.js"></script>
-    <script src="gallery.js"></script>
-    <script>
-        async function runSlideshow() {
-            const wrap = document.getElementById('hero-slideshow');
-            try {
-                const res = await fetch('https://api.github.com/repos/obolenskii161-wq/obolenskii-handyman-site/contents/assets/projects');
-                const data = await res.json();
-                const photos = data.filter(f => f.name.match(/\.(jpe?g|png|webp)$/i)).slice(0, 10);
-                photos.forEach((p, i) => {
-                    const img = document.createElement('img');
-                    img.src = p.path;
-                    img.className = 'slide-img' + (i === 0 ? ' active' : '');
-                    wrap.appendChild(img);
-                });
-                let cur = 0;
-                const imgs = wrap.getElementsByClassName('slide-img');
-                setInterval(() => {
-                    if(imgs.length < 2) return;
-                    imgs[cur].classList.remove('active');
-                    cur = (cur + 1) % imgs.length;
-                    imgs[cur].classList.add('active');
-                }, 5000);
-            } catch (e) {
-                wrap.innerHTML = `<img src="assets/projects/20220922_143254.jpg" class="slide-img active">`;
-            }
+<section class="certs-section">
+    <h3 style="color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; margin-bottom: 25px;">Professional Certifications</h3>
+    <div class="certs-container">
+        <div class="cert-badge">OSHA 10</div>
+        <div class="cert-badge">TTT-1</div>
+        <div class="cert-badge">CPR/AED + First Aid</div>
+        <div class="cert-badge">NFPA 70E</div>
+        <div class="cert-badge">GHS Hazcom</div>
+        <div class="cert-badge">BBP</div>
+    </div>
+</section>
+
+<section id="faq">
+    <h2 class="section-h2">Common Questions</h2>
+    <div class="faq-list">
+        <div class="faq-card">
+            <h4>What areas do you serve?</h4>
+            <p>We are based in Sacramento and serve Roseville, Rocklin, Citrus Heights, Folsom, and surrounding areas.</p>
+        </div>
+        <div class="faq-card">
+            <h4>How do I book a job?</h4>
+            <p>Fill out the form below or Call Sam. We usually provide an estimate within 24-48 hours.</p>
+        </div>
+        <div class="faq-card">
+            <h4>Are you insured?</h4>
+            <p>Yes, we carry General Liability insurance to ensure full protection for your property and our team.</p>
+        </div>
+    </div>
+</section>
+
+<section id="estimate" class="form-holder">
+    <h2 class="section-h2">Request Quote</h2>
+    <form action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="777b25a1-9be3-4586-b5cb-fa54b5f88ee9">
+        <input type="text" name="name" placeholder="Your Full Name" required>
+        <input type="tel" name="phone" placeholder="Phone Number" required>
+        <textarea name="message" rows="6" placeholder="Describe your project (e.g., Roof repair, Exterior painting, Treadmill assembly...)" required></textarea>
+        <button type="submit" class="submit-btn">Send to Obolenskii Group</button>
+    </form>
+</section>
+
+<footer style="text-align: center; padding: 60px 0; border-top: 1px solid var(--border); color: #555;">
+    <p>© 2026 Obolenskii Group LLC. Sacramento, CA</p>
+    <p style="font-size: 0.85rem; margin-top: 5px;">Licensed & Fully Insured | Professional Excellence</p>
+    <p style="margin-top: 10px;">Office: 916-500-8891 | Email: Obolenskii61@gmail.com</p>
+</footer>
+
+<script src="photos.js"></script>
+<script src="gallery.js"></script>
+<script>
+    async function runSlideshow() {
+        const wrap = document.getElementById('hero-slideshow');
+        try {
+            const res = await fetch('https://api.github.com/repos/obolenskii161-wq/obolenskii-handyman-site/contents/assets/projects');
+            const data = await res.json();
+            const photos = data.filter(f => f.name.match(/\.(jpe?g|png|webp)$/i)).slice(0, 10);
+            photos.forEach((p, i) => {
+                const img = document.createElement('img');
+                img.src = p.path;
+                img.className = 'slide-img' + (i === 0 ? ' active' : '');
+                wrap.appendChild(img);
+            });
+            let cur = 0;
+            const imgs = wrap.getElementsByClassName('slide-img');
+            setInterval(() => {
+                if(imgs.length < 2) return;
+                imgs[cur].classList.remove('active');
+                cur = (cur + 1) % imgs.length;
+                imgs[cur].classList.add('active');
+            }, 5000);
+        } catch (e) {
+            wrap.innerHTML = `<img src="assets/projects/20220922_143254.jpg" class="slide-img active">`;
         }
-        runSlideshow();
-    </script>
+    }
+    runSlideshow();
+</script>
 </body>
 </html>
